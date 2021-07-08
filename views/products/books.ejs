@@ -1,0 +1,268 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Neuton:300,400,700,400italic);
+
+        figure.thumb {
+            margin: 0;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .thumb {
+            padding: 15px;
+        }
+
+        .thumb h2,
+        .thumb p {
+            margin: 0;
+        }
+
+        .thumb:hover {
+            transform: translateY(-10px);
+        }
+
+        .thumb h2 {
+            font-weight: 700;
+            font-size: 18px;
+            color: rgba(0, 0, 0, .75);
+            margin-top: 20px;
+        }
+
+        .thumb .author {
+            font-size: 14px;
+            margin-top: 5px;
+            color: rgba(0, 0, 0, .55);
+            font-weight: 400;
+        }
+
+        .cover {
+            display: inline-block;
+            position: relative;
+            box-shadow: 0 10px 20px -8px;
+            margin-right: 20px;
+        }
+
+        .cover:after {
+            content: '';
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+        }
+
+
+        .cover img {
+            height: 200px;
+            display: block;
+            position: relative;
+        }
+
+        /********************************************************************************************************/
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+        .maindiv {
+            margin: 4rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 2px 5px 20px #2323235e;
+        }
+
+        .innerdiv h2 {
+            margin: 0.7rem 0 0.4rem;
+            color: #03A9F4;
+        }
+
+        .innerdiv h1 img {
+            height: 2rem;
+            margin-right: 0.5rem;
+        }
+
+        .innerdiv p {
+            font-size: 1.2rem;
+            color: #969393;
+            margin-bottom: 1rem;
+
+        }
+
+        .eachdiv {
+            display: inline-block;
+            width: 23.5%;
+            background: white;
+            box-shadow: 1px 2px 10px #33333352;
+            padding: 1rem;
+            margin: 0.5rem 0.4%;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+
+        .eachdiv:hover {
+            transform: scale(1.03);
+            box-shadow: 2px 6px 10px #2f2f2f69;
+        }
+
+        .eachdiv img {
+            width: 100%;
+            margin-bottom: 0.8rem;
+            border-radius: 1rem;
+        }
+
+        .eachdiv h3 {
+            color: #E91E63;
+            margin-bottom: 0.5rem;
+        }
+
+        .eachdiv p {
+            font-size: 0.8rem;
+            color: #969696;
+            margin-bottom: 0;
+        }
+
+        .footer p {
+            position: fixed;
+            color: white;
+            bottom: 1rem;
+            right: 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 1000px) {
+            .maindiv {
+                margin: 3rem;
+            }
+
+            .eachdiv {
+                width: 48%;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .maindiv {
+                margin: 2rem;
+            }
+
+            .eachdiv {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <figure class="thumb">
+        <div class="cover">
+            <img
+                src="https://cdn.gandhi.com.mx/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/9/7/9788417860790.jpg" />
+        </div>
+
+        <h2>EL INFINITO EN UN JUNCO</h2>
+        <p class="author">IRENE VALLEJO MOREU</p>
+    </figure>
+
+    <figure class="thumb">
+        <div class="cover">
+            <img
+                src="https://cdn.gandhi.com.mx/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/9/7/9786070749001.jpg" />
+        </div>
+        <h2>LA BAILARINA DE AUSCHWITZ</h2>
+        <p class="author">EDITH EGER</p>
+    </figure>
+
+    <figure class="thumb">
+        <div class="cover">
+            <img
+                src="https://cdn.gandhi.com.mx/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/9/7/9786073803663.jpg" />
+        </div>
+        <h2>REGRESO A LA JAULA</h2>
+        <p class="author">ROGER BARTRA</p>
+    </figure>
+
+    <figure class="thumb">
+        <div class="cover">
+            <img
+                src="https://cdn.gandhi.com.mx/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/2/5/253704_IMAGEN_TAPA_G_004.jpg" />
+        </div>
+        <h2>Boulevard</h2>
+        <p class="author">FLOR M. SALVADOR</p>
+    </figure>
+
+    <figure class="thumb">
+        <div class="cover">
+            <img
+                src="https://cdn.gandhi.com.mx/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/9/7/9788417860790.jpg" />
+        </div>
+
+        <h2>EL INFINITO EN UN JUNCO</h2>
+        <p class="author">IRENE VALLEJO MOREU</p>
+    </figure>
+
+    <figure class="thumb">
+        <div class="cover">
+            <img
+                src="https://cdn.gandhi.com.mx/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/9/7/9786070749001.jpg" />
+        </div>
+        <h2>LA BAILARINA DE AUSCHWITZ</h2>
+        <p class="author">EDITH EGER</p>
+    </figure>
+
+    <figure class="thumb">
+        <div class="cover">
+            <img
+                src="https://cdn.gandhi.com.mx/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/9/7/9786073803663.jpg" />
+        </div>
+        <h2>REGRESO A LA JAULA</h2>
+        <p class="author">ROGER BARTRA</p>
+    </figure>
+
+    <figure class="thumb">
+        <div class="cover">
+            <img
+                src="https://cdn.gandhi.com.mx/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/2/5/253704_IMAGEN_TAPA_G_004.jpg" />
+        </div>
+        <h2>Boulevard</h2>
+        <p class="author">FLOR M. SALVADOR</p>
+    </figure>
+    <!---->
+    <br><br>
+    <h1 style="text-align: center;">Escritores Destacados</h1>
+        <div class="maindiv">
+            <div class="innerdiv">
+                <p>Media Query for Columns Increase or decrease the screen size to see the change</p>
+                <div class="divgroup">
+                    <div class="eachdiv">
+                        <img src="data:image/jpeg;base64,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"
+                            alt="Img">
+                        <h3>William Shakespeare</h3>
+                        <p>William Shakespeare ​ fue un dramaturgo, poeta y actor inglés. Conocido en ocasiones como el Bardo de Avon, Shakespeare es considerado el escritor más importante en lengua inglesa y uno de los más célebres de la literatura universal.</p>
+                    </div>
+                    <div class="eachdiv">
+                        <img src="https://www.elextremosur.com/files/image/9/9575/5e85e8f42db19.jpg"
+                            alt="Img">
+                        <h3>Gabriel García Márquez</h3>
+                        <p>Gabriel José de la Concordia García Márquez ​​ fue un escritor y periodista colombiano. Reconocido principalmente por sus novelas y cuentos, también escribió narrativa de no ficción, discursos, reportajes, críticas cinematográficas y memorias.</p>
+                    </div>
+                    <div class="eachdiv">
+                        <img src="https://creacuervos.com/wp-content/uploads/2020/07/libros-julio-cortazar-desktop.jpg"
+                            alt="Img">
+                        <h3>Julio Cortázar</h3>
+                        <p>Julio Florencio Cortázar fue un escritor y traductor argentino; este último oficio lo desempeñó para la Unesco y varias editoriales. Considerado uno de los autores más innovadores y originales de su tiempo, fue maestro del cuento, la prosa poética y la narración breve en general.</p>
+                    </div>
+                    <div class="eachdiv">
+                        <img src="https://wp.telesurtv.net/__export/1611042119060/sites/telesur/img/2021/01/19/poe_twitter_editado.jpg"
+                            alt="Img">
+                        <h3>Edgar Allan Poe</h3>
+                        <p>Edgar Allan Poe fue un escritor, poeta, crítico y periodista romántico​​ estadounidense, generalmente reconocido como uno de los maestros universales del relato corto, del cual fue uno de los primeros practicantes en su país. Fue renovador de la novela gótica, recordado especialmente por sus cuentos de terror.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
