@@ -1,7 +1,7 @@
 <body>
     <div class="header">
         <h2 class="logo">
-          <img class="logoimg" src="/images/image0.png" alt="">
+           <a href="/"><img class="logoimg" src="/images/image0.png" alt="" /></a>  
         </h2>
         <input type="checkbox" id="chk">
         <label for="chk" class="show-menu-btn">
@@ -11,7 +11,15 @@
         <ul class="menu">
           <a href="/" class="btn-inicio">Inicio</a>
           <div class="dropdown">
-                <a href="#" class="btn-cat dropbtn"> Categoría</a>
+            <a href="/products" class="btn-products">Productos</a>
+            <div class="dropdown-content">
+              <a href="/products/actualizar_producto"> Actualizar producto</a>
+              
+            </div>
+          </div>  
+
+          <div class="dropdown">
+              <a href="#" class="btn-cat dropbtn"> Categoría</a>
                 <div class="dropdown-content">
                     <a href="/cat_arte"> Arte y Religión</a>
                     <a href="#"> Ciencia y Ficción</a>
@@ -22,14 +30,14 @@
                     <a href="#"> Informática e Ingeniería</a>
                     <a href="#">Medicina y Psicología</a>
                 </div>
-            </div>    
+          </div>    
           <a href="#" class="btn-sbn">Sobre Nosotros</a>
           <a href="#" class="btn-cont">Contacto</a>
           <div class="dropdown">
             <a href="#" class="btn-cuenta dropbtn"><i class="fas fa-caret-down"></i> Mi cuenta</a>
             <div class="dropdown-content">
               <a href="/login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
-              <a href="/registro"><i class="fas fa-user-plus"></i> Regístrate</a>
+              <a href="/register"><i class="fas fa-user-plus"></i> Regístrate</a>
             </div>
           </div>
           <a href="/carrito">
