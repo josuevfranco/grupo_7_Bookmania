@@ -5,8 +5,8 @@ const productsController = {
     producto: (req, res) => {
         return res.render('products/producto');
     },
-    actualizar_producto: (req, res) => {
-        return res.render('products/actualizar_producto');
+    crearProducto: (req, res) => {
+        return res.render('products/crearProducto');
     },
     cat_arte: (req, res) => {
         return res.render('products/cat_arte');
