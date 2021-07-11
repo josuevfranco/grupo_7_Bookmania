@@ -10,6 +10,8 @@ Stephanie realizó las páginas de login y registro; en html con su respectivo c
 Josué realizó la página de Inicio junto con su html y css respectivo, juntó todo el proyecto para subirlo a GitHub y reazliar el pull-request.
 Logramos realizar todas las actividades solicitadas para este sprint, no obstante nos hizo falta tiempo debido a que eran bastantes páginas que realizar y sobre todo darle un estilo con css que también fue muy tradado. Las diversas actividades que tiene cada integrante del equipo hace que nos retrasemos un poco, es por ello que el tiempo entre cada sprint lo sentimos que es muy corto, no obstante hemos entregado todo :)
 
-Para este Sprint 3 estamos trabajando de la misma forma, cada integrante del equipo tiene una actividad delegada y la estamos llevando a cabo, Josué se encarga de la página de inicio, Daniela de las páginas de "detalle de producto" y "carrito de compras" y Stephanie se encarga de las páginas de "Login" y "Registro". Estamos siguiendo el siguiente workspace: https://trello.com/b/Twp5NVln/sprint-3 
+Para este Sprint 3 trabajamos de la misma forma, cada integrante del equipo tuvo una actividad delegada, Josué se encargó de la página de inicio, Daniela de las páginas de "detalle de producto" y "carrito de compras" y Stephanie se encargó de las páginas de "Login", "Registro", "Categoría" y "Creación de producto". Seguimos el siguiente workspace: https://trello.com/b/Twp5NVln/sprint-3
+Surgió un inconveniente debido a que como estamos trabajando en ramas, olvidamos elimininarlas y realizamos pull request y merge de la rama 3(correspondiente al sprint 3) y después el pull request de ña rama 2(sprint 2 y que ya estaba vacía); con esto eliminamos los cambios que habíamos realizado para este sprint 3 sin darnos cuenta hasta que llegó el feedback por parte del profesor donde nos indicaba wue no habíamos entrregado nada. Aclarado el inconveniente, logramos recuperar lo perdido y continuar con nuestro proyecto.
+
 
 
