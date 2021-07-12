@@ -5,6 +5,10 @@ const mainController = {
     register: (req, res) => {
         return res.render('users/register');
     },
+    processRegister:(req, res)=>{
+        return res.send("viniste por post");
+    },
+
     login: (req, res) => {
         return res.render('users/login');
     },
