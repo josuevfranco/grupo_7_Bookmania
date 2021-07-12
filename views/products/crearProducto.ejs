@@ -8,7 +8,7 @@
     <main>
         <h2 class="titulo">Creación de Productos</h2>
         <div class="formulario">
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <label for="id">Id:
                     <input type="number" name="id" id="id" required>
                 </label>
@@ -27,21 +27,15 @@
                     </label><br>
                     <label for="categoría">Categoría:
                         <select name="Categoría" required>
-                            <option value="arte">Arte</option>
-                            <option value="ciencia">Ciencia</option>
-                            <option value="deportes">Deportes</option>
-                            <option value="derecho">Derecho</option>
-                            <option value="economía">Economía</option>
-                            <option value="ingles">Enseñanza Inglés</option>
-                            <option value="ficcion">Ficción</option>
-                            <option value="ingenieria">Ingeniería</option>
-                            <option value="infantil">Infantil</option>
-                            <option value="informatica">Informática</option>
-                            <option value="economía">Economía</option>
-                            <option value="literatura">Literatura</option>
-                            <option value="medicina">Medicina</option>
-                            <option value="psicología">Psicología</option>
-                            <option value="religion">Religión</option>
+                            <%
+                                let category =[ 'Arte', 'Ciencia', 'Deportes', 'Derecho', 'Economía',
+                                                'Enseñanza Inglés', 'Ficción', 'Ingeniería', 'Infantil',
+                                                 'Informática', 'Literatura', 'Medicina', 'Psicología',
+                                                 'Religión'];
+                            %>
+                            <% for(const cat of category) { %>
+                                <option value="<%= cat %>"> <%=cat%></option>
+                            <% } %>                            
                         </select>
                     </label><br>  
                 </div><br>
