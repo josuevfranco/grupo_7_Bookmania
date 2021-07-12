@@ -21,11 +21,28 @@ const productsController = require('../controllers/productsController');
 
 //array de validaciones
 const validations = [
-    body('id').notEmpty(),
-    body('titulo').notEmpty(),
-    body('autor').notEmpty(),
-    body('año').notEmpty(),
-    body('editorial').notEmpty(),
+    body('id').notEmpty().withMessage('Tienes que asignarle un id al libro'),
+    body('titulo').notEmpty().withMessage('Tienes que escribir el nombre del libro'),
+    body('autor').notEmpty().withMessage('Tienes que escrbir el autor del libro'),
+    body('year').notEmpty().withMessage('Tienes que escribir el año de publicación'),
+    body('editorial').notEmpty().withMessage('Tienes que escribir la editorial del libro'),
+    body('precio')
+        .notEmpty().withMessage('Debes de asignar un precio').bail()
+        .isNumeric().withMessage('Escribe el precio en formato de número'),
+
+    body('libros').custom((value, {req}) =>{
+        let file = req.file;
+        let acceptedExtensions = ['.jpg', '.png', '.gif'];
+        if(!file){
+            throw new Error('Tienes que subir una imagen');
+        } else{
+            let fileExtension = path.extname(file.originalname);
+            if(!acceptedExtensions.includes(fileExtension)){
+                throw new Error('Las extensiones de archivos permitidas son ${acceptedExtensions.join(', ')}$')
+            } 
+        }
+        return true;
+    })
 ]
 
 router.get('/carrito', productsController.carrito);

@@ -12,7 +12,14 @@ const productsController = {
     },
     processProducto:(req, res)=>{
         const resValidation = validationResult(req);
-        return res.send(resValidation);
+        if(resValidation.errors.length > 0){
+            return res.render('products/crearProducto', {
+                errors: resValidation.mapped(),
+                oldData: req.body,
+            });
+        }
+
+        return res.send("Validaciones en Producto OK");
     },
 
     cat_arte: (req, res) => {

@@ -12,10 +12,12 @@ const mainController = {
         if(resValidation.errors.length > 0){
             return res.render('users/register', {
                 errors: resValidation.mapped(),
+                oldData: req.body,
             });
         }
-    },
 
+        return res.send("Validaciones en registro OK");
+    },
     login: (req, res) => {
         return res.render('users/login');
     },

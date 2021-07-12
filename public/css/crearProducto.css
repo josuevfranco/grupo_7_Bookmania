@@ -3,6 +3,10 @@
     box-sizing: border-box;
 }
 
+h2{
+	display: flex;
+	justify-content: center;
+}
 
 .content{
 	padding: 0 20px;
@@ -47,7 +51,7 @@ form{
 	border-radius: 8px;
 }
 .titulo{
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-around;
 }
 

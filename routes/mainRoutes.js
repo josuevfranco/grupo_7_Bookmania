@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 
 const {body} = require('express-validator');
 
@@ -10,8 +9,12 @@ const mainController = require('../controllers/mainController');
 const validations = [
     body('nameUser').notEmpty().withMessage('Tienes que escribir un nombre'),
     body('lastName').notEmpty().withMessage('Tienes que escribir un apellido'),
-    body('email').notEmpty().isEmail().withMessage('Tienes que escribir un email valido'),
-    body('password').notEmpty().isLength({min: 6}).withMessage('La contraseña debe ser de mínimo 6 caracteres'),
+    body('email')
+        .notEmpty().withMessage('Tienes que escribir un email').bail()
+        .isEmail().withMessage('Debes escribir un correo válido'),
+    body('password')
+        .notEmpty().withMessage('Debes escribir una contraseña').bail()
+        .isLength({min: 6}).withMessage('La contraseña debe ser de mínimo 6 caracteres'),
     body('password2').notEmpty(),
 ]
 

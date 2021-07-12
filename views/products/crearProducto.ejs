@@ -6,48 +6,115 @@
  <body>
     <%- include('../partials/header') %>
     <main>
-        <h2 class="titulo">Creación de Productos</h2>
+        <h2>Creación de Productos</h2>
         <div class="formulario">
+            
             <form action="/crearProducto" method="POST" enctype="multipart/form-data">
                 <label for="id">Id:
-                    <input type="number" name="id" id="id" required>
-                </label>
+                    <input 
+                        type="number" 
+                        name="id" 
+                        id="id"
+                        value= "<%= locals.oldData ? oldData.id : null %>"
+                    >
+                    <% if (locals.errors && errors.id) {%>
+                        <div class="text-danger">
+                            <%= errors.id.msg %>
+                        </div>
+                    <%} %>
+                </label><br>
                 <div class="titulo">
                     <label for="titulo">Título:
-                        <input type="text" name="titulo" id="titulo" required>
-                    </label><br>
+                        <input 
+                            type="text" 
+                            name="titulo" 
+                            id="titulo"
+                            value= "<%= locals.oldData ? oldData.titulo : null %>"
+                        >
+                        <% if (locals.errors && errors.titulo) {%>
+                            <div class="text-danger">
+                                <%= errors.titulo.msg %>
+                            </div>
+                        <%} %>
+                    </label><br><br>
                     <label for="autor">Autor:
-                        <input type="text" name="autor" id="autor" required>
+                        <input 
+                            type="text" 
+                            name="autor" 
+                            id="autor"
+                            value= "<%= locals.oldData ? oldData.autor : null %>"
+                        >
+                        <% if (locals.errors && errors.autor) {%>
+                            <div class="text-danger">
+                                <%= errors.autor.msg %>
+                            </div>
+                        <%} %>
                     </label><br>
-                </div>
-
-                <div class="titulo">
+                
                     <label for="año">Año:
-                        <input type="number" name="año" id="año" required>
-                    </label><br>
+                        <input 
+                            type="number" 
+                            name="year" 
+                            id="year"
+                        >
+                        <% if (locals.errors && errors.year) {%>
+                            <div class="text-danger">
+                                <%= errors.year.msg %>
+                            </div>
+                        <%} %>
+                    </label><br><br>
+
                     <label for="categoría">Categoría:
-                        <select name="Categoría" required>
-                            <%
-                                let category =[ 'Arte', 'Ciencia', 'Deportes', 'Derecho', 'Economía',
-                                                'Enseñanza Inglés', 'Ficción', 'Ingeniería', 'Infantil',
-                                                 'Informática', 'Literatura', 'Medicina', 'Psicología',
-                                                 'Religión'];
-                            %>
-                            <% for(const cat of category) { %>
-                                <option value="<%=cat %>"> <%=cat%></option>
-                            <% } %>                            
+                        <select 
+                            name="Categoría"
+                            class="control"
+                        >
+                        <%
+                            let category =[ 'Arte', 'Ciencia', 'Deportes', 'Derecho', 'Economía',
+                                            'Enseñanza Inglés', 'Ficción', 'Ingeniería', 'Infantil',
+                                             'Informática', 'Literatura', 'Medicina', 'Psicología',
+                                             'Religión'];
+                        %>
+                        <% for(const cat of category) { %>
+                            <option 
+                                value="<%=cat %>"
+                                    <%= locals.oldData && (cat === oldData.Categoria) ? 'selected' : null %>
+                            ><%=cat%></option>
+                        <% } %>                            
                         </select>
                     </label><br>  
                 </div><br>
+                
                 <label for="editorial">Editorial:
-                    <input type="text" name="editorial">
+                    <input 
+                        type="text" 
+                        name="editorial"
+                        value= "<%= locals.oldData ? oldData.editorial : null %>"
+                    >
+                    <% if (locals.errors && errors.editorial) {%>
+                        <div class="text-danger">
+                            <%= errors.editorial.msg %>
+                        </div>
+                    <%} %>
                 </label><br><br>
                 <label for="precio">Precio:
-                    <input type="number" name="precio" placeholder="123.99" required>
+                    <input 
+                        type="number" 
+                        name="precio" 
+                        placeholder="Ejem 123.99"
+                        value= "<%= locals.oldData ? oldData.precio : null %>"
+                    >
+                    <% if (locals.errors && errors.precio) {%>
+                        <div class="text-danger">
+                            <%= errors.precio.msg %>
+                        </div>
+                    <%} %>
                 </label><br><br>
+
                 <label for="descripcion"> Detalle del libro: <br>
                     <textarea name="descripcion" required> </textarea>
                 </label><br>
+
                     <label for="oferta"> Oferta:<br>
                         0%<input type="radio" name="oferta" id="0%">
                         5%<input type="radio" name="oferta" id="5%">
@@ -57,7 +124,16 @@
                     </label><br>
                     <div class="titulo">
                         <label for="img">Imagen:
-                            <input type="file" size="24" name= "libros" required>
+                            <input 
+                                type="file"    
+                                size="24" 
+                                name= "libros"
+                            >
+                            <% if (locals.errors && errors.libros) {%>
+                                <div class="text-danger">
+                                    <%= errors.libros.msg %>
+                                </div>
+                            <%} %>
                         </label>
                     </div>      
                 <div class="enviar">
