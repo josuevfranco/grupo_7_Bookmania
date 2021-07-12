@@ -52,6 +52,10 @@ form label{
 	font-size: 20px;
 }
 
+.text-danger{
+	color: rgb(186, 41, 41);
+}
+
 form form{
 	display: flex;
 	flex-wrap: wrap;

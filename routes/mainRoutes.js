@@ -8,10 +8,10 @@ const mainController = require('../controllers/mainController');
 
 //array de validaciones
 const validations = [
-    body('nameUser').notEmpty(),
-    body('lastName').notEmpty(),
-    body('email').notEmpty(),
-    body('password').notEmpty(),
+    body('nameUser').notEmpty().withMessage('Tienes que escribir un nombre'),
+    body('lastName').notEmpty().withMessage('Tienes que escribir un apellido'),
+    body('email').notEmpty().isEmail().withMessage('Tienes que escribir un email valido'),
+    body('password').notEmpty().isLength({min: 6}).withMessage('La contraseña debe ser de mínimo 6 caracteres'),
     body('password2').notEmpty(),
 ]
 

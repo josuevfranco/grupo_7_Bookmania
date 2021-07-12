@@ -21,19 +21,39 @@
                 <form action="/register" method="POST">
                     <div class="form">
                         <label for="name">*Nombre:
-                            <input type="text" id="name" name="nameUser" class="control" required>
+                            <input type="text" id="name" name="nameUser" class="control">
+                            <% if (locals.errors && errors.nameUser) {%>
+                                <div class="text-danger">
+                                    <%= errors.nameUser.msg %>
+                                </div>
+                            <%} %>
                         </label><br><br>
                         <label for="fname">*Apellido:
-                            <input type="text" id="fname" name="lastName" class="control" required>
+                            <input type="text" id="fname" name="lastName" class="control">
+                            <% if (locals.errors && errors.lastName) {%>
+                                <div class="text-danger">
+                                    <%= errors.lastName.msg %>
+                                </div>
+                            <%} %>
                         </label><br><br>
                         <label for="email">*Correo electrónico:
-                            <input type="email" id="email" name="email" class="control" required>
+                            <input type="email" id="email" name="email" class="control">
+                            <% if (locals.errors && errors.email) {%>
+                                <div class="text-danger">
+                                    <%= errors.email.msg %>
+                                </div>
+                            <%} %>
                         </label><br><br>
                         <label for="password">*Contraseña:
-                            <input type="password" id="password" name="password" class="control" required>
+                            <input type="password" id="password" name="password" class="control">
+                            <% if (locals.errors && errors.password) {%>
+                                <div class="text-danger">
+                                    <%= errors.password.msg %>
+                                </div>
+                            <%} %>
                         </label><br><br>
                         <label for="password2">*Confirmar contraseña:
-                            <input type="password" id="password2" name="password2" class="control" required>
+                            <input type="password" id="password2" name="password2" class="control">
                         </label>
                     </div>
 

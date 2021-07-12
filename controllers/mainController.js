@@ -9,7 +9,11 @@ const mainController = {
     },
     processRegister:(req, res)=>{
         const resValidation = validationResult(req);
-        return res.send(resValidation);
+        if(resValidation.errors.length > 0){
+            return res.render('users/register', {
+                errors: resValidation.mapped(),
+            });
+        }
     },
 
     login: (req, res) => {
