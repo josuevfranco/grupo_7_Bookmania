@@ -14,12 +14,34 @@
                 <h4 class="texto1">Si ya tienes una cuenta con nosotros, por favor inicia sesión.</h4>
                 <p>*Campos requeridos</p><br><br>
 
-                <form action="" method="POST">
+                <form action="/login" method="POST">
                     <label for="email">*Correo electrónico:
-                        <input type="email" name="email" id="email" class="control" required>
+                        <input 
+                            type="text" 
+                            name="emailUser" 
+                            id="email" 
+                            class="control"
+                            value= "<%= locals.oldData ? oldData.emailUser : null %>"
+                            >
+                            <% if (locals.errors && errors.emailUser) {%>
+                                <div class="text-danger">
+                                    <%= errors.emailUser.msg %>
+                                </div>
+                            <%} %>
                     </label><br><br>
                     <label for="password">*Contraseña:
-                        <input type="password" name="password" id="password" class="control" required>
+                        <input 
+                            type="password" 
+                            name="passwordUser" 
+                            id="password"
+                            class="control"
+                            value= "<%= locals.oldData ? oldData.passwordUser : null %>"
+                        >
+                        <% if (locals.errors && errors.passwordUser) {%>
+                            <div class="text-danger">
+                                <%= errors.passwordUser.msg %>
+                            </div>
+                        <%} %>
                     </label><br><br>
                     <label for="term1">
                         <input type="checkbox" name="term1" id="term1">

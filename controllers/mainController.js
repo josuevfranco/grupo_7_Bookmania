@@ -15,12 +15,25 @@ const mainController = {
                 oldData: req.body,
             });
         }
-
         return res.send("Validaciones en registro OK");
     },
+
     login: (req, res) => {
         return res.render('users/login');
     },
+    
+    processLogin:(req, res)=>{
+        const resValidation = validationResult(req);
+        if(resValidation.errors.length > 0){
+            return res.render('users/login', {
+                errors: resValidation.mapped(),
+                oldData: req.body,
+            });
+        }
+
+        return res.send("Validaciones en LOGIN OK");
+    },
+
     
 }
 module.exports = mainController;

@@ -5,8 +5,8 @@ const {body} = require('express-validator');
 
 const mainController = require('../controllers/mainController');
 
-//array de validaciones
-const validations = [
+//array de validaciones de registro
+const validationsRegister = [
     body('nameUser').notEmpty().withMessage('Tienes que escribir un nombre'),
     body('lastName').notEmpty().withMessage('Tienes que escribir un apellido'),
     body('email')
@@ -18,15 +18,31 @@ const validations = [
     body('password2').notEmpty(),
 ]
 
+//array de validaciones de login
+const validationsLogin = [
+    body('emailUser')
+        .notEmpty().withMessage('Tienes que escribir tu correo de registro').bail()
+        .isEmail().withMessage('Debes escribir un correo válido').bail(),
+    body('passwordUser')
+        .notEmpty().withMessage('Ingresa tu contraseña de usuario').bail()
+        .isLength({min: 6}).withMessage('La contraseña debe ser de mínimo 6 caracteres'),
+]
+
+//página de inicio
 router.get('/', mainController.index);
 
-//formulario de registro
+//página formulario de registro
 router.get('/register', mainController.register);
 
 //procesamiento de registro
-router.post('/register', validations, mainController.processRegister);
+router.post('/register', validationsRegister, mainController.processRegister);
 
+//pagina formulario de login
 router.get('/login', mainController.login);
+
+//procesamiento login
+router.post('/login', validationsLogin, mainController.processLogin);
+
 
 module.exports = router;
 
