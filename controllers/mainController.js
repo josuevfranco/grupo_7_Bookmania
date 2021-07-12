@@ -1,3 +1,5 @@
+const {validationResult} = require('express-validator');
+
 const mainController = {
     index: (req, res) => {
         return res.render('index');
@@ -6,7 +8,8 @@ const mainController = {
         return res.render('users/register');
     },
     processRegister:(req, res)=>{
-        return res.send("viniste por post");
+        const resValidation = validationResult(req);
+        return res.send(resValidation);
     },
 
     login: (req, res) => {

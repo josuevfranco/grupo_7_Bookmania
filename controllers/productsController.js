@@ -1,3 +1,5 @@
+const {validationResult} = require('express-validator');
+
 const productsController = {
     carrito: (req, res) => {
         return res.render('products/carrito');
@@ -8,6 +10,11 @@ const productsController = {
     crearProducto: (req, res) => {
         return res.render('products/crearProducto');
     },
+    processProducto:(req, res)=>{
+        const resValidation = validationResult(req);
+        return res.send(resValidation);
+    },
+
     cat_arte: (req, res) => {
         return res.render('products/cat_arte');
     }
