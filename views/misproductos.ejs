@@ -3,32 +3,307 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Nuestros Productos</title>
+    <style>
+        .my-body {
+            height: fit-content;
+            background: #F5F5F5;
+            border: 1px solid lightgray;
+            font-family: sans-serif
+        }
+
+        .nav-bar {
+            background: #131F97;
+            color: white;
+            padding: 0.3em;
+            font-weight: 700;
+            font-size: large;
+        }
+
+        .my-logo {
+            margin-left: 2em;
+        }
+
+        .my-options {
+            margin-right: 2em;
+            float: right;
+            position: relative;
+            bottom: 1em;
+        }
+
+        .my-icons {
+            border-right: 1px solid;
+            padding: 0.2em;
+        }
+
+        .my-footer {
+            background: #212121;
+            color: gainsboro;
+            padding: 1em;
+        }
+
+        .footer-wraper {
+            display: flex;
+            position: relative;
+            left: 12em;
+        }
+
+        .my-status {
+            padding: 1em;
+            box-shadow: 1px 4px 20px 1px lightgrey;
+        }
+
+        .cart-body {
+            padding: 1em;
+        }
+
+        .my-notification {
+            margin: 0 auto;
+            padding: 0.4em;
+            border-radius: 0.2em;
+            text-align: center;
+            width: 80%;
+            background: #848AC6;
+            color: white;
+        }
+
+        .my-cart-list {
+            position: relative;
+            padding: 0.4em;
+            background: white;
+            border: 1px solid lightgray;
+            border-radius: 0.2em;
+            box-shadow: 0px 0px 4px 0px lightgrey;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .my-cart-header {
+            padding: 0.2em;
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 1px solid lightgray;
+            font-weight: 700;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .my-cart-body {
+            padding: 0.4em;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .my-item-details {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0.8em;
+            background: #f5f5f5;
+            border-radius: 2px;
+            box-shadow: 0px 0px 1px 1px lightgrey;
+        }
+
+        .my-cart-body .my-item-details:not(:first-child) {
+            margin-top: 0.4em;
+        }
+
+        .fourty {
+            width: 40%;
+        }
+
+        .twenty {
+            width: 20%;
+        }
+
+        .input-quantity {
+            text-align: center;
+        }
+
+        .remove-item-span {
+            position: relative;
+            left: 1em;
+        }
+
+        .remove-item-button {
+            background: red;
+            border: 0;
+            color: white;
+            padding: 0.3em;
+            border-radius: 4px
+        }
+
+        .editar-item-button {
+            background: rgba(65, 80, 151, 0.9);
+            border: 0;
+            color: white;
+            padding: 0.3em;
+            border-radius: 4px
+        }
+
+        .my-item-image {
+            width: 60px;
+            height: 65px;
+        }
+
+        
+        .navigation_menu {
+            width: 100%;
+        }
+
+        .navigation_tabs {
+            counter-reset: step;
+        }
+
+        
+        .navigation_tabs li:first-child:nth-last-child(1) {
+            width: 100%;
+        }
+
+
+        .navigation_tabs li {
+            list-style: none;
+            display: inline-block;
+            position: relative;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        a {
+            color: #000;
+        }
+
+        .navigation_tabs li a {
+            text-decoration: none;
+        }
+
+        .navigation_tabs li:before {
+            content: counter(step);
+            counter-increment: step;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #ddd;
+            border-radius: 100%;
+            display: block;
+            text-align: center;
+            margin: 0 auto 10px auto;
+            background-color: #fff;
+        }
+
+        .navigation_tabs li:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background-color: #ddd;
+            top: 13px;
+            left: -50%;
+            z-index: -1;
+        }
+
+        .navigation_tabs li:first-child:after {
+            content: none;
+        }
+
+        .navigation_tabs li.tab_active,
+        .navigation_tabs li.tab_inactive,
+        .navigation_tabs li.tab_active a,
+        .navigation_tabs li.tab_inactive a {
+            color: green;
+        }
+
+        .navigation_tabs li.tab_active a:hover,
+        .navigation_tabs li.tab_inactive a:hover {
+            font-weight: bold;
+        }
+
+
+        .navigation_tabs li.tab_active:before {
+            border-color: green;
+        }
+
+        .navigation_tabs li.tab_inactive:before {
+            border-color: green;
+            background-color: green;
+            color: #fff;
+            content: "\2713";
+        }
+
+
+        .navigation_tabs li.tab_inactive+li:after {
+            background-color: green;
+        }
+
+        /* Totals section */
+        .totals .totals-item {
+            float: right;
+            clear: both;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .totals .totals-item label {
+            float: left;
+            clear: both;
+            width: 79%;
+            text-align: right;
+        }
+
+        .totals .totals-item .totals-value {
+            float: right;
+            width: 21%;
+            text-align: right;
+        }
+
+        .totals .totals-item-total {
+            font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+        }
+
+    </style>
 </head>
 
 
 <body>
 
-   
+
     <%- include('./partials/header') %>
-    <% for(let product of products) {%>
-            <section class="product-box">
-                <a style="text-decoration: none;" href="/products/detail/<%= product.id %> ">
-                    <figure class="product-box_image">
-                        <img width="10" height="10" src="/images/productos/<%= product.imagen %> " alt="imagen de producto">
-                    </figure>
-                    <article class="product-box_data">
-                        <p>autor: : <%= product.autor %> </p>
-                        <p>editorial : <%= product.editorial %> </p>
-                        <p>categoria : <%= product.categoria %> </p>
-                        <p>precio : <%= product.precio %> </p>
-                        <p>idioma : <%= product.idioma %> </p>
-                        <p>anio : <%= product.anio %> </p>
-                    </article>
-                </a>
-            </section>
-    <% }%>  
-        
- 
+
+                <br>
+                <h2 style="text-align: center;">En Existencia</h2>
+                <div class="my-cart-list">
+                    <div class="my-cart-header">
+                        <div class="twenty">Imagen</div>
+                        <div class="twenty">Título</div>
+                        <div class="twenty">Autor</div>
+                        <div class="twenty">Idioma</div>
+                        <div class="twenty">Acciones</div>
+                    </div>
+                    
+                    <% for(let product of products) {%>
+
+                    <div class="my-cart-body">
+                        <div class="my-item-details">
+                            <div class="twenty">
+                                <a href="/detail/<%= product.id %> "><img src="/images/productos/<%= product.imagen %>"
+                                    class="my-item-image"></a>
+                            </div>
+                            <div class="twenty"> <%= product.titulo %> </div>
+                            <div class="twenty"> <%= product.autor %> </div>
+                            <div class="twenty"> <%= product.idioma %> </div>
+                            <div class="twenty"> 
+                                <span class="remove-item-span">
+                                    <button class="remove-item-button">Eliminar</button>
+                                    <button class="editar-item-button">Editar</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% }%>
+
+                </div>
+                </div>
+
+
 </body>

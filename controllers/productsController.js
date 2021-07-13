@@ -29,6 +29,11 @@ const productsController = {
     },
     cat_arte: (req, res) => {
         return res.render('products/cat_arte');
-    }
+    },
+    detail: (req, res) => {
+        let id = parseInt(req.params.id)
+		const product = products.find(product => product.id == id);
+		res.render('detail', {product});
+	}
 }
 module.exports = productsController;

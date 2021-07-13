@@ -15,21 +15,6 @@
     "imagen": "orgullo-y-prejuicio.jpg"
   },
   {
-    "id": "2",
-    "titulo": "Matar a un Ruiseñor",
-    "autor": "Harper Lee",
-    "editorial": "Harper Collins",
-    "rating": "3",
-    "categoria": "Novela",
-    "precio": "374",
-    "idioma": "Español",
-    "anio": "2019",
-    "paginas": "273",
-    "detalle": "detalle",
-    "descuento": "5",
-    "imagen": "matar-a-un-ruisenor.jpg"
-  },
-  {
     "id": "3",
     "titulo": "Cumbres Borrascosas",
     "autor": "Emily Bronte",

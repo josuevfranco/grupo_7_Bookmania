@@ -63,7 +63,8 @@ router.get('/crearProducto', productsController.crearProducto);
 //procesar la creacion de productos
 router.post('/crearProducto', uploadFile.single('libros'), validations, productsController.processProducto); 
 
-
+//Mostrar un Libro en Específico
+router.get('/detail/:id', productsController.detail); 
 
 router.get('/cat_arte', productsController.cat_arte);
 

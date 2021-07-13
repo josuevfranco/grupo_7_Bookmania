@@ -1,0 +1,60 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmania 2021</title>
+    <link rel="stylesheet" href="/css/productostyles.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script defer src="index.js"></script>
+</head>
+
+<body>
+
+    <%- include('./partials/header') %>
+
+        <div class="wrapper">
+            <div>
+                <div id="libro">
+                    <img src="/images/productos/<%= product.imagen %>" width="260" height="380" alt="Libro">
+                </div>
+                <div id="descripcion">
+                    <h1>
+                        <%= product.titulo %>
+                    </h1>
+                    <h2>Tony Faggioli</h2>
+                    <img src="/images/star.png" width="25px" height="25px">
+                    <img src="/images/star.png" width="25px" height="25px">
+                    <img src="/images/star.png" width="25px" height="25px">
+                    <img src="/images/star.png" width="25px" height="25px">
+                    <img src="/images/star.png" width="25px" height="25px"><br><br>
+                    <span id="precio"> $ <%= product.precio %> </span><br><br>
+                    <span id="cantidad"> CANTIDAD </span>
+
+                    <input type="button"><i class="far fa-caret-square-up"></i> 1 <i
+                        class="far fa-caret-square-down"></i></i><br><br>
+                    <button class="glow-on-hover" type="button">¡Agregar al carrito!</button><br><br><br>
+
+                    <div class="img-with-text">
+                        <img class="img" src="/images/book-open.svg" width="50px" height="50px"><br>
+                        <span>
+                            <%= product.paginas %>
+                        </span>
+                    </div>
+
+                </div>
+
+                <div id="resena">
+                    <h2>Reseña</h2><br>
+                    <p><i>
+                            <%= product.detalle %>
+                    </p><br><br>
+                </div>
+
+            </div>
+        </div>
+
+
+        <%- include('./partials/footer') %>
+
+</body>
