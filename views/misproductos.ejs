@@ -1,7 +1,7 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Nuestros Productos</title>
@@ -117,7 +117,7 @@
         }
 
         @media screen and (max-width:800px) {
-            .twenty{
+            .twenty {
                 width: auto;
             }
         }
@@ -152,7 +152,7 @@
             height: 65px;
         }
 
-        
+
         .navigation_menu {
             width: 100%;
         }
@@ -161,7 +161,7 @@
             counter-reset: step;
         }
 
-        
+
         .navigation_tabs li:first-child:nth-last-child(1) {
             width: 100%;
         }
@@ -265,40 +265,41 @@
         .totals .totals-item-total {
             font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
         }
-
     </style>
 </head>
 
-
-
 <body>
-
-
     <%- include('./partials/header') %>
+        <main>
+            <br>
+            <h2 style="text-align: center;">En Existencia</h2>
+            <div class="my-cart-list">
+                <div class="my-cart-header">
+                    <div class="twenty">Imagen</div>
+                    <div class="twenty">Título</div>
+                    <div class="twenty">Autor</div>
+                    <div class="twenty">Idioma</div>
+                    <div class="twenty">Acciones</div>
+                </div>
 
-                <br>
-                <h2 style="text-align: center;">En Existencia</h2>
-                <div class="my-cart-list">
-                    <div class="my-cart-header">
-                        <div class="twenty">Imagen</div>
-                        <div class="twenty">Título</div>
-                        <div class="twenty">Autor</div>
-                        <div class="twenty">Idioma</div>
-                        <div class="twenty">Acciones</div>
-                    </div>
-                    
-                    <% for(let product of products) {%>
+                <% for(let product of products) {%>
 
                     <div class="my-cart-body">
                         <div class="my-item-details">
                             <div class="twenty">
                                 <a href="/detail/<%= product.id %> "><img src="/images/productos/<%= product.imagen %>"
-                                    class="my-item-image"></a>
+                                        class="my-item-image"></a>
                             </div>
-                            <div class="twenty"> <%= product.titulo %> </div>
-                            <div class="twenty"> <%= product.autor %> </div>
-                            <div class="twenty"> <%= product.idioma %> </div>
-                            <div class="twenty"> 
+                            <div class="twenty">
+                                <%= product.titulo %>
+                            </div>
+                            <div class="twenty">
+                                <%= product.autor %>
+                            </div>
+                            <div class="twenty">
+                                <%= product.idioma %>
+                            </div>
+                            <div class="twenty">
                                 <span class="remove-item-span">
                                     <button class="remove-item-button">Eliminar</button>
                                     <button class="editar-item-button">Editar</button>
@@ -309,8 +310,8 @@
 
                     <% }%>
 
-                </div>
-                </div>
-
-
+            </div>
+        </main>
 </body>
+
+</html>

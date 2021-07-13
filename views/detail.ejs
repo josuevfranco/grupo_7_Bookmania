@@ -1,18 +1,12 @@
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bookmania 2021</title>
-    <link rel="stylesheet" href="/css/productostyles.css" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <script defer src="index.js"></script>
-</head>
+<!DOCTYPE html>
+<html lang="en">
+    <head><Title>Detalle del libro</Title></head>
+    <%- include('./partials/head') %>
 
 <body>
 
     <%- include('./partials/header') %>
-
+    <main>
         <div class="wrapper">
             <div>
                 <div id="libro">
@@ -47,15 +41,14 @@
                 <div id="resena">
                     <h2>Reseña</h2><br>
                     <p><i>
-                            <%= product.detalle %>
+                            <%= product.resenia %>
                     </p><br><br>
                 </div>
 
             </div>
         </div>
-        
-
-
-        <%- include('./partials/footer') %>
+    </main>
+    <%- include('./partials/footer') %>
 
 </body>
+</html>

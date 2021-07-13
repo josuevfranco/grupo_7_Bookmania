@@ -43,25 +43,6 @@
     background-color:lightcyan;
   }
   
-
-.header{
-    height: 120px;
-}
-
-.pleca-colores {
-    height: 15px;
-    background-image: url(https://www.cliento.mx/hubfs/ih-sitio/home/cursos-de-ingles-ih-pleca-footer.jpg);
-    background-repeat: repeat;
-    background-size: contain;
-    background-position: left center;
-  }
-
-.footer{
-    background-color: peru;
-    border: 3px solid black;
-    height: 100px;
-}
-
 body{
     margin: 0;
 }
