@@ -9,16 +9,16 @@
 }
 
 .menu .btn-sbn{
-   background: rgba(240, 89, 58, 0.9);
+  background: rgba(123, 127, 240, 0.879);
    border: black 1px solid;
 }
 
 .menu .btn-cont{
-  background: rgba(81, 192, 187, 0.9);
+  background: rgba(179, 170, 211, 0.9);
   border: black 1px solid;
 }
 
 .menu .btn-cuenta{
-  background: rgba(241, 127, 177, 0.7);
+  background: rgba(123, 127, 240, 0.879);
   border: black 1px solid;
 }

@@ -81,10 +81,7 @@
                         <%} %><br><br>
 
                         <label for="rol">*Rol:
-                            <select 
-                                name="rol"
-                                class="control"
-                            >
+                            <select name="rol" class="control">
                             <%
                                 let tiposUser =['cliente', 'administrador'];
                             %>
@@ -98,12 +95,7 @@
                         </label><br><br>
 
                         <label for="password">*Contraseña:
-                            <input 
-                                type="password" 
-                                id="password" 
-                                name="password" 
-                                class="control"
-                            >
+                            <input type="password" id="password" name="password" class="control">
                         </label>
                         <% if (locals.errors && errors.password) {%>
                             <div class="text-danger">
@@ -115,17 +107,13 @@
                             <input type="password" id="password2" name="password2" class="control">
                         </label><br><br><br>
                         <label for="img">Imagen de usuario:
-                            <input 
-                                type="file"    
-                                size="24" 
-                                name="usuarios"
-                            >
+                            <input type="file" size="24" name="usuarios">
                         </label>
-                            <% if (locals.errors && errors.usuarios) {%>
-                                <div class="text-danger">
-                                    <%= errors.usuarios.msg %>
-                                </div>
-                            <%} %>
+                        <% if (locals.errors && errors.usuarios) {%>
+                            <div class="text-danger">
+                                <%= errors.usuarios.msg %>
+                            </div>
+                        <%} %>
                     </div>
                     <div class="boton-capt">
                         <div class="captcha">

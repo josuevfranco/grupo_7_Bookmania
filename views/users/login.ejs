@@ -22,13 +22,13 @@
                             id="email" 
                             class="control"
                             value= "<%= locals.oldData ? oldData.emailUser : null %>"
-                            >
-                            <% if (locals.errors && errors.emailUser) {%>
-                                <div class="text-danger">
-                                    <%= errors.emailUser.msg %>
-                                </div>
-                            <%} %>
-                    </label><br><br>
+                        >  
+                    </label>
+                    <% if (locals.errors && errors.emailUser) {%>
+                        <div class="text-danger">
+                            <%= errors.emailUser.msg %>
+                        </div>
+                    <%} %><br><br>
                     <label for="password">*Contraseña:
                         <input 
                             type="password" 
@@ -37,12 +37,12 @@
                             class="control"
                             value= "<%= locals.oldData ? oldData.passwordUser : null %>"
                         >
-                        <% if (locals.errors && errors.passwordUser) {%>
-                            <div class="text-danger">
-                                <%= errors.passwordUser.msg %>
-                            </div>
-                        <%} %>
-                    </label><br><br>
+                    </label>
+                    <% if (locals.errors && errors.passwordUser) {%>
+                        <div class="text-danger">
+                            <%= errors.passwordUser.msg %>
+                        </div>
+                    <%} %><br><br>
                     <label for="term1">
                         <input type="checkbox" name="term1" id="term1">
                         Recordarme contraseña

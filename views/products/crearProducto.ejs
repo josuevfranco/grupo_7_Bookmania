@@ -6,7 +6,7 @@
  <body>
     <%- include('../partials/header') %>
     <main>
-        <h2>Creación de Productos</h2>
+        <h2 class="register">Creación de Productos</h2>
         <div class="formulario">
             
             <form action="/crearProducto" method="POST" enctype="multipart/form-data">
@@ -17,60 +17,56 @@
                             type="text" 
                             name="titulo" 
                             id="titulo"
+                            class="control"
                             value= "<%= locals.oldData ? oldData.titulo : null %>"
                         >
-                        <% if (locals.errors && errors.titulo) {%>
-                            <div class="text-danger">
-                                <%= errors.titulo.msg %>
-                            </div>
-                        <%} %>
-                    </label><br>
+                    </label>
+                    <% if (locals.errors && errors.titulo) {%>
+                        <div class="text-danger">
+                            <%= errors.titulo.msg %>
+                        </div>
+                    <%} %><br>
 
                     <label for="autor">Autor:
                         <input 
                             type="text" 
                             name="autor" 
                             id="autor"
+                            class="control"
                             value= "<%= locals.oldData ? oldData.autor : null %>"
                         >
-                        <% if (locals.errors && errors.autor) {%>
-                            <div class="text-danger">
-                                <%= errors.autor.msg %>
-                            </div>
-                        <%} %>
-                    </label><br>
+                    </label>
+                    <% if (locals.errors && errors.autor) {%>
+                        <div class="text-danger">
+                            <%= errors.autor.msg %>
+                        </div>
+                    <%} %><br>
                 
                     <label for="año">Año:
                         <input 
                             type="number" 
                             name="year" 
                             id="year"
-                        >
-                        <% if (locals.errors && errors.year) {%>
-                            <div class="text-danger">
-                                <%= errors.year.msg %>
-                            </div>
-                        <%} %>
-                    </label><br>
-
-                    <label for="paginas">Páginas:
-                        <input 
-                            type="text" 
-                            name="paginas" 
-                            id="paginas"
-                        >
-                        <% if (locals.errors && errors.paginas) {%>
-                            <div class="text-danger">
-                                <%= errors.paginas.msg %>
-                            </div>
-                        <%} %>
-                    </label><br><br>
-
-                    <label for="categoría">Categoría:
-                        <select 
-                            name="Categoría"
                             class="control"
                         >
+                    </label>
+                    <% if (locals.errors && errors.year) {%>
+                        <div class="text-danger">
+                            <%= errors.year.msg %>
+                        </div>
+                    <%} %><br>
+
+                    <label for="paginas">Páginas:
+                        <input type="text" name="paginas" id="paginas" class="control">
+                    </label>
+                    <% if (locals.errors && errors.paginas) {%>
+                        <div class="text-danger">
+                            <%= errors.paginas.msg %>
+                        </div>
+                    <%} %><br>
+
+                    <label for="categoría">Categoría:
+                        <select name="Categoría" class="control">
                         <%
                             let category =[ 'Arte', 'Ciencia', 'Deportes', 'Derecho', 'Economía',
                                             'Enseñanza Inglés', 'Ficción', 'Ingeniería', 'Infantil',
@@ -91,44 +87,48 @@
                     <input 
                         type="text" 
                         name="editorial"
+                        class="control"
                         value= "<%= locals.oldData ? oldData.editorial : null %>"
                     >
-                    <% if (locals.errors && errors.editorial) {%>
-                        <div class="text-danger">
-                            <%= errors.editorial.msg %>
-                        </div>
-                    <%} %>
-                </label><br><br>
+                </label>
+                <% if (locals.errors && errors.editorial) {%>
+                    <div class="text-danger">
+                        <%= errors.editorial.msg %>
+                    </div>
+                <%} %><br>
                 
                 <label for="precio">Precio:
                     <input 
                         type="number" 
-                        name="precio" 
+                        name="precio"
+                        class="control" 
                         placeholder="Ejem 123.99"
                         value= "<%= locals.oldData ? oldData.precio : null %>"
-                    >
-                    <% if (locals.errors && errors.precio) {%>
-                        <div class="text-danger">
-                            <%= errors.precio.msg %>
-                        </div>
-                    <%} %>
-                </label><br><br>
+                    >    
+                </label>
+                <% if (locals.errors && errors.precio) {%>
+                    <div class="text-danger">
+                        <%= errors.precio.msg %>
+                    </div>
+                <%} %><br>
 
                 <label for="idioma">Idioma:
                     <input 
                         type="text" 
                         name="idioma" 
                         id="idioma"
+                        class="control"
                     >
-                    <% if (locals.errors && errors.idioma) {%>
-                        <div class="text-danger">
-                            <%= errors.idioma.msg %>
-                        </div>
-                    <%} %>
-                </label><br><br>
+                   
+                </label> 
+                <% if (locals.errors && errors.idioma) {%>
+                    <div class="text-danger">
+                        <%= errors.idioma.msg %>
+                    </div>
+                <%} %><br>
 
                 <label for="descripcion"> Detalle del libro: <br>
-                    <textarea name="descripcion" required> </textarea>
+                    <textarea name="descripcion" class="control" required> </textarea>
                 </label><br>
 
                 <label for="rating">Rating:
@@ -136,13 +136,14 @@
                         type="number" 
                         name="rating" 
                         id="rating"
+                        class="control"
                     >
-                    <% if (locals.errors && errors.rating) {%>
-                        <div class="text-danger">
-                            <%= errors.rating.msg %>
-                        </div>
-                    <%} %>
-                </label><br><br>
+                </label>
+                <% if (locals.errors && errors.rating) {%>
+                    <div class="text-danger">
+                        <%= errors.rating.msg %>
+                    </div>
+                <%} %><br>
 
                 <label for="oferta"> Oferta:<br>
                         0%<input type="radio" name="oferta" id="0%">
@@ -158,6 +159,7 @@
                             type="file"    
                             size="24" 
                             name="libros"
+                            class="control"
                         >
                         <% if (locals.errors && errors.libros) {%>
                             <div class="text-danger">
