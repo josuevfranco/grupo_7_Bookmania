@@ -64,6 +64,7 @@ router.get('/crearProducto', productsController.crearProducto);
 router.post('/crearProducto', uploadFile.single('libros'), validations, productsController.processProducto); 
 
 
+
 router.get('/cat_arte', productsController.cat_arte);
 
 module.exports = router;

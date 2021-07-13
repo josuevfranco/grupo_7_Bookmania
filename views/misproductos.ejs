@@ -1,0 +1,34 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>Nuestros Productos</title>
+</head>
+
+
+<body>
+
+   
+    <%- include('./partials/header') %>
+    <% for(let product of products) {%>
+            <section class="product-box">
+                <a style="text-decoration: none;" href="/products/detail/<%= product.id %> ">
+                    <figure class="product-box_image">
+                        <img width="10" height="10" src="/images/productos/<%= product.imagen %> " alt="imagen de producto">
+                    </figure>
+                    <article class="product-box_data">
+                        <p>autor: : <%= product.autor %> </p>
+                        <p>editorial : <%= product.editorial %> </p>
+                        <p>categoria : <%= product.categoria %> </p>
+                        <p>precio : <%= product.precio %> </p>
+                        <p>idioma : <%= product.idioma %> </p>
+                        <p>anio : <%= product.anio %> </p>
+                    </article>
+                </a>
+            </section>
+    <% }%>  
+        
+ 
+</body>

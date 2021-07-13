@@ -42,25 +42,30 @@
     color: #fff;
 }
 
-.menu .btn-inicio {
-    background: rgba(93, 22, 235, 0.7);
-}
-
-.menu .btn-cat {
-    background: rgba(195, 150, 97, 0.7);
-}
-
-.menu .btn-sbn {
-    background: rgba(65, 80, 151, 0.7);
-}
-
-.menu .btn-cont {
-    background: rgba(93, 22, 235, 0.7);
-}
-
-.menu .btn-cuenta {
-    background: rgba(1, 153, 161, 0.7);
-}
+.menu .btn-inicio{
+    background: rgba(179, 170, 211, 0.9);
+    border: black 1px solid;
+  }
+  
+  .menu .btn-cat{
+      background: rgba(65, 80, 151, 0.9);
+      border: black 1px solid;
+  }
+  
+  .menu .btn-sbn{
+    background: rgba(123, 127, 240, 0.879);
+     border: black 1px solid;
+  }
+  
+  .menu .btn-cont{
+    background: rgba(179, 170, 211, 0.9);
+    border: black 1px solid;
+  }
+  
+  .menu .btn-cuenta{
+    background: rgba(123, 127, 240, 0.879);
+    border: black 1px solid;
+  }
 
 
 .show-menu-btn,
@@ -212,7 +217,7 @@
 
 .pleca-colores {
     height: 15px;
-    background-image: url(https://www.keapoint.com/wp-content/uploads/2018/10/ligth-Blue-Image-BG-300x169.png);
+    background-image: url('/images/color.png');
     background-repeat: repeat;
     background-size: contain;
     background-position: left center;

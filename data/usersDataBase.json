@@ -18,5 +18,15 @@
     "constrasena": "abc12345",
     "rol": "administrador",
     "imagen": "daniela-hdz-lara.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Josué",
+    "apellidoMaterno": "Vázquez",
+    "apellidoPaterno": "Franco",
+    "email": "josuevfranco@gmail.com",
+    "constrasena": "abc12345",
+    "rol": "administrador",
+    "imagen": "daniela-hdz-lara.jpg"
   }
 ]

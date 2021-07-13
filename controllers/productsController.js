@@ -1,4 +1,10 @@
 const {validationResult} = require('express-validator');
+const fs = require('fs');
+const path = require('path');
+
+const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 
 const productsController = {
     carrito: (req, res) => {
@@ -21,7 +27,6 @@ const productsController = {
 
         return res.send("Validaciones en Producto OK");
     },
-
     cat_arte: (req, res) => {
         return res.render('products/cat_arte');
     }
