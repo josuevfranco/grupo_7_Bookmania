@@ -69,3 +69,4 @@ router.get('/detail/:id', productsController.detail);
 router.get('/cat_arte', productsController.cat_arte);
 
 module.exports = router;
+
