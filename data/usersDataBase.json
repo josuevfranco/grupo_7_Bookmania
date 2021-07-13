@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nombre": "Stephanie Pamela",
+    "apellidoMaterno": "Avila",
+    "apellidoPaterno": "Campos",
+    "email": "pame_a1411@hotmail.com",
+    "constrasena": "abc12345",
+    "rol": "administrador",
+    "imagen": "stephie-pam-avila-campos-jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Daniela",
+    "apellidoMaterno": "Hernández",
+    "apellidoPaterno": "Lara",
+    "email": "danielahdzlara@gmail.com",
+    "constrasena": "abc12345",
+    "rol": "administrador",
+    "imagen": "daniela-hdz-lara.jpg"
+  }
+]
