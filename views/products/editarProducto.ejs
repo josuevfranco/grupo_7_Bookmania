@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head><Title>Crear producto</Title></head>
+    <head><Title>Editar producto</Title></head>
     <%- include('../partials/head') %>
     
  <body>
     <%- include('../partials/header') %>
     <main>
-        <h2 class="register">Creación de Productos</h2>
+        <h2 class="register">Edición de Producto</h2>
         <div class="formulario">
-            
-            <form action="/crearProducto" method="POST" enctype="multipart/form-data">
+            <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST">
                 <div class="titulo">
-
                     <label for="titulo">Título:
                         <input 
                             type="text" 
                             name="titulo" 
                             id="titulo"
                             class="control"
-                            value= "<%= locals.oldData ? oldData.titulo : null %>"
+                            value="<%= productToEdit.titulo %>"
                         >
                     </label>
                     <% if (locals.errors && errors.titulo) {%>
@@ -33,7 +31,7 @@
                             name="autor" 
                             id="autor"
                             class="control"
-                            value= "<%= locals.oldData ? oldData.autor : null %>"
+                            value= "<%= productToEdit.autor %>"
                         >
                     </label>
                     <% if (locals.errors && errors.autor) {%>
@@ -47,7 +45,7 @@
                             type="text" 
                             name="editorial"
                             class="control"
-                            value= "<%= locals.oldData ? oldData.editorial : null %>"
+                            value= "<%= productToEdit.editorial %>"
                         >
                     </label>
                     <% if (locals.errors && errors.editorial) {%>
@@ -62,6 +60,7 @@
                             name="rating" 
                             id="rating"
                             class="control"
+                            value ="<%= productToEdit.rating %>"
                         >
                     </label>
                     <% if (locals.errors && errors.rating) {%>
@@ -81,7 +80,7 @@
                         <% for(const cat of category) { %>
                             <option 
                                 value="<%=cat %>"
-                                    <%= locals.oldData && (cat === oldData.Categoria) ? 'selected' : null %>
+                                        "<%= productToEdit.categoria %>"
                             ><%=cat%></option>
                         <% } %>                            
                         </select>
@@ -93,7 +92,7 @@
                             name="precio"
                             class="control" 
                             placeholder="Ejem 123.99"
-                            value= "<%= locals.oldData ? oldData.precio : null %>"
+                            value= "<%= productToEdit.precio %>"
                         >    
                     </label>
                     <% if (locals.errors && errors.precio) {%>
@@ -108,6 +107,7 @@
                             name="idioma" 
                             id="idioma"
                             class="control"
+                            value = "<%= productToEdit.idioma %>"
                         > 
                     </label> 
                     <% if (locals.errors && errors.idioma) {%>
@@ -122,6 +122,7 @@
                             name="anio" 
                             id="anio"
                             class="control"
+                            value = "<%= productToEdit.anio %>"
                         >
                     </label>
                     <% if (locals.errors && errors.year) {%>
@@ -131,7 +132,8 @@
                     <%} %><br>
                    
                     <label for="paginas">Páginas:
-                        <input type="text" name="paginas" id="paginas" class="control">
+                        <input type="text" name="paginas" id="paginas" class="control"
+                         value= "<%= productToEdit.paginas %>">
                     </label>
                     <% if (locals.errors && errors.paginas) {%>
                         <div class="text-danger">
@@ -141,16 +143,11 @@
                 </div><br>
                 
                 <label for="descuento"> Descuento:<br>
-                    0%<input type="radio" name="descuento" id="0%">
-                    5%<input type="radio" name="descuento" id="5%">
-                    10%<input type="radio" name="descuento" id="10%">
-                    20%<input type="radio" name="descuento" id="20%">
-                    50%<input type="radio" name="descuento" id="50%">
+                    <%= productToEdit.descuento %><input type="radio" name="descuento" id="0%" value ="<%= productToEdit.descuento %>">
                 </label><br>
                 
-
                 <label for="resenia"> Detalle del libro: <br>
-                    <textarea name="resenia" class="control" required> </textarea>
+                    <textarea name="resenia" class="control">"<%= productToEdit.resenia %>" </textarea>
                 </label><br>                
                 
                 <div class="titulo">
@@ -160,6 +157,7 @@
                             size="24" 
                             name="imagenLibro"
                             class="control"
+                            value ="<%= productToEdit.imagenLibro %>"
                         >
                         <% if (locals.errors && errors.imagenLibro) {%>
                             <div class="text-danger">

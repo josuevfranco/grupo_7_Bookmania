@@ -282,29 +282,30 @@
                     <div class="twenty">Acciones</div>
                 </div>
 
-                <% for(let product of products) {%>
+                <% for(let i = 0; i < products.length; i++) { %>
 
                     <div class="my-cart-body">
                         <div class="my-item-details">
                             <div class="twenty">
-                                <a href="/detail/<%= product.id %> "><img src="/images/productos/<%= product.imagen %>"
+                                <a href="/detail/<%= products[i].id %> "><img src="/images/productos/<%= products[i].imagenLibro %>"
                                         class="my-item-image"></a>
                             </div>
                             <div class="twenty">
-                                <%= product.titulo %>
+                                <%= products[i].titulo %>
                             </div>
                             <div class="twenty">
-                                <%= product.autor %>
+                                <%= products[i].autor %>
                             </div>
                             <div class="twenty">
-                                <%= product.idioma %>
+                                <%= products[i].idioma %>
                             </div>
-                            <div class="twenty">
+                            
+                            <a href="/misproductos/<%=products[i].id%>/edit">EDITAR</a>
+                            <form action="/misproductos/<%=products[i].id%>?_method=DELETE" method="POST">
                                 <span class="remove-item-span">
                                     <button class="remove-item-button">Eliminar</button>
-                                    <button class="editar-item-button">Editar</button>
                                 </span>
-                            </div>
+                            </form>
                         </div>
                     </div>
 

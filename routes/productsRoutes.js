@@ -8,7 +8,7 @@ const {body} = require('express-validator');
 //storage para guardar imagen de libro
 const storage = multer.diskStorage({
     destination: (req, file, cb)=> {
-        cb(null, './public/images/libros');
+        cb(null, './public/images/productos');
     }, 
     filename: (req, file, cb)=> {
         const fileName = file.fieldname + '_img' + path.extname(file.originalname);
@@ -23,7 +23,7 @@ const productsController = require('../controllers/productsController');
 const validations = [
     body('titulo').notEmpty().withMessage('Tienes que escribir el nombre del libro'),
     body('autor').notEmpty().withMessage('Tienes que escrbir el autor del libro'),
-    body('year').notEmpty().withMessage('Tienes que escribir el año de publicación'),
+    body('anio').notEmpty().withMessage('Tienes que escribir el año de publicación'),
     body('editorial').notEmpty().withMessage('Tienes que escribir la editorial del libro'),
     body('precio')
         .notEmpty().withMessage('Debes de asignar un precio').bail()
@@ -39,7 +39,7 @@ const validations = [
         .notEmpty().withMessage('Ecribe el raiting del libro').bail()
         .isNumeric().withMessage('Escribe el raiting en formato de número'),
 
-    body('libros').custom((value, {req}) =>{
+    body('imagenLibro').custom((value, {req}) =>{
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.gif'];
         if(!file){
@@ -56,17 +56,26 @@ const validations = [
 
 router.get('/carrito', productsController.carrito);
 router.get('/producto', productsController.producto);
+router.get('/cat_arte', productsController.cat_arte);
 
 //formulario de creación de productos 
 router.get('/crearProducto', productsController.crearProducto);
-
+//almacenamiento de productos
+router.post('/crearProducto', productsController.store);
 //procesar la creacion de productos
-router.post('/crearProducto', uploadFile.single('libros'), validations, productsController.processProducto); 
+router.post('/crearProducto', uploadFile.single('imagenLibro'), validations, productsController.processProducto); 
+
+//Editar libro
+router.get('/:id/edit', productsController.edit);
+router.put('/detail/:id', productsController.update);
+
 
 //Mostrar un Libro en Específico
 router.get('/detail/:id', productsController.detail); 
 
-router.get('/cat_arte', productsController.cat_arte);
+//Eliminar producto
+router.delete('/:id', productsController.delete); 
+
 
 module.exports = router;
 

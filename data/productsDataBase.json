@@ -10,10 +10,9 @@
     "idioma": "Español",
     "anio": "2007",
     "paginas": "329",
-    "detalle": "detalle",
     "descuento": 10,
     "resenia": "Jane Austen reúne una galería de personajes característicos de toda una época: la dama empeñada en casar a sus hijas con partido de la región, las hermanas que se debaten con sus vaivenes sentimentales, el clérigo adulador que peca de oportunista. El estudio de caracteres y el análisis de las relaciones humanas basadas en la costumbre, alcanzan en Orgullo y prejuicio cotas de maestría insuperable.",
-    "imagen": "orgullo-y-prejuicio.jpg"
+    "imagenLibro": "orgullo-y-prejuicio.jpg"
   },
   {
     "id": "2",
@@ -26,10 +25,9 @@
     "idioma": "Español",
     "anio": 2019,
     "paginas": 274,
-    "detalle": "detalle",
     "descuento": 5,
     "resenia": "El consejo de un abogado a sus hijos mientras él defiende el verdadero ruiseñor de la novela clásica de Harper Lee ―un hombre negro acusado de violar a una niña blanca. A través de los ojos de Jem y Scout Finch, Harper Lee explora con humor y honestidad inquebrantable la irracionalidad de la actitud de los adultos hacia la raza y la clase en las profundidades del sur en la década de 1930",
-    "imagen": "matar-a-un-ruiseñor.jpg"
+    "imagenLibro": "matar-a-un-ruiseñor.jpg"
   },
   {
     "id": "3",
@@ -42,10 +40,9 @@
     "idioma": "Español",
     "anio": "2004",
     "paginas": "344",
-    "detalle": "detalle",
     "descuento": 15,
     "resenia": "Cumbres borrascosas es un clásico de la literatura inglesa escrito por Emily Brontë, una épica historia que constituye una asombrosa visión metafísica del destino, la obsesión, la pasión y la venganza.",
-    "imagen": "cumbres-borrascosas.jpg"
+    "imagenLibro": "cumbres-borrascosas.jpg"
   },
   {
     "id": "4",
@@ -58,10 +55,9 @@
     "idioma": "Español",
     "anio": "2017",
     "paginas": "215",
-    "detalle": "detalle",
     "descuento": 0,
     "resenia": "Algunas victorias tienen un alto precio. Para Kyle Fasano ese precio es una caída en el infierno, un lugar en el que nunca creyó realmente. Ahora un alma viva atrapada en una tierra de muerte y terror, busca desesperadamente escapar, pero está a punto de aprender que el peor lugar de todos puede ser el infierno que vive a nuestro lado.",
-    "imagen": "a-million-to-one.jpg"
+    "imagenLibro": "a-million-to-one.jpg"
   },
   {
     "id": "5",
@@ -74,10 +70,9 @@
     "idioma": "Español",
     "anio": "2002",
     "paginas": "242",
-    "detalle": "detalle",
     "descuento": 0,
     "resenia": "Luke y Hasley no eran el prototipo de una pareja perfecta. Sin embargo, ambos le pusieron una definición a lo que ellos crearon...",
-    "imagen": "boulevard.jpg"
+    "imagenLibro": "boulevard.jpg"
   },
   {
     "id": "6",
@@ -90,10 +85,9 @@
     "idioma": "Español",
     "anio": "2019",
     "paginas": "452",
-    "detalle": "detalle",
     "descuento": 0,
     "resenia": "Este es un libro sobre la historia de los libros. Un recorrido por la vida de ese fascinante artefacto que inventamos para que las palabras pudieran viajar en el espacio y en el tiempo. La historia de su fabricación, de todos los tipos que hemos ensayado a lo largo de casi treinta siglos: libros de humo, de piedra, de arcilla, de juncos, de seda, de piel, de árboles y, los últimos llegados, de plástico y luz.",
-    "imagen": "el-infinito-en-un-junco.png"
+    "imagenLibro": "el-infinito-en-un-junco.png"
   },
   {
     "id": "7",
@@ -106,10 +100,9 @@
     "idioma": "Español",
     "anio": "2013",
     "paginas": "320",
-    "detalle": "detalle",
     "descuento": 15,
     "resenia": "Ries reconstruye, a través de un inmenso trabajo de comparación, las características comunes a la búsqueda de lo sagrado en las diversas culturas y religiones, centrándose en un elemento fundamental: el símbolo, una de las constantes de lo sagrado (junto con el mito y el rito), presentes indefectiblemente en toda época y en todo lugar donde el ser humano se haya preguntado por el sentido de su vida y por una posible trascendencia.",
-    "imagen": "el-simbolo-sagrado.png"
+    "imagenLibro": "el-simbolo-sagrado.png"
   },
   {
     "id": "8",
@@ -122,10 +115,9 @@
     "idioma": "Español",
     "anio": "2018",
     "paginas": "187",
-    "detalle": "detalle",
     "descuento": 15,
     "resenia": "Vercellone traza un panorama de la estética del siglo xix, con especial atención a la estética alemana, desde sus orígenes en la filosofía idealista hasta la configuración de las teorías formalistas de Konrad Fiedler. El siglo xix es el siglo en el que se pasa de una filosofía de lo bello a una filosofía del arte, una trayectoria de extraordinaria complejidad que tiene su punto de partida en un pensamiento ligado incialmente a la reflexión dieciochesca, pero pronto de gran originalidad.",
-    "imagen": "estetica-del-siglo-XIX.png"
+    "imagenLibro": "estetica-del-siglo-XIX.png"
   },
   {
     "id": "9",
@@ -138,10 +130,9 @@
     "idioma": "Español",
     "anio": "2011",
     "paginas": "391",
-    "detalle": "detalle",
     "descuento": 0,
     "resenia": "Guía Completa Del Diseño Gráfico es una antología visual e informativa sobre los términos, los momentos históricos, los proyectos más emblemáticos y los profesionales más influyentes que se mencionan con mayor asiduidad en el campo del diseño gráfico. Con más de 2.000 proyectos de diseño que ilustran más de 400 entradas, proporciona una intensa visión general de los diferentes elementos que configuran la profesión del diseño gráfico.",
-    "imagen": "guia-completa-del-diseño-grafico.png"
+    "imagenLibro": "guia-completa-del-diseño-grafico.png"
   },
   {
     "id": 10,
@@ -154,10 +145,9 @@
     "idioma": "Español",
     "anio": 2018,
     "paginas": 416,
-    "detalle": "detalle",
     "descuento": 15,
     "resenia": "Un libro sobrecogedor, potente e inspirador que busca ayudar a todos aquellos cuyos traumas les impiden vivir en plenitud. Como su mentor Viktor Frankl, Edith Eger es una superviviente cuya experiencia vital y trayectoria como psicóloga le han permitido ayudar a miles de personas que viven incapacitadas por sus cicatrices emocionales.",
-    "imagen": "la-bailarina-de-auschwitz.jpg"
+    "imagenLibro": "la-bailarina-de-auschwitz.jpg"
   },
   {
     "id": 11,
@@ -170,10 +160,9 @@
     "idioma": "Español",
     "anio": 2021,
     "paginas": 254,
-    "detalle": "detalle",
     "descuento": 20,
     "resenia": "Una de las claves para el éxito de AMLO, asegura Roger Bartra en este libro, fueron las cuestionables alianzas que impulsaron la campaña del hoy presidente, y que revelaron finalmente su verdadera orientación política. Aunque para los seguidores más fieles de su partido se vendió como un demócrata firmemente anclado en la izquierda, los hechos lo han revelado como un populista de la más conservadora derecha, inspirado en el priismo autoritario de los años sesenta y setenta.",
-    "imagen": "regreso-a-la-jaula.jpg"
+    "imagenLibro": "regreso-a-la-jaula.jpg"
   },
   {
     "id": 12,
@@ -186,9 +175,8 @@
     "idioma": "Español",
     "anio": 2012,
     "paginas": 234,
-    "detalle": "detalle",
     "descuento": 10,
     "resenia": "¿Están Oriente y Occidente, como se insiste en muchas ocasiones, condenados a no encontrarse jamás? ¿Es el diálogo entre ambas culturas imposible? Jacques Scheuer trata de responder a estas cuestiones a través de doce exploraciones, en otros tantos capítulos, que trazan un movimiento de ida y vuelta. No encontrará el lector aquí una exposición académica de la historia del budismo y de sus diferentes ramas ni una comparación entre dos productos, budismo y cristianismo, puestos a disposición del consumidor, sino que en cada exploración, una palabra, una parábola, una imagen o un personaje de la tradición budista nos invitarán a descubrir este mundo espiritual. ",
-    "imagen": "un-cristiano-en-la-senda-de-buda.png"
+    "imagenLibro": "un-cristiano-en-la-senda-de-buda.png"
   }
 ]
