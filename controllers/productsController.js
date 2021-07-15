@@ -59,27 +59,21 @@ const productsController = {
         });
     
         if (productToEdit) {
-            res.render("editarProducto", { productToEdit });
+            res.render('products/editarProducto', { productToEdit });
         } else {
             res.send("Hay un error al Editar");
         }
     },
  
     update: (req, res) => {
-        const productInfo = req.body;
-        const productIdex = products.findIndex(producto =>{
-             return producto.id == req.params.id;
-        });
-
-        products[productIdex]={
-		    ...products[productIdex], 
-		    ...productInfo
-	    };
-
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-   
-        const product = products.find(product => product.id == id);
-        res.redirect('detail', {product});
+		const productIndex = products.findIndex(product => product.id == parseInt(req.params.id));
+		products[productIndex] = {
+			...req.body
+		}
+		
+		fs.writeFileSync(productsFilePath,JSON.stringify(products));
+        res.redirect("/misproductos");
+		//res.render('/misproductos', {product: products[productIndex]});
     },
     delete: (req, res) => {
         const productIdex = products.findIndex(producto =>{

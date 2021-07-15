@@ -66,8 +66,8 @@ router.post('/crearProducto', productsController.store);
 router.post('/crearProducto', uploadFile.single('imagenLibro'), validations, productsController.processProducto); 
 
 //Editar libro
-router.get('/:id/edit', productsController.edit);
-router.put('/detail/:id', productsController.update);
+router.get('/edit/:id', productsController.edit);
+router.put('/:id/', productsController.update);
 
 
 //Mostrar un Libro en Específico

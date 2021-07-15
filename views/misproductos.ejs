@@ -300,8 +300,8 @@
                                 <%= products[i].idioma %>
                             </div>
                             
-                            <a href="/misproductos/<%=products[i].id%>/edit">EDITAR</a>
-                            <form action="/misproductos/<%=products[i].id%>?_method=DELETE" method="POST">
+                            <a href="/edit/<%= products[i].id %>">EDITAR</a>
+                            <form action="/delete/<%=products[i].id%>?_method=DELETE" method="POST">
                                 <span class="remove-item-span">
                                     <button class="remove-item-button">Eliminar</button>
                                 </span>
