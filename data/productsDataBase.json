@@ -11,8 +11,9 @@
     "anio": "2007",
     "paginas": "329",
     "descuento": 10,
-    "resenia": "Jane Austen reúne una galería de personajes característicos de toda una época: la dama empeñada en casar a sus hijas con partido de la región, las hermanas que se debaten con sus vaivenes sentimentales, el clérigo adulador que peca de oportunista. El estudio de caracteres y el análisis de las relaciones humanas basadas en la costumbre, alcanzan en Orgullo y prejuicio cotas de maestría insuperable.",
-    "imagenLibro": "orgullo-y-prejuicio.jpg"
+    "resenia": "\"\"Jane Austen reúne una galería de personajes característicos de toda una época: la dama empeñada en casar a sus hijas con partido de la región, las hermanas que se debaten con sus vaivenes sentimentales, el clérigo adulador que peca de oportunista. El estudio de caracteres y el análisis de las relaciones humanas basadas en la costumbre, alcanzan en Orgullo y prejuicio cotas de maestría insuperable.\" \" ",
+    "imagenLibro": "orgullo-y-prejuicio.jpg",
+    "Categoría": "Arte"
   },
   {
     "id": "2",
@@ -57,7 +58,7 @@
     "paginas": "215",
     "descuento": 0,
     "resenia": "Algunas victorias tienen un alto precio. Para Kyle Fasano ese precio es una caída en el infierno, un lugar en el que nunca creyó realmente. Ahora un alma viva atrapada en una tierra de muerte y terror, busca desesperadamente escapar, pero está a punto de aprender que el peor lugar de todos puede ser el infierno que vive a nuestro lado.",
-    "imagenLibro": "a-million-to-one.jpg"
+    "imagenLibro": "a-million-to-one.png"
   },
   {
     "id": "5",

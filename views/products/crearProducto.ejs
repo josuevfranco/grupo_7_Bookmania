@@ -9,7 +9,7 @@
         <h2 class="register">Creación de Productos</h2>
         <div class="formulario">
             
-            <form action="/crearProducto" method="POST" enctype="multipart/form-data">
+            <form action="/crearProducto" method="POST" enctype="application/json">
                 <div class="titulo">
 
                     <label for="titulo">Título:
@@ -46,6 +46,7 @@
                         <input 
                             type="text" 
                             name="editorial"
+                            id="editorial"
                             class="control"
                             value= "<%= locals.oldData ? oldData.editorial : null %>"
                         >
@@ -71,7 +72,7 @@
                     <%} %><br>
 
                     <label for="categoría">Categoría:
-                        <select name="Categoría" class="control">
+                        <select name="Categoría" id="Categoria" class="control">
                         <%
                             let category =[ 'Arte', 'Ciencia', 'Deportes', 'Derecho', 'Economía',
                                             'Enseñanza Inglés', 'Ficción', 'Ingeniería', 'Infantil',
@@ -91,6 +92,7 @@
                         <input 
                             type="number" 
                             name="precio"
+                            id="precio"
                             class="control" 
                             placeholder="Ejem 123.99"
                             value= "<%= locals.oldData ? oldData.precio : null %>"
@@ -141,16 +143,16 @@
                 </div><br>
                 
                 <label for="descuento"> Descuento:<br>
-                    0%<input type="radio" name="descuento" id="0%">
-                    5%<input type="radio" name="descuento" id="5%">
-                    10%<input type="radio" name="descuento" id="10%">
-                    20%<input type="radio" name="descuento" id="20%">
-                    50%<input type="radio" name="descuento" id="50%">
+                    0%<input type="radio" name="descuento" id="descuento">
+                    5%<input type="radio" name="descuento" id="descuento">
+                    10%<input type="radio" name="descuento" id="descuento">
+                    20%<input type="radio" name="descuento" id="descuento">
+                    50%<input type="radio" name="descuento" id="descuento">
                 </label><br>
                 
 
                 <label for="resenia"> Detalle del libro: <br>
-                    <textarea name="resenia" class="control" required> </textarea>
+                    <textarea name="resenia" id="resenia" class="control" required> </textarea>
                 </label><br>                
                 
                 <div class="titulo">
@@ -159,6 +161,7 @@
                             type="file"    
                             size="24" 
                             name="imagenLibro"
+                            id="imagenLibro"
                             class="control"
                         >
                         <% if (locals.errors && errors.imagenLibro) {%>
@@ -170,7 +173,7 @@
                 </div>  
                     
                 <div class="enviar">
-                    <button type="submit" class="boton-form">Cargar Producto</button><br>
+                    <button type="submit" class="boton-form">Agregar</button><br>
                 </div><br>
                 <button type="submit" class="boton-form">Borrar</button>
             </form>

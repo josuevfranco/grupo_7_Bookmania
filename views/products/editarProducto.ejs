@@ -8,7 +8,7 @@
     <main>
         <h2 class="register">Edición de Producto</h2>
         <div class="formulario">
-            <form action="/edit/<%=productToEdit.id%>?_method=PUT" method="POST">
+            <form action="/editar/<%=productToEdit.id %>?_method=PUT" method="POST" enctype="application/json">
                 <div class="titulo">
                     <label for="titulo">Título:
                         <input 
@@ -168,7 +168,7 @@
                 </div>  
                     
                 <div class="enviar">
-                    <button type="submit" class="boton-form">Cargar Producto</button><br>
+                    <button type="submit" class="boton-form">Actualizar</button><br>
                 </div><br>
                 <button type="submit" class="boton-form">Borrar</button>
             </form>
