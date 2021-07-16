@@ -49,12 +49,17 @@ const productsController = {
 
     //almacenar producto
     store: (req, res) => {
-        let newId = products.length + 1;
+        let newId = parseInt(products.length + 1);
 		let data = req.body;
-        console.log(data);
+        let imagen = "";
+        if(req.file){
+            imagen = req.file.filename;
+            console.log(imagen);
+        }
+        
 		let newProduct = {
 			"id": newId,
-			"titulo": data.nombre,
+			"titulo": data.titulo,
 			"autor": data.autor,
 			"editorial": data.editorial,
 			"rating": data.rating,
@@ -65,10 +70,10 @@ const productsController = {
             "paginas": data.paginas,
             "descuento": data.descuento,
             "resenia": data.resenia,
-            "imagenLibro": data.imagenLibro
+            "imagenLibro": imagen
 		}
-		products.push(newProduct);
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 4));
+        console.log(newProduct);
+        
         const resValidation = validationResult(req);
 
         if(resValidation.errors.length > 0){
@@ -77,8 +82,12 @@ const productsController = {
                 oldData: req.body,
             });
         }
-
-        res.redirect("/misproductos");
+        else{
+            products.push(newProduct);
+            fs.writeFileSync(productsFilePath, JSON.stringify(products, null, '\t'));
+            res.redirect("/misproductos");
+        }
+        
       },
 
     

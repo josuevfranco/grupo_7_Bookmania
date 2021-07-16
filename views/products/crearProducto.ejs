@@ -9,7 +9,7 @@
         <h2 class="register">Creación de Productos</h2>
         <div class="formulario">
             
-            <form action="/crearProducto" method="POST" enctype="application/json">
+            <form action="/crearProducto" method="POST" enctype="multipart/form-data">
                 <div class="titulo">
 
                     <label for="titulo">Título:
@@ -72,7 +72,7 @@
                     <%} %><br>
 
                     <label for="categoría">Categoría:
-                        <select name="Categoría" id="Categoria" class="control">
+                        <select name="categoria" id="categoria" class="control">
                         <%
                             let category =[ 'Arte', 'Ciencia', 'Deportes', 'Derecho', 'Economía',
                                             'Enseñanza Inglés', 'Ficción', 'Ingeniería', 'Infantil',
@@ -143,11 +143,11 @@
                 </div><br>
                 
                 <label for="descuento"> Descuento:<br>
-                    0%<input type="radio" name="descuento" id="descuento">
-                    5%<input type="radio" name="descuento" id="descuento">
-                    10%<input type="radio" name="descuento" id="descuento">
-                    20%<input type="radio" name="descuento" id="descuento">
-                    50%<input type="radio" name="descuento" id="descuento">
+                    0%<input type="radio" name="descuento" id="descuento" value="0%" checked>
+                    5%<input type="radio" name="descuento" id="descuento" value="5%">
+                    10%<input type="radio" name="descuento" id="descuento" value="10%">
+                    20%<input type="radio" name="descuento" id="descuento" value="20%">
+                    50%<input type="radio" name="descuento" id="descuento" value="50%">
                 </label><br>
                 
 
@@ -164,12 +164,13 @@
                             id="imagenLibro"
                             class="control"
                         >
+                        
                         <% if (locals.errors && errors.imagenLibro) {%>
                             <div class="text-danger">
                                 <%= errors.imagenLibro.msg %>
                             </div>
                         <%} %>
-                    </label>
+                    </label>   
                 </div>  
                     
                 <div class="enviar">
