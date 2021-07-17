@@ -72,7 +72,7 @@ router.post('/crearProducto', uploadFile.single('imagenLibro'), validations, pro
 
 //Editar libro
 router.get('/edit/:id/', productsController.edit);
-router.put('/editar/:id', productsController.update);
+router.put('/editar/:id', uploadFile.single('imagenLibro'), productsController.update);
 
 
 

@@ -88,6 +88,11 @@ const productsController = {
         const productIdex = products.findIndex(producto =>{
           return producto.id == req.params.id;
         });
+        let imagen = "";
+        if(req.file){
+            imagen = req.file.filename;
+            console.log(imagen);
+        }
     
         products[productIdex]={...products[productIdex], ...productInfo};
     
