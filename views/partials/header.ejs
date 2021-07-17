@@ -1,6 +1,6 @@
 <head>
-  <link rel="stylesheet" href="/css/botones.css">
   <link rel="stylesheet" href="/css/header.css">
+  <%- include('./head')%>
 </head>
 
 <body>
@@ -18,10 +18,10 @@
           <a href="#" class="btn-sbn">Sobre Nosotros</a>
           <a href="#" class="btn-cont">Contacto</a>
           
-           <div class="dropdown">
-            <a href="#" class="btn-cuenta dropbtn"><i class="fas fa-caret-down"></i> Productos</a>
+          <div class="dropdown">
+            <a class="btn-cuenta dropbtn"><i class="fas fa-caret-down"></i> Productos</a>
             <div class="dropdown-content">
-              <a href="/crearProducto"> Crea producto</a>
+              <a href="/crearProducto"> Crear producto</a>
               <a href="/misproductos"> Lista de Productos </a>
             </div>
           </div>
@@ -38,7 +38,7 @@
                 <a href="#"> Informática e Ingeniería</a>
                 <a href="#"> Medicina y Psicología</a>
             </div>
-        </div> 
+         </div> 
         
          <div class="dropdown">
             <a href="#" class="btn-cuenta dropbtn"><i class="fas fa-caret-down"></i> Mi cuenta</a>
@@ -47,6 +47,7 @@
               <a href="/register"><i class="fas fa-user-plus"></i> Regístrate</a>
             </div>
           </div>
+
           <a href="/carrito">
             <img class="imagen" src="images/car.png" width="50" height="50" alt="Cart">
           </a>

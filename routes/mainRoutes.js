@@ -7,7 +7,7 @@ const {body} = require('express-validator');
 
 const mainController = require('../controllers/mainController');
 
-//storage para guardar imagen de libro
+//storage para guardar imagen de usuario
 const storage = multer.diskStorage({
     destination: (req, file, cb)=> {
         cb(null, './public/images/usuarios');
