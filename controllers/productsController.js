@@ -17,8 +17,6 @@ const storage = multer.diskStorage({
     }
 })
 
-const uploadFile = multer({storage});
-
 const productsController = {
     carrito: (req, res) => {
         return res.render('products/carrito');
@@ -34,17 +32,6 @@ const productsController = {
     //formulario de crear producto
     crearProducto: (req, res) => {
         return res.render('products/crearProducto');
-    },
-    //procesar datos validos de producto
-    processProducto:(req, res)=>{
-        const resValidation = validationResult(req);
-        if(resValidation.errors.length > 0){
-            return res.render('products/crearProducto', {
-                errors: resValidation.mapped(),
-                oldData: req.body,
-            });
-        }
-        return res.redirect('/misproductos');
     },
 
     //almacenar producto
@@ -87,7 +74,6 @@ const productsController = {
             fs.writeFileSync(productsFilePath, JSON.stringify(products, null, '\t'));
             res.redirect("/misproductos");
         }
-        
       },
 
     
@@ -98,15 +84,6 @@ const productsController = {
 	},
 
     update: (req, res) => {
-        // const productToEdit = products.find((product) => {
-        //     return product.id == req.params.id;      
-        // });
-    
-        // if (productToEdit) {
-        //     res.render('products/editarProducto', { productToEdit });
-        // } else {
-        //     res.send("Hay un error al Editar");
-        // }
         const productInfo = req.body;
         const productIdex = products.findIndex(producto =>{
           return producto.id == req.params.id;
@@ -118,15 +95,7 @@ const productsController = {
         res.redirect("/misproductos");
     },
  
-    edit: (req, res) => {
-		// const productIndex = products.findIndex(product => product.id == parseInt(req.params.id));
-		// products[productIndex] = {
-		// 	...req.body
-		// }
-		
-		// fs.writeFileSync(productsFilePath,JSON.stringify(products));
-        // res.redirect("/misproductos");
-        
+    edit: (req, res) => {    
         const productToEdit = products.find((product) => {
              return product.id == req.params.id;      
          });

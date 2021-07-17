@@ -42,28 +42,6 @@
   color: #fff;
 }
 
-/* 
-.menu .btn-inicio{
-  background: rgba(93,22,235,0.7);
-}
-
-.menu .btn-cat{
-  background: rgba(195,150,97,0.7);
-}
-
-.menu .btn-sbn{
-  background: rgba(65, 80, 151, 0.7);
-}
-
-.menu .btn-cont{
-  background: rgba(93,22,235,0.7);
-}
-
-.menu .btn-cuenta{
-  background: rgba(1,153,161,0.7);
-} */
-
-
 
 .show-menu-btn,.hide-menu-btn{
   transition: 0.9s;

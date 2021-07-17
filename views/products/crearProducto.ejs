@@ -71,7 +71,7 @@
                         </div>
                     <%} %><br>
 
-                    <label for="categoría">Categoría:
+                    <label for="categoria">Categoría:
                         <select name="categoria" id="categoria" class="control">
                         <%
                             let category =[ 'Arte', 'Ciencia', 'Deportes', 'Derecho', 'Economía',
@@ -86,7 +86,12 @@
                             ><%=cat%></option>
                         <% } %>                            
                         </select>
-                    </label><br>  
+                    </label><br> 
+                    <% if (locals.errors && errors.categoria) {%>
+                        <div class="text-danger">
+                            <%= errors.categoria.msg %>
+                        </div>
+                    <%} %><br> 
             
                     <label for="precio">Precio:
                         <input 
@@ -126,9 +131,9 @@
                             class="control"
                         >
                     </label>
-                    <% if (locals.errors && errors.year) {%>
+                    <% if (locals.errors && errors.anio) {%>
                         <div class="text-danger">
-                            <%= errors.year.msg %>
+                            <%= errors.anio.msg %>
                         </div>
                     <%} %><br>
                    
@@ -143,17 +148,22 @@
                 </div><br>
                 
                 <label for="descuento"> Descuento:<br>
-                    0%<input type="radio" name="descuento" id="descuento" value="0%" checked>
-                    5%<input type="radio" name="descuento" id="descuento" value="5%">
-                    10%<input type="radio" name="descuento" id="descuento" value="10%">
-                    20%<input type="radio" name="descuento" id="descuento" value="20%">
-                    50%<input type="radio" name="descuento" id="descuento" value="50%">
+                    0%<input type="radio" name="descuento" id="descuento0" value="0%" checked>
+                    5%<input type="radio" name="descuento" id="descuento5" value="5%">
+                    10%<input type="radio" name="descuento" id="descuento10" value="10%">
+                    20%<input type="radio" name="descuento" id="descuento20" value="20%">
+                    50%<input type="radio" name="descuento" id="descuento50" value="50%">
                 </label><br>
-                
 
                 <label for="resenia"> Detalle del libro: <br>
-                    <textarea name="resenia" id="resenia" class="control" required> </textarea>
-                </label><br>                
+                    <textarea name="resenia" id="resenia" class="control"
+                    value= "<%= locals.oldData ? oldData.resenia : null %>"> </textarea>
+                </label><br> 
+                <% if (locals.errors && errors.resenia) {%>
+                    <div class="text-danger">
+                        <%= errors.resenia.msg %>
+                    </div>
+                <%} %><br>               
                 
                 <div class="titulo">
                      <label for="imagenLibro">Imagen:
@@ -164,13 +174,12 @@
                             id="imagenLibro"
                             class="control"
                         >
-                        
-                        <% if (locals.errors && errors.imagenLibro) {%>
-                            <div class="text-danger">
-                                <%= errors.imagenLibro.msg %>
-                            </div>
-                        <%} %>
-                    </label>   
+                    </label> 
+                    <% if (locals.errors && errors.imagenLibro) {%>
+                        <div class="text-danger">
+                            <%= errors.imagenLibro.msg %>
+                        </div>
+                    <%} %>  
                 </div>  
                     
                 <div class="enviar">

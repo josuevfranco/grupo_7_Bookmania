@@ -1,27 +1,21 @@
-
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "montserrat",sans-serif;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+  }
 .columnas_reg{
+	margin-right: 200px;
     display: flex;
 	flex-direction: row;
-	justify-content: space-around;
 	justify-self: center;
-}
-.column1_reg{
-	flex: 50%;
-	display: flex;
-	justify-content: center;
 	align-items: center;
 }
 
 .column1_reg img{
-	width: 500px;
+	width: 1200px;
 	height: 400px;
-}
-
-.column2_reg{
-	justify-content: center;
-    padding: 20px; 
-    flex: 50%;
-	margin: 10px 8px 0px 8px;
 }
 
 .register, .footer-titulo{
@@ -44,8 +38,7 @@ form{
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	background-color: rgba(0, 0, 0,0.7);
-	padding: 20px;
+	background-color: rgb(189, 198, 205);
 	border-radius: 8px;
 }
 form label{
@@ -103,7 +96,7 @@ form form{
 }
 
 .logo-capt img {
-	width:10%;
+	width: 40px;
 	height: 2em;
 }
 
@@ -157,9 +150,9 @@ form form{
     margin-top: 50px;
 }
 .term{
+	text-align: right;
 	font-size: 15px;
 }
-
 
 
 @media only screen and (max-width: 600px)  {

@@ -5,8 +5,6 @@ const path = require('path');
 const {body} = require('express-validator');
 
 
-const multerStorage = multer.memoryStorage();
-
 
 //storage para guardar imagen de libro
  const storage = multer.diskStorage({
@@ -14,8 +12,6 @@ const multerStorage = multer.memoryStorage();
          cb(null, './public/images/productos');
      }, 
      filename: (req, file, cb)=> {
-         //const fileName = file.fieldname + '_img' + path.extname(file.originalname);
-         //cb(null, fileName);
          cb(null, file.originalname);
      }
  })
@@ -32,6 +28,8 @@ const validations = [
       body('precio')
           .notEmpty().withMessage('Debes de asignar un precio').bail()
           .isNumeric().withMessage('Escribe el precio en formato de número'),
+      body('categoria').notEmpty().withMessage('Tienes que seleccionar una categoría'),
+    
     
       body('paginas')
           .notEmpty().withMessage('Tienes que escribir el total de páginas del libro').bail()
@@ -42,6 +40,8 @@ const validations = [
       body('rating')
           .notEmpty().withMessage('Escribe el raiting del libro').bail()
           .isNumeric().withMessage('Escribe el raiting en formato de número'),
+
+      body("resenia").notEmpty().withMessage('Escribe la reseña del libro'),
 
       body('imagenLibro').custom((value, {req}) =>{
           let file = req.file;
@@ -68,8 +68,7 @@ router.get('/cat_arte', productsController.cat_arte);
 router.get('/crearProducto', productsController.crearProducto);
 //almacenamiento de productos
 router.post('/crearProducto', uploadFile.single('imagenLibro'), validations, productsController.store);
-//procesar la creacion de productos
-//router.post('/crearProducto', uploadFile.single('imagenLibro'), validations, productsController.processProducto); 
+
 
 //Editar libro
 router.get('/edit/:id/', productsController.edit);
