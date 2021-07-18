@@ -271,7 +271,7 @@
     <h3><% products.length %></h3>
         <main>
             <br>
-            <h2 style="text-align: center;"><%-  products.length %> Artículos en existencia </h2>
+            <h3 style="text-align: center;"><%-  products.length %> artículos en existencia </h3><br>
             <div class="my-cart-list">
                 <div class="my-cart-header">
                     <div class="twenty">Imagen</div>
@@ -301,9 +301,9 @@
                             
                             <a href="/edit/<%= products[i].id %>">EDITAR</a>
                             <form action="/eliminar/<%=products[i].id%>?_method=DELETE" method="POST">
-                                <span class="remove-item-span">
+                                <span class="remove-item-span"></span>
                                     <button class="remove-item-button">Eliminar</button>
-                                </span>
+                            </span>
                             </form>
                         </div>
                     </div>

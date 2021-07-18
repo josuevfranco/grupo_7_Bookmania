@@ -5,15 +5,14 @@
     "autor": "Harper Lee",
     "editorial": "Harper Collins",
     "rating": "3",
-    "categoria": "Novela",
+    "categoria": "Literatura",
     "precio": "374",
     "idioma": "Español",
     "anio": "2019",
     "paginas": "274",
-    "descuento": 5,
+    "descuento": "10",
     "resenia": "El consejo de un abogado a sus hijos mientras él defiende el verdadero ruiseñor de la novela clásica de Harper Lee ―un hombre negro acusado de violar a una niña blanca. A través de los ojos de Jem y Scout Finch, Harper Lee explora con humor y honestidad inquebrantable la irracionalidad de la actitud de los adultos hacia la raza y la clase en las profundidades del sur en la década de 1930\" \" ",
-    "imagenLibro": "matar-a-un-ruiseñor.jpg",
-    "Categoría": "Arte"
+    "imagenLibro": "matar-a-un-ruiseñor.jpg"
   },
   {
     "id": "3",
@@ -26,7 +25,7 @@
     "idioma": "Español",
     "anio": "2004",
     "paginas": "344",
-    "descuento": 15,
+    "descuento": 20,
     "resenia": "Cumbres borrascosas es un clásico de la literatura inglesa escrito por Emily Brontë, una épica historia que constituye una asombrosa visión metafísica del destino, la obsesión, la pasión y la venganza.",
     "imagenLibro": "cumbres-borrascosas.jpg"
   },
@@ -56,7 +55,7 @@
     "idioma": "Español",
     "anio": "2002",
     "paginas": "242",
-    "descuento": 0,
+    "descuento": 5,
     "resenia": "Luke y Hasley no eran el prototipo de una pareja perfecta. Sin embargo, ambos le pusieron una definición a lo que ellos crearon...",
     "imagenLibro": "boulevard.jpg"
   },
@@ -86,7 +85,7 @@
     "idioma": "Español",
     "anio": "2013",
     "paginas": "320",
-    "descuento": 15,
+    "descuento": 5,
     "resenia": "Ries reconstruye, a través de un inmenso trabajo de comparación, las características comunes a la búsqueda de lo sagrado en las diversas culturas y religiones, centrándose en un elemento fundamental: el símbolo, una de las constantes de lo sagrado (junto con el mito y el rito), presentes indefectiblemente en toda época y en todo lugar donde el ser humano se haya preguntado por el sentido de su vida y por una posible trascendencia.",
     "imagenLibro": "el-simbolo-sagrado.png"
   },
@@ -101,7 +100,7 @@
     "idioma": "Español",
     "anio": "2018",
     "paginas": "187",
-    "descuento": 15,
+    "descuento": 20,
     "resenia": "Vercellone traza un panorama de la estética del siglo xix, con especial atención a la estética alemana, desde sus orígenes en la filosofía idealista hasta la configuración de las teorías formalistas de Konrad Fiedler. El siglo xix es el siglo en el que se pasa de una filosofía de lo bello a una filosofía del arte, una trayectoria de extraordinaria complejidad que tiene su punto de partida en un pensamiento ligado incialmente a la reflexión dieciochesca, pero pronto de gran originalidad.",
     "imagenLibro": "estetica-del-siglo-XIX.png"
   },
@@ -131,7 +130,7 @@
     "idioma": "Español",
     "anio": 2018,
     "paginas": 416,
-    "descuento": 15,
+    "descuento": 10,
     "resenia": "Un libro sobrecogedor, potente e inspirador que busca ayudar a todos aquellos cuyos traumas les impiden vivir en plenitud. Como su mentor Viktor Frankl, Edith Eger es una superviviente cuya experiencia vital y trayectoria como psicóloga le han permitido ayudar a miles de personas que viven incapacitadas por sus cicatrices emocionales.",
     "imagenLibro": "la-bailarina-de-auschwitz.jpg"
   },
@@ -146,7 +145,7 @@
     "idioma": "Español",
     "anio": 2021,
     "paginas": 254,
-    "descuento": 20,
+    "descuento": 50,
     "resenia": "Una de las claves para el éxito de AMLO, asegura Roger Bartra en este libro, fueron las cuestionables alianzas que impulsaron la campaña del hoy presidente, y que revelaron finalmente su verdadera orientación política. Aunque para los seguidores más fieles de su partido se vendió como un demócrata firmemente anclado en la izquierda, los hechos lo han revelado como un populista de la más conservadora derecha, inspirado en el priismo autoritario de los años sesenta y setenta.",
     "imagenLibro": "regreso-a-la-jaula.jpg"
   }

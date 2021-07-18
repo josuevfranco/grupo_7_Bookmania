@@ -8,7 +8,7 @@
     <main>
         <h2 class="register">Edición de Producto</h2>
         <div class="formulario">
-            <form action="/editar/<%=productToEdit.id %>?_method=PUT" method="POST" enctype="application/json">
+            <form action="/editar/<%=productToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="titulo">
                     <label for="titulo">Título:
                         <input 
@@ -69,8 +69,8 @@
                         </div>
                     <%} %><br>
 
-                    <label for="categoría">Categoría:
-                        <select name="Categoría" class="control">
+                    <label for="categoria">Categoría:
+                        <select name="categoria" id="categoria" class="control">
                         <%
                             let category =[ 'Arte', 'Ciencia', 'Deportes', 'Derecho', 'Economía',
                                             'Enseñanza Inglés', 'Ficción', 'Ingeniería', 'Infantil',
@@ -142,13 +142,20 @@
                     <%} %><br>
                 </div><br>
                 
+                
+
                 <label for="descuento"> Descuento:<br>
-                    <%= productToEdit.descuento %><input type="radio" name="descuento" id="0%" value ="<%= productToEdit.descuento %>">
+                    <input type="radio" name="descuento" id="descuento0" value="0"  <%= productToEdit.descuento == 0 ? "checked":"" %>> 0% </input>&emsp;
+                    <input type="radio" name="descuento" id="descuento5" value="5" <%= productToEdit.descuento == 5 ? "checked":"" %>> 5% </input>&emsp;
+                    <input type="radio" name="descuento" id="descuento10" value="10" <%= productToEdit.descuento == 10 ? "checked":"" %>> 10% </input>&emsp;
+                    <input type="radio" name="descuento" id="descuento20" value="20" <%= productToEdit.descuento == 20 ? "checked":"" %>> 20% </input>&emsp;
+                    <input type="radio" name="descuento" id="descuento50" value="50" <%= productToEdit.descuento == 50 ? "checked":"" %>> 50% </input>
                 </label><br>
                 
-                <label for="resenia"> Detalle del libro: <br>
-                    <textarea name="resenia" class="control">"<%= productToEdit.resenia %>" </textarea>
-                </label><br>                
+                <label for="resenia"><br> Reseña: <br>
+                    <textarea name="resenia" class="control" value="<%= productToEdit.resenia %>"><%= productToEdit.resenia %></textarea>
+                </label><br>    
+                            
                 
                 <div class="titulo">
                      <label for="imagenLibro">Imagen:

@@ -148,14 +148,14 @@
                 </div><br>
                 
                 <label for="descuento"> Descuento:<br>
-                    0%<input type="radio" name="descuento" id="descuento0" value="0%" checked>
-                    5%<input type="radio" name="descuento" id="descuento5" value="5%">
-                    10%<input type="radio" name="descuento" id="descuento10" value="10%">
-                    20%<input type="radio" name="descuento" id="descuento20" value="20%">
-                    50%<input type="radio" name="descuento" id="descuento50" value="50%">
+                    <input type="radio" name="descuento" id="descuento0" value="0" checked> 0% </input>&emsp;
+                    <input type="radio" name="descuento" id="descuento5" value="5"> 5% </input>&emsp;
+                    <input type="radio" name="descuento" id="descuento10" value="10"> 10% </input>&emsp;
+                    <input type="radio" name="descuento" id="descuento20" value="20"> 20% </input>&emsp;
+                    <input type="radio" name="descuento" id="descuento50" value="50"> 50% </input><br>
                 </label><br>
 
-                <label for="resenia"> Detalle del libro: <br>
+                <label for="resenia"><br> Reseña: <br>
                     <textarea name="resenia" id="resenia" class="control"
                     value= "<%= locals.oldData ? oldData.resenia : null %>"> </textarea>
                 </label><br> 

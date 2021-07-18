@@ -84,19 +84,35 @@ const productsController = {
 	},
 
     update: (req, res) => {
-        const productInfo = req.body;
-        const productIdex = products.findIndex(producto =>{
+        let data = req.body;
+        const productIndex = products.findIndex(producto =>{
           return producto.id == req.params.id;
         });
         let imagen = "";
         if(req.file){
             imagen = req.file.filename;
             console.log(imagen);
-        }
+        } 
+        let productInfo = {
+			"id": req.params.id,
+			"titulo": data.titulo,
+			"autor": data.autor,
+			"editorial": data.editorial,
+			"rating": data.rating,
+			"categoria": data.categoria,
+			"idioma": data.idioma,
+            "precio": data.precio,
+            "anio": data.anio,
+            "paginas": data.paginas,
+            "descuento": data.descuento,
+            "resenia": data.resenia,
+            "imagenLibro": imagen
+		}
     
-        products[productIdex]={...products[productIdex], ...productInfo};
+        products[productIndex]={...products[productIndex], ...productInfo};
     
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+        
         res.redirect("/misproductos");
     },
  

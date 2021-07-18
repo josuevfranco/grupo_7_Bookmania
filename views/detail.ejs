@@ -15,12 +15,12 @@
                     <h1>
                         <%= product.titulo %>
                     </h1>
-                    <h2>Tony Faggioli</h2>
-                    <img src="/images/star.png" width="25px" height="25px">
-                    <img src="/images/star.png" width="25px" height="25px">
-                    <img src="/images/star.png" width="25px" height="25px">
-                    <img src="/images/star.png" width="25px" height="25px">
-                    <img src="/images/star.png" width="25px" height="25px"><br><br>
+                    <h3><%= product.autor %></h3><br>
+                    <img src="/images/star.png" width="20px" height="20px">
+                    <img src="/images/star.png" width="20px" height="20px">
+                    <img src="/images/star.png" width="20px" height="20px">
+                    <img src="/images/star.png" width="20px" height="20px">
+                    <img src="/images/star.png" width="20px" height="20px"><br><br>
                     <span id="precio"> $ <%= product.precio %> </span><br><br>
                     <span id="cantidad"> CANTIDAD </span>
 
@@ -29,16 +29,16 @@
                     <button class="glow-on-hover" type="button">¡Agregar al carrito!</button><br><br><br>
 
                     <div class="img-with-text">
-                        <img class="img" src="/images/book-open.svg" width="50px" height="50px"><br>
+                        <img class="img" src="/images/book-open.svg" width="40px" height="40px"><br>
                         <span>
-                            <%= product.paginas %>
+                            <%= product.paginas %> páginas
                         </span>
                     </div>
 
                 </div>
 
                 <div id="resena">
-                    <h2>Reseña</h2><br>
+                    <span class="titulo">Reseña</span><br>
                     <p><i>
                         <%= product.resenia %>
                     </p><br><br>
