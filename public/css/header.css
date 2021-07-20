@@ -61,6 +61,9 @@
 .menu .btn-cuenta {
     background: rgba(123, 127, 240, 0.879);
 }
+.menu .btn-products {
+    background: rgba(51, 83, 123, 0.7);
+}
 
 
 .show-menu-btn,
