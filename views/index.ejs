@@ -1,107 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head><Title>Home</Title></head>
-    <%- include('./partials/head') %>
 
-<body>
-    <%- include('./partials/header') %>
-        <label for="chk" class="slides">
-            <section class="slideshow" style="height: 420px;">
-                <span id="target-1"></span>
-                <span id="target-2"></span>
+<head>
+    <Title>Home</Title>
+</head>
+<%- include('./partials/head') %>
 
-                <div class="slideshow-item item-1">
-                    <div class="progress">1 de 2</div>
-                    <img src="images/carr/4.png" class="img1" alt="">
-                    <a href="#target-1" class="arrow arrow-prev"></a>
-                    <a href="#target-2" class="arrow arrow-next"></a>
-                </div>
-
-                <div class="slideshow-item item-2">
-                    <div class="progress">2 de 2</div>
-                    <img src="images/carr/3.png" alt="" />
-                    <a href="#target-1" class="arrow arrow-prev"></a>
-                    <a href="#target-2" class="arrow arrow-next"></a>
-                </div>
-            </section>
-        </label>
-
-
-        <h1 style="text-align: center;">Lo más popular</h1>
-
-        <section id="main">
-            <div class="card" onclick="window.location='/producto'"><img class="image cover"
-                    src="https://cdn.gandhi.com.mx/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/9/7/9786070749001.jpg"/>
-                <div class="book-info">
-                    <div class="title">LA BAILARINA DE AUSCHWITZ</div>
-                    <div class="byline">EDITH EGER</div>
-                    <div class="rating"><span class="stars"></span><span class="votes">192 Opiniones</span></div>
-                    <div class="about">
-                        <p>Un libro sobrecogedor, potente e inspirador que busca ayudar a todos aquellos cuyos traumas
-                            les impiden
-                            vivir en plenitud.</p>
-                    </div>
-                </div>
+    <body>
+        <%- include('./partials/header') %>
+            <div style="margin-right: 60px;">
+                <%- include('./partials/landing') %>
             </div>
 
-            <div class="card" onclick="window.location='/producto'"><img class="image cover"
-                    src="https://cdn.gandhi.com.mx/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/9/7/9786073803663.jpg">
-                <div class="book-info">
-                    <div class="title">REGRESO A LA JAULA</div>
-                    <div class="byline">ROGER BARTRA</div>
-                    <div class="rating"><span class="stars"></span><span class="votes">130 Opiniones</span></div>
-                    <div class="about">
-                        <p>¿Cuáles fueron las verdaderas razones del triunfo electoral de Andrés Manuel López Obrador en
-                            2018?</p>
-                    </div>
-                </div>
+            <br>
+            <h1 style="text-align: center;">Lo más popular</h1> <br>
+            <div style="text-align: center;">
+                <%- include('./products/books') %>
             </div>
 
-            <div class="card" onclick="window.location='/producto'"><img class="image cover"
-                    src="https://cdn.gandhi.com.mx/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/9/7/9786073191470.jpg"/>
-                <div class="book-info">
-                    <div class="title">SALVAR EL FUEGO</div>
-                    <div class="byline">GUILLERMO ARRIAGA</div>
-                    <div class="rating"><span class="stars"></span><span class="votes">120 Opiniones </span></div>
-                    <div class="about">
-                        <p>Salvar el fuego es una historia que explora la capacidad de los seres humanos para cruzar las
-                            fronteras de
-                            la locura, el deseo y la venganza.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- start of categories section -->
-        <section class="section-background">
-            <div class="section-wrapper">
-                <div class="categories-header">
-                    <h1>¡En Bookmania encuentras!</h1>
-                </div>
-                <div class="categories rows wrapper">
-                    <div class="col category-container">
-                        <div class="category-menu" id="menu1">
-                            <div class="category-label">Recomendaciones</div>
-                        </div>
-                    </div>
-                    <div class="col category-container">
-                        <div class="category-menu" id="menu2">
-                            <div class="category-label">Novedades</div>
-                        </div>
-                    </div>
-                    <div class="col category-container">
-                        <div class="category-menu" id="menu3">
-                            <div class="category-label">Los más leídos</div>
-                        </div>
-                    </div>
-                    <div class="col category-container">
-                        <div class="category-menu" id="menu4">
-                            <div class="category-label">Libros Electrónicos</div>
-                        </div>
-                    </div>
-                </div>
-        </section>
-        <%- include('./partials/footer') %>
-</body>
-
+    </body>
 </html>
+
+<%- include('./partials/footer') %>

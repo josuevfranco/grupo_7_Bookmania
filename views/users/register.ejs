@@ -9,7 +9,7 @@
     <main>
         <div class="columnas_reg">
             <div class="column1_reg">
-                <img src="./images/imagen-Libro.jpg">
+                <img src="./images/registroLogin/imagen-Libro.jpg">
                 
             </div>
 
@@ -18,26 +18,103 @@
                 <h3 class="texto1">Al crear una cuenta en Bookmania, podrás agilizar el proceso de compra,
                     guardar múltiples direcciones de envío, rastrear pedidos y más.</h3>
 
-                <form action="" method="POST">
+                <form action="/register" method="POST" enctype="multipart/form-data">
                     <div class="form">
-                        <label for="name">*Nombre:
-                            <input type="text" id="name" name="name" class="control" required>
-                        </label><br><br>
-                        <label for="fname">*Apellido:
-                            <input type="text" id="fname" name="fname" class="control" required>
-                        </label><br><br>
-                        <label for="email">*Correo electrónico:
-                            <input type="email" id="email" name="email" class="control" required>
-                        </label><br><br>
-                        <label for="password">*Contraseña:
-                            <input type="password" id="password" name="password" class="control" required>
-                        </label><br><br>
-                        <label for="password2">*Confirmar contraseña:
-                            <input type="password" id="password2" name="password2" class="control" required>
+                        <label for="name">*Nombre (s):
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="nameUser" 
+                                class="control"
+                                value= "<%= locals.oldData ? oldData.nameUser : null %>"
+                            >
                         </label>
+                        <% if (locals.errors && errors.nameUser) {%>
+                            <div class="text-danger">
+                                <%= errors.nameUser.msg %>
+                            </div>
+                        <%} %>
+                        <br><br>
+
+                        <label for="fname">*Apellido paterno:
+                            <input 
+                                type="text" 
+                                id="fname" 
+                                name="lastName" 
+                                class="control"
+                                value= "<%= locals.oldData ? oldData.lastName : null %>"
+                            >
+                        </label>
+                        <% if (locals.errors && errors.lastName) {%>
+                            <div class="text-danger">
+                                <%= errors.lastName.msg %>
+                            </div>
+                        <%} %><br><br>
+
+                        <label for="fMname">*Apellido materno:
+                            <input 
+                                type="text" 
+                                id="fMname" 
+                                name="lastNameM" 
+                                class="control"
+                                value= "<%= locals.oldData ? oldData.lastNameM : null %>"
+                            >
+                        </label>
+                        <% if (locals.errors && errors.lastNameM) {%>
+                            <div class="text-danger">
+                                <%= errors.lastNameM.msg %>
+                            </div>
+                        <%} %><br><br>
+
+                        <label for="email">*Correo electrónico:
+                            <input 
+                                type="text" 
+                                id="email" 
+                                name="email" 
+                                class="control "
+                                value= "<%= locals.oldData ? oldData.email : null %>"
+                            >
+                        </label><% if (locals.errors && errors.email) {%>
+                            <div class="text-danger">
+                                <%= errors.email.msg %>
+                            </div>
+                        <%} %><br><br>
+
+                        <label for="rol">*Rol:
+                            <select name="rol" class="control">
+                            <%
+                                let tiposUser =['cliente', 'administrador'];
+                            %>
+                            <% for(const tipo of tiposUser) { %>
+                                <option 
+                                    value="<%=tipo %>"
+                                        <%= locals.oldData && (tipo === oldData.rol) ? 'selected' : null %>
+                                ><%=tipo%></option>
+                            <% } %>                            
+                            </select>
+                        </label><br><br>
+
+                        <label for="password">*Contraseña:
+                            <input type="password" id="password" name="password" class="control">
+                        </label>
+                        <% if (locals.errors && errors.password) {%>
+                            <div class="text-danger">
+                                <%= errors.password.msg %>
+                            </div>
+                        <%} %><br><br>
+
+                        <label for="password2">*Confirmar contraseña:
+                            <input type="password" id="password2" name="password2" class="control">
+                        </label><br><br><br>
+                        <label for="img">Imagen de usuario:
+                            <input type="file" size="24" name="usuarios">
+                        </label>
+                        <% if (locals.errors && errors.usuarios) {%>
+                            <div class="text-danger">
+                                <%= errors.usuarios.msg %>
+                            </div>
+                        <%} %>
                     </div>
-
-
                     <div class="boton-capt">
                         <div class="captcha">
                             <div class="spinner">

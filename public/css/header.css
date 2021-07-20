@@ -43,28 +43,27 @@
 }
 
 .menu .btn-inicio {
-    background: rgba(93, 22, 235, 0.7);
+    background: rgba(179, 170, 211, 0.9);
 }
 
 .menu .btn-cat {
-    background: rgba(195, 150, 97, 0.7);
+    background: rgba(65, 80, 151, 0.9);
 }
 
 .menu .btn-sbn {
-    background: rgba(204, 104, 232, 0.7);
+    background: rgba(123, 127, 240, 0.879);
 }
 
 .menu .btn-cont {
-    background: rgba(93, 22, 235, 0.7);
+    background: rgba(179, 170, 211, 0.9);
 }
 
 .menu .btn-cuenta {
-    background: rgba(1, 153, 161, 0.7);
+    background: rgba(123, 127, 240, 0.879);
 }
 .menu .btn-products {
     background: rgba(51, 83, 123, 0.7);
 }
-
 
 
 .show-menu-btn,
@@ -216,7 +215,7 @@
 
 .pleca-colores {
     height: 15px;
-    background-image: url(https://www.cliento.mx/hubfs/ih-sitio/home/cursos-de-ingles-ih-pleca-footer.jpg);
+    background-image: url('/images/color.png');
     background-repeat: repeat;
     background-size: contain;
     background-position: left center;

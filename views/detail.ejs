@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><Title>Detalle del libro</Title></head>
+    <%- include('./partials/head') %>
+<body>
+
+    <%- include('./partials/header') %>
+    <main>
+        <div class="wrapper">
+            <div>
+                <div id="libro">
+                    <img src="/images/productos/<%= product.imagenLibro %>" width="260" height="380" alt="Libro">
+                </div>
+                <div id="descripcion">
+                    <h1>
+                        <%= product.titulo %>
+                    </h1>
+                    <h3><%= product.autor %></h3><br>
+                    <img src="/images/star.png" width="20px" height="20px">
+                    <img src="/images/star.png" width="20px" height="20px">
+                    <img src="/images/star.png" width="20px" height="20px">
+                    <img src="/images/star.png" width="20px" height="20px">
+                    <img src="/images/star.png" width="20px" height="20px"><br><br>
+                    <span id="precio"> $ <%= product.precio %> </span><br><br>
+                    <span id="cantidad"> CANTIDAD </span>
+
+                    <input type="button"><i class="far fa-caret-square-up"></i> 1 <i
+                        class="far fa-caret-square-down"></i></i><br><br>
+                    <button class="glow-on-hover" type="button">¡Agregar al carrito!</button><br><br><br>
+
+                    <div class="img-with-text">
+                        <img class="img" src="/images/book-open.svg" width="40px" height="40px"><br>
+                        <span>
+                            <%= product.paginas %> páginas
+                        </span>
+                    </div>
+
+                </div>
+
+                <div id="resena">
+                    <span class="titulo">Reseña</span><br>
+                    <p><i>
+                        <%= product.resenia %>
+                    </p><br><br>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <%- include('./partials/footer') %>
+
+</body>
+</html>
