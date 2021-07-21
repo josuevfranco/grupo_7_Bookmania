@@ -3,14 +3,13 @@
     <head>
         <Title>Crear producto</Title>
         <link rel="stylesheet" href="/css/crearProducto.css">
-
     </head>
     <%- include('../partials/head') %>
     
  <body>
     <%- include('../partials/header') %>
     <main>
-        <h2 class="register">Creación de Productos</h2>
+        <h2 class="creacion">Creación de Productos</h2>
         <div class="formulario">
             
             <form action="/crearProducto" method="POST" enctype="multipart/form-data">
@@ -67,6 +66,8 @@
                             name="rating" 
                             id="rating"
                             class="control"
+                            min="0"
+                            max="5"
                         >
                     </label>
                     <% if (locals.errors && errors.rating) {%>
@@ -97,14 +98,14 @@
                         </div>
                     <%} %><br> 
             
-                    <label for="precio">Precio:
+                    <label for="precioLib">Precio:
                         <input 
                             type="number" 
-                            name="precio"
-                            id="precio"
+                            name="precioLib"
+                            id="precioLib"
                             class="control" 
-                            placeholder="Ejem 123.99"
-                            value= "<%= locals.oldData ? oldData.precio : null %>"
+                            min = "0"
+                            value= "<%= locals.oldData ? oldData.precioLib : null %>"
                         >    
                     </label>
                     <% if (locals.errors && errors.precio) {%>
@@ -133,6 +134,7 @@
                             name="anio" 
                             id="anio"
                             class="control"
+                            min= "100"
                         >
                     </label>
                     <% if (locals.errors && errors.anio) {%>
@@ -186,7 +188,7 @@
                     <%} %>  
                 </div>  
                     
-                <div class="enviar">
+                <div class="agregar">
                     <button type="submit" class="boton-form">Agregar</button><br>
                 </div><br>
                 <button type="submit" class="boton-form">Borrar</button>

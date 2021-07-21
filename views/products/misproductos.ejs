@@ -298,12 +298,15 @@
                             <div class="twenty">
                                 <%= products[i].idioma %>
                             </div>
-                            
-                            <a href="/edit/<%= products[i].id %>">EDITAR</a>
-                            <form action="/eliminar/<%=products[i].id%>?_method=DELETE" method="POST">
-                                <span class="remove-item-span"></span>
-                                    <button class="remove-item-button">Eliminar</button>
+                        
+                            <span class="remove-item-span">
+                                <button><a class="remove-item-button" href="/edit/<%= products[i].id %>">  Editar</a></button>
                             </span>
+
+                            <form action="/eliminar/<%=products[i].id%>?_method=DELETE" method="POST">
+                                <span class="remove-item-span">
+                                    <button class="remove-item-button">Eliminar</button>
+                                </span>     
                             </form>
                         </div>
                     </div>

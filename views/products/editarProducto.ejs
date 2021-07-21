@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head><Title>Editar producto</Title></head>
+    <head>
+        <Title>Editar producto</Title>
+        <link rel="stylesheet" href="/css/crearProducto.css">
+    </head>
     <%- include('../partials/head') %>
     
  <body>
     <%- include('../partials/header') %>
     <main>
-        <h2 class="register">Edición de Producto</h2>
+        <h2 class="creacion">Edición de Producto</h2>
         <div class="formulario">
             <form action="/editar/<%=productToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="titulo">
@@ -23,7 +26,7 @@
                         <div class="text-danger">
                             <%= errors.titulo.msg %>
                         </div>
-                    <%} %><br>
+                    <%} %><br><br>
 
                     <label for="autor">Autor:
                         <input 
@@ -38,7 +41,7 @@
                         <div class="text-danger">
                             <%= errors.autor.msg %>
                         </div>
-                    <%} %><br>
+                    <%} %><br><br>
 
                     <label for="editorial">Editorial:
                         <input 
@@ -52,7 +55,7 @@
                         <div class="text-danger">
                             <%= errors.editorial.msg %>
                         </div>
-                    <%} %><br>
+                    <%} %><br><br>
 
                     <label for="rating">Rating:
                         <input 
@@ -60,6 +63,7 @@
                             name="rating" 
                             id="rating"
                             class="control"
+                            min="0" max="5"
                             value ="<%= productToEdit.rating %>"
                         >
                     </label>
@@ -67,7 +71,7 @@
                         <div class="text-danger">
                             <%= errors.rating.msg %>
                         </div>
-                    <%} %><br>
+                    <%} %><br><br>
 
                     <label for="categoria">Categoría:
                         <select name="categoria" id="categoria" class="control">
@@ -78,20 +82,17 @@
                                              'Religión'];
                         %>
                         <% for(const cat of category) { %>
-                            <option 
-                                value="<%=cat %>"
-                                        "<%= productToEdit.categoria %>"
-                            ><%=cat%></option>
+                            <option  value="<%=cat %>" "<%= productToEdit.categoria %>"><%=cat%></option>
                         <% } %>                            
                         </select>
-                    </label><br>  
+                    </label><br><br> 
             
                     <label for="precio">Precio:
                         <input 
                             type="number" 
                             name="precio"
                             class="control" 
-                            placeholder="Ejem 123.99"
+                            min="0"
                             value= "<%= productToEdit.precio %>"
                         >    
                     </label>
@@ -99,7 +100,7 @@
                         <div class="text-danger">
                             <%= errors.precio.msg %>
                         </div>
-                    <%} %><br>
+                    <%} %><br><br>
     
                     <label for="idioma">Idioma:
                         <input 
@@ -114,7 +115,7 @@
                         <div class="text-danger">
                             <%= errors.idioma.msg %>
                         </div>
-                    <%} %><br>
+                    <%} %><br><br>
 
                     <label for="anio">Año:
                         <input 
@@ -122,6 +123,7 @@
                             name="anio" 
                             id="anio"
                             class="control"
+                            min="100"
                             value = "<%= productToEdit.anio %>"
                         >
                     </label>
@@ -129,7 +131,7 @@
                         <div class="text-danger">
                             <%= errors.year.msg %>
                         </div>
-                    <%} %><br>
+                    <%} %><br><br>
                    
                     <label for="paginas">Páginas:
                         <input type="text" name="paginas" id="paginas" class="control"
@@ -139,11 +141,9 @@
                         <div class="text-danger">
                             <%= errors.paginas.msg %>
                         </div>
-                    <%} %><br>
+                    <%} %><br><br>
                 </div><br>
                 
-                
-
                 <label for="descuento"> Descuento:<br>
                     <input type="radio" name="descuento" id="descuento0" value="0"  <%= productToEdit.descuento == 0 ? "checked":"" %>> 0% </input>&emsp;
                     <input type="radio" name="descuento" id="descuento5" value="5" <%= productToEdit.descuento == 5 ? "checked":"" %>> 5% </input>&emsp;
@@ -174,7 +174,7 @@
                     </label>
                 </div>  
                     
-                <div class="enviar">
+                <div class="agregar">
                     <button type="submit" class="boton-form">Actualizar</button><br>
                 </div><br>
                 <button type="submit" class="boton-form">Borrar</button>

@@ -1,31 +1,13 @@
-*{
-	margin: 0px;
-    box-sizing: border-box;
-}
-
-h2{
+.creacion{
 	display: flex;
 	justify-content: center;
+	margin-top: 20px;
+	margin-right:300px ;
+}
+.creacion, .footer-titulo{
+    color: rgb(86, 145, 233);
 }
 
-.content{
-	padding: 0 20px;
-}
-.content img{
-	width: 100%;
-	max-width: 700px;
-	margin: 20px 0;
-}
-.content p{
-	text-align: justify;
-}
-
-
-.titulo{
-    margin-top:20px;
-    display: flex;
-    justify-content: center;
-}
 
 .control{
 	width: 100%;
@@ -46,7 +28,7 @@ form{
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	background-color: rgb(201, 201, 201);
+	background-color: rgb(189, 198, 205);
 	padding: 20px;
 	border-radius: 8px;
 }
@@ -58,10 +40,11 @@ form{
 form label{
 	font-size: 20px;
 }
+
 input, select, textarea{
     border-radius: 5px;
     border: none;
-    font-size: 15px;
+    font-size: 17px;
     color:darkblue;
     width: auto;
 }
@@ -70,23 +53,27 @@ form form{
 	display: flex;
 	flex-wrap:wrap;
 }
-.enviar{
+
+.agregar{
     margin-top: 40px;
     display: flex;
-    justify-content: flex-end; 
-    align-items: flex-end;  
+    justify-content: center;   
 }
 
-.enviar button{
-    width: 90px;
-	font-size: 18px;
-	border-radius: 5px;
+.agregar button{
+    width: auto;
+	padding: 8px;
+	font-size: 22px;
+	border-radius: 3px;
 	font-family: 'Times New Roman';
-    background-color: rgb(214, 214, 247);
-    color: black;
+	color: rgb(37, 91, 230);
 }
 button{
-	width: 90px;
+	width: 80px;
+	font-size: 18px;
+}
+.text-danger{
+	color: rgb(186, 41, 41);
 }
 
 @media screen and (max-width:800px) {

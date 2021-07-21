@@ -1,20 +1,5 @@
 [
   {
-    "id": "2",
-    "titulo": "Matar a un Ruiseñor",
-    "autor": "Harper Lee",
-    "editorial": "Harper Collins",
-    "rating": "3",
-    "categoria": "Literatura",
-    "precio": "374",
-    "idioma": "Español",
-    "anio": "2019",
-    "paginas": "274",
-    "descuento": "10",
-    "resenia": "El consejo de un abogado a sus hijos mientras él defiende el verdadero ruiseñor de la novela clásica de Harper Lee ―un hombre negro acusado de violar a una niña blanca. A través de los ojos de Jem y Scout Finch, Harper Lee explora con humor y honestidad inquebrantable la irracionalidad de la actitud de los adultos hacia la raza y la clase en las profundidades del sur en la década de 1930\" \" ",
-    "imagenLibro": "matar-a-un-ruiseñor.jpg"
-  },
-  {
     "id": "3",
     "titulo": "Cumbres Borrascosas",
     "autor": "Emily Bronte",

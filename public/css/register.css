@@ -1,21 +1,23 @@
-*{
-	margin: 0;
-	padding: 0;
-	font-family: "montserrat",sans-serif;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-  }
 .columnas_reg{
-	margin-right: 200px;
+	margin-right: 100px;
     display: flex;
-	flex-direction: row;
-	justify-self: center;
+}
+.column1_reg{
+	display: flex;
 	align-items: center;
+	flex: 40%;
+	margin-left: 0px;
 }
 
 .column1_reg img{
-	width: 1200px;
+	width: 2000px;
 	height: 400px;
+}
+.column2_reg{
+	display: flex;
+	flex-direction: column ;
+	flex: 60%;
+	float: right;
 }
 
 .register, .footer-titulo{
@@ -24,7 +26,6 @@
 }
 .register{
 	display: flex;
-	align-items: center;
 	justify-content: center;
 	margin-top: 20px;
 }
@@ -40,6 +41,7 @@ form{
 	justify-content: flex-start;
 	background-color: rgb(189, 198, 205);
 	border-radius: 8px;
+	padding: 20px;
 }
 form label{
 	font-size: 20px;
@@ -57,7 +59,7 @@ form form{
 .control{
 	width: 100%;
 	padding: 10px 20px;
-	border-radius: 3px;
+	border-radius: 5px;
 	border: none;
 	margin-top: 10px;
 }
@@ -127,7 +129,6 @@ form form{
 .enviar{
     margin-top: 40px;
     display: flex;
-    flex-direction: row;
     justify-content: center;   
 }
 
@@ -136,9 +137,8 @@ form form{
 	padding: 8px;
 	font-size: 22px;
 	border-radius: 3px;
-	border: none;
 	font-family: 'Times New Roman';
-	color: rgb(14, 108, 165);
+	color: rgb(51, 90, 148);
 }
 
 .terminos-check{

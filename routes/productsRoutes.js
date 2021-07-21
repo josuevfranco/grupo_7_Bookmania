@@ -26,7 +26,7 @@ const validations = [
       body('autor').notEmpty().withMessage('Tienes que escrbir el autor del libro'),
       body('anio').notEmpty().withMessage('Tienes que escribir el año de publicación'),
       body('editorial').notEmpty().withMessage('Tienes que escribir la editorial del libro'),
-      body('precio')
+      body('precioLib')
           .notEmpty().withMessage('Debes de asignar un precio').bail()
           .isNumeric().withMessage('Escribe el precio en formato de número'),
       body('categoria').notEmpty().withMessage('Tienes que seleccionar una categoría'),
