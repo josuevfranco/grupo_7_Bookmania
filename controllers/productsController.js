@@ -5,6 +5,7 @@ const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+
 //storage para guardar imagen de libro
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -27,6 +28,9 @@ const productsController = {
     cat_arte: (req, res) => {
         return res.render('products/cat_arte');
     },
+    misproductos: (req,res) => {
+        return res.render('products/misproductos', {'products': products});
+    }, 
 
     //*CRUD *//
     //formulario de crear producto
@@ -72,7 +76,7 @@ const productsController = {
         else{
             products.push(newProduct);
             fs.writeFileSync(productsFilePath, JSON.stringify(products, null, '\t'));
-            res.redirect("/misproductos");
+            res.redirect("products/misproductos");
         }
       },
 
@@ -80,7 +84,7 @@ const productsController = {
     detail: (req, res) => {
         let id = parseInt(req.params.id)
 		const product = products.find(product => product.id == id);
-		res.render('detail', {product});
+		res.render('products/detail', {product});
 	},
 
     update: (req, res) => {
@@ -113,7 +117,7 @@ const productsController = {
     
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
         
-        res.redirect("/misproductos");
+        res.redirect("products/misproductos");
     },
  
     edit: (req, res) => {    

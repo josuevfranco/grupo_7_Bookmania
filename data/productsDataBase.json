@@ -133,20 +133,5 @@
     "descuento": 10,
     "resenia": "Un libro sobrecogedor, potente e inspirador que busca ayudar a todos aquellos cuyos traumas les impiden vivir en plenitud. Como su mentor Viktor Frankl, Edith Eger es una superviviente cuya experiencia vital y trayectoria como psicóloga le han permitido ayudar a miles de personas que viven incapacitadas por sus cicatrices emocionales.",
     "imagenLibro": "la-bailarina-de-auschwitz.jpg"
-  },
-  {
-    "id": 11,
-    "titulo": "Regreso a la Jaula",
-    "autor": "Roger Bartra",
-    "editorial": "Penguin Random House",
-    "rating": 4.6,
-    "categoria": "Política",
-    "precio": 249,
-    "idioma": "Español",
-    "anio": 2021,
-    "paginas": 254,
-    "descuento": 50,
-    "resenia": "Una de las claves para el éxito de AMLO, asegura Roger Bartra en este libro, fueron las cuestionables alianzas que impulsaron la campaña del hoy presidente, y que revelaron finalmente su verdadera orientación política. Aunque para los seguidores más fieles de su partido se vendió como un demócrata firmemente anclado en la izquierda, los hechos lo han revelado como un populista de la más conservadora derecha, inspirado en el priismo autoritario de los años sesenta y setenta.",
-    "imagenLibro": "regreso-a-la-jaula.jpg"
   }
 ]

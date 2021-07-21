@@ -1,73 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head><Title>Crear producto</Title></head>
+    <head>
+        <Title>Crear producto</Title>
+        <link rel="stylesheet" href="/css/crearProducto.css">
+
+    </head>
     <%- include('../partials/head') %>
     
  <body>
     <%- include('../partials/header') %>
     <main>
-        <h2 class="titulo">Creación de Productos</h2>
+        <h2 class="register">Creación de Productos</h2>
         <div class="formulario">
-            <form action="" method="POST">
-                <label for="id">Id:
-                    <input type="number" name="id" id="id" required>
-                </label>
+            
+            <form action="/crearProducto" method="POST" enctype="multipart/form-data">
                 <div class="titulo">
-                    <label for="titulo">Título:
-                        <input type="text" name="titulo" id="titulo" required>
-                    </label><br>
-                    <label for="autor">Autor:
-                        <input type="text" name="autor" id="autor" required>
-                    </label><br>
-                </div>
 
-                <div class="titulo">
-                    <label for="año">Año:
-                        <input type="number" name="año" id="año" required>
-                    </label><br>
-                    <label for="categoría">Categoría:
-                        <select name="Categoría" required>
-                            <option value="arte">Arte</option>
-                            <option value="ciencia">Ciencia</option>
-                            <option value="deportes">Deportes</option>
-                            <option value="derecho">Derecho</option>
-                            <option value="economía">Economía</option>
-                            <option value="ingles">Enseñanza Inglés</option>
-                            <option value="ficcion">Ficción</option>
-                            <option value="ingenieria">Ingeniería</option>
-                            <option value="infantil">Infantil</option>
-                            <option value="informatica">Informática</option>
-                            <option value="economía">Economía</option>
-                            <option value="literatura">Literatura</option>
-                            <option value="medicina">Medicina</option>
-                            <option value="psicología">Psicología</option>
-                            <option value="religion">Religión</option>
+                    <label for="titulo">Título:
+                        <input 
+                            type="text" 
+                            name="titulo" 
+                            id="titulo"
+                            class="control"
+                            value= "<%= locals.oldData ? oldData.titulo : null %>"
+                        >
+                    </label>
+                    <% if (locals.errors && errors.titulo) {%>
+                        <div class="text-danger">
+                            <%= errors.titulo.msg %>
+                        </div>
+                    <%} %><br>
+
+                    <label for="autor">Autor:
+                        <input 
+                            type="text" 
+                            name="autor" 
+                            id="autor"
+                            class="control"
+                            value= "<%= locals.oldData ? oldData.autor : null %>"
+                        >
+                    </label>
+                    <% if (locals.errors && errors.autor) {%>
+                        <div class="text-danger">
+                            <%= errors.autor.msg %>
+                        </div>
+                    <%} %><br>
+
+                    <label for="editorial">Editorial:
+                        <input 
+                            type="text" 
+                            name="editorial"
+                            id="editorial"
+                            class="control"
+                            value= "<%= locals.oldData ? oldData.editorial : null %>"
+                        >
+                    </label>
+                    <% if (locals.errors && errors.editorial) {%>
+                        <div class="text-danger">
+                            <%= errors.editorial.msg %>
+                        </div>
+                    <%} %><br>
+
+                    <label for="rating">Rating:
+                        <input 
+                            type="number" 
+                            name="rating" 
+                            id="rating"
+                            class="control"
+                        >
+                    </label>
+                    <% if (locals.errors && errors.rating) {%>
+                        <div class="text-danger">
+                            <%= errors.rating.msg %>
+                        </div>
+                    <%} %><br>
+
+                    <label for="categoria">Categoría:
+                        <select name="categoria" id="categoria" class="control">
+                        <%
+                            let category =[ 'Arte', 'Ciencia', 'Deportes', 'Derecho', 'Economía',
+                                            'Enseñanza Inglés', 'Ficción', 'Ingeniería', 'Infantil',
+                                             'Informática', 'Literatura', 'Medicina', 'Psicología',
+                                             'Religión'];
+                        %>
+                        <% for(const cat of category) { %>
+                            <option 
+                                value="<%=cat %>"
+                                    <%= locals.oldData && (cat === oldData.Categoria) ? 'selected' : null %>
+                            ><%=cat%></option>
+                        <% } %>                            
                         </select>
-                    </label><br>  
+                    </label><br> 
+                    <% if (locals.errors && errors.categoria) {%>
+                        <div class="text-danger">
+                            <%= errors.categoria.msg %>
+                        </div>
+                    <%} %><br> 
+            
+                    <label for="precio">Precio:
+                        <input 
+                            type="number" 
+                            name="precio"
+                            id="precio"
+                            class="control" 
+                            placeholder="Ejem 123.99"
+                            value= "<%= locals.oldData ? oldData.precio : null %>"
+                        >    
+                    </label>
+                    <% if (locals.errors && errors.precio) {%>
+                        <div class="text-danger">
+                            <%= errors.precio.msg %>
+                        </div>
+                    <%} %><br>
+    
+                    <label for="idioma">Idioma:
+                        <input 
+                            type="text" 
+                            name="idioma" 
+                            id="idioma"
+                            class="control"
+                        > 
+                    </label> 
+                    <% if (locals.errors && errors.idioma) {%>
+                        <div class="text-danger">
+                            <%= errors.idioma.msg %>
+                        </div>
+                    <%} %><br>
+
+                    <label for="anio">Año:
+                        <input 
+                            type="number" 
+                            name="anio" 
+                            id="anio"
+                            class="control"
+                        >
+                    </label>
+                    <% if (locals.errors && errors.anio) {%>
+                        <div class="text-danger">
+                            <%= errors.anio.msg %>
+                        </div>
+                    <%} %><br>
+                   
+                    <label for="paginas">Páginas:
+                        <input type="text" name="paginas" id="paginas" class="control">
+                    </label>
+                    <% if (locals.errors && errors.paginas) {%>
+                        <div class="text-danger">
+                            <%= errors.paginas.msg %>
+                        </div>
+                    <%} %><br>
                 </div><br>
-                <label for="editorial">Editorial:
-                    <input type="text" name="editorial">
-                </label><br><br>
-                <label for="precio">Precio:
-                    <input type="number" name="precio" placeholder="123.99" required>
-                </label><br><br>
-                <label for="descripcion"> Detalle del libro: <br>
-                    <textarea name="descripcion" required> </textarea>
+                
+                <label for="descuento"> Descuento:<br>
+                    <input type="radio" name="descuento" id="descuento0" value="0" checked> 0% </input>&emsp;
+                    <input type="radio" name="descuento" id="descuento5" value="5"> 5% </input>&emsp;
+                    <input type="radio" name="descuento" id="descuento10" value="10"> 10% </input>&emsp;
+                    <input type="radio" name="descuento" id="descuento20" value="20"> 20% </input>&emsp;
+                    <input type="radio" name="descuento" id="descuento50" value="50"> 50% </input><br>
                 </label><br>
-                    <label for="oferta"> Oferta:<br>
-                        0%<input type="radio" name="oferta" id="0%">
-                        5%<input type="radio" name="oferta" id="5%">
-                        10%<input type="radio" name="oferta" id="10%">
-                        20%<input type="radio" name="oferta" id="20%">
-                        50%<input type="radio" name="oferta" id="50%">
-                    </label><br>
-                    <div class="titulo">
-                        <label for="img">Imagen:
-                            <input type="file" size="24" required>
-                        </label>
-                    </div>      
+
+                <label for="resenia"><br> Reseña: <br>
+                    <textarea name="resenia" id="resenia" class="control"
+                    value= "<%= locals.oldData ? oldData.resenia : null %>"> </textarea>
+                </label><br> 
+                <% if (locals.errors && errors.resenia) {%>
+                    <div class="text-danger">
+                        <%= errors.resenia.msg %>
+                    </div>
+                <%} %><br>               
+                
+                <div class="titulo">
+                     <label for="imagenLibro">Imagen:
+                        <input 
+                            type="file"    
+                            size="24" 
+                            name="imagenLibro"
+                            id="imagenLibro"
+                            class="control"
+                        >
+                    </label> 
+                    <% if (locals.errors && errors.imagenLibro) {%>
+                        <div class="text-danger">
+                            <%= errors.imagenLibro.msg %>
+                        </div>
+                    <%} %>  
+                </div>  
+                    
                 <div class="enviar">
-                    <button type="submit" class="boton-form">Cargar Producto</button><br>
+                    <button type="submit" class="boton-form">Agregar</button><br>
                 </div><br>
                 <button type="submit" class="boton-form">Borrar</button>
             </form>

@@ -18,6 +18,7 @@ const {body} = require('express-validator');
 
 const uploadFile = multer({storage : storage});
 const productsController = require('../controllers/productsController');
+const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 
 //array de validaciones
 const validations = [
@@ -63,6 +64,9 @@ const validations = [
 router.get('/carrito', productsController.carrito);
 router.get('/producto', productsController.producto);
 router.get('/cat_arte', productsController.cat_arte);
+
+//Para ver todos los productos
+router.get('/misproductos', productsController.misproductos);
 
 //formulario de creación de productos 
 router.get('/crearProducto', productsController.crearProducto);
