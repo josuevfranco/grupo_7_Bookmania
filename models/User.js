@@ -45,15 +45,12 @@ const User = {
 
     //Crear un usuario
     create : function (userData) {
+        
         let allUsers = this.findAll();
-        let newUser = {
-            id : this.generateID(),
-            ...userData
-        }
-        allUsers.push(newUser);
+        allUsers.push(userData);
 
         fs.writeFileSync(fileName, JSON.stringify(allUsers, null, '\t'));
-        return newUser;
+        //return newUser;
     },
 
     //Eliminar Usuario

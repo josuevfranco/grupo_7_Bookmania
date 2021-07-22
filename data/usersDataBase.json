@@ -28,5 +28,45 @@
 		"constrasena": "abc12345",
 		"rol": "administrador",
 		"imagen": "daniela-hdz-lara.jpg"
+	},
+	{
+		"id": 4,
+		"nombre": "José",
+		"apellidoPaterno": "Romo",
+		"apellidoMaterno": "González",
+		"email": "jose@gmail.com",
+		"constrasena": "$2a$10$55maWtEMXCYW3aM.D7KPnOqHqAMcPk/Qz1lTjZVcvBFUjfzLwypiS",
+		"rol": "Cliente",
+		"imagen": "profile-1626937672396.jpg"
+	},
+	{
+		"id": 5,
+		"nombre": "José",
+		"apellidoPaterno": "Romo",
+		"apellidoMaterno": "González",
+		"email": "jose@gmail.com",
+		"constrasena": "$2a$10$TzmvSWCBJjHBrZa7fST69ufL.ihqNDUR3ul21F.S5LFle/0kmkFRO",
+		"rol": "Cliente",
+		"imagen": "profile-1626937748624.jpg"
+	},
+	{
+		"id": 6,
+		"nombre": "María",
+		"apellidoPaterno": "Lopez",
+		"apellidoMaterno": "Delgado",
+		"email": "maria@gmail.com",
+		"constrasena": "$2a$10$wT1f4OvjxescmsRdebf9cuaGDNN5Ic1DsyatTyxO82d2.TpL./RA.",
+		"rol": "Cliente",
+		"imagen": "profile-1626937792373.png"
+	},
+	{
+		"id": 7,
+		"nombre": "Juan",
+		"apellidoPaterno": "De la Barrera",
+		"apellidoMaterno": "Gonzalez",
+		"email": "dela@gmail.com",
+		"constrasena": "$2a$10$WLyNlOpt7lww8Ieo//av5eZvqw5m/y8QnSBzQm8DBG7MXevg9jpoe",
+		"rol": "Administrador",
+		"imagen": "profile-1626940378626.jpg"
 	}
 ]

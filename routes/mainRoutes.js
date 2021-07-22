@@ -34,7 +34,7 @@ const validationsRegister = [
     body('password')
         .notEmpty().withMessage('Debes escribir una contraseña').bail()
         .isLength({min: 6}).withMessage('La contraseña debe ser de mínimo 6 caracteres'),
-    body('password2').notEmpty(),
+    body('rol').notEmpty().withMessage('Debes de escribir un rol correcto'),
     
     body('usuarios').custom((value, {req}) =>{
         let file = req.file;

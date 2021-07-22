@@ -80,20 +80,22 @@
                             </div>
                         <%} %><br><br>
 
-                        <label for="rol">Rol (Cliente o Administrador):
-                            <input 
-                                type="text" 
-                                id="rol" 
-                                name="rol" 
-                                class="control"
-                                value= "<%= locals.oldData ? oldData.rol : null %>"
-                            >
-                        </label><br>
-                        <!-- <% if (locals.errors && errors.rol) {%>
+                        <select style="font-size: 20px;" name="rol" >
+                            <option value="">Elegí un rol</option>
+                            <%  let opciones = ['Administrador', 'Cliente']; %>
+                        <% for (const oneOption of opciones) { %>
+                            <option 
+                                value="<%= oneOption %>"
+                                <%= locals.oldData && (oneOption === oldData.rol) ? 'selected' : null %> 
+                            > <%= oneOption %> </option>
+                        <% } %>
+                        </select>
+
+                        <% if (locals.errors && errors.rol) {%>
                             <div class="text-danger">
                                 <%= errors.rol.msg %>
                             </div>
-                        <%} %><br><br> -->
+                        <%} %><br><br>
 
                         <label for="password">Contraseña:
                             <input type="password" id="password" name="password" class="control">
@@ -103,10 +105,6 @@
                                 <%= errors.password.msg %>
                             </div>
                         <%} %><br><br>
-
-                        <label for="password2">Confirmar contraseña:
-                            <input type="password" id="password2" name="password2" class="control">
-                        </label><br><br><br>
                         <label for="img">Imagen de usuario:
                             <input type="file" size="24" name="usuarios">
                         </label>
