@@ -125,8 +125,18 @@
         }
 
         .remove-item-span {
+            padding: 5px;
             position: relative;
             left: 1em;
+        }
+
+        .remove-item-button:hover {
+            color: black;
+            background: rgb(212, 164, 164);
+        }
+
+        .editar-item-button:hover {
+            color: black;
         }
 
         .remove-item-button {
@@ -299,10 +309,12 @@
                                 <%= products[i].idioma %>
                             </div>
                         
-                            <span class="remove-item-span">
-                                <button><a class="remove-item-button" href="/edit/<%= products[i].id %>">  Editar</a></button>
-                            </span>
-
+                            <form action="/edit/<%= products[i].id %>" method="get">
+                                <span class="remove-item-span">
+                                    <button class="editar-item-button">  Editar</button>
+                                </span>
+                            </form>
+                           
                             <form action="/eliminar/<%=products[i].id%>?_method=DELETE" method="POST">
                                 <span class="remove-item-span">
                                     <button class="remove-item-button">Eliminar</button>

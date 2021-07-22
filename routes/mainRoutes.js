@@ -13,8 +13,9 @@ const storage = multer.diskStorage({
         cb(null, './public/images/usuarios');
     }, 
     filename: (req, file, cb)=> {
-        const fileName = file.fieldname + '_img' + path.extname(file.originalname);
-        cb(null, fileName);
+        let ext = file.originalname.substring(file.originalname.lastIndexOf('.'), file.originalname.length);
+        const newFileName = 'profile-' + Date.now() + ext; //path.extname(file.originalname)
+        cb(null, newFileName);
     }
 })
 

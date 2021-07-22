@@ -4,7 +4,7 @@ const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
+let img = "";
 
 //storage para guardar imagen de libro
 const multer = require('multer');
@@ -13,8 +13,9 @@ const storage = multer.diskStorage({
         cb(null, './public/images/productos');
     }, 
     filename: (req, file, cb)=> {
-        const fileName = file.fieldname + '_img' + path.extname(file.originalname);
-        cb(null, fileName);
+        //let ext = file.originalname.substring(file.originalname.lastIndexOf('.'), file.originalname.length);
+        const newFileName = path.extname(file.originalname);
+        cb(null, newFileName);
     }
 })
 
@@ -30,7 +31,7 @@ const productsController = {
     },
     misproductos: (req,res) => {
         return res.render('products/misproductos', {'products': products});
-    }, 
+    },
 
     //*CRUD *//
     //formulario de crear producto
@@ -40,7 +41,13 @@ const productsController = {
 
     //almacenar producto
     store: (req, res) => {
-        let newId = parseInt(products.length + 1);
+        let newId = 1;
+
+        let lastProduct  = products.pop();
+        if(lastProduct){
+            newId = lastProduct.id + 1;
+        }
+
 		let data = req.body;
         let imagen = "";
         if(req.file){
@@ -76,7 +83,7 @@ const productsController = {
         else{
             products.push(newProduct);
             fs.writeFileSync(productsFilePath, JSON.stringify(products, null, '\t'));
-            res.redirect("products/misproductos");
+            res.redirect("/misproductos");
         }
       },
 
@@ -117,7 +124,7 @@ const productsController = {
     
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
         
-        res.redirect("products/misproductos");
+        res.redirect("/misproductos");
     },
  
     edit: (req, res) => {    

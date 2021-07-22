@@ -82,27 +82,20 @@
                             </div>
                         <%} %><br><br>
 
-                        <label for="rol">Rol:
+                        <label for="rol">Rol (Cliente o Administrador):
                             <input 
-                                type="radio" 
-                                id="cliente" 
+                                type="text" 
+                                id="rol" 
                                 name="rol" 
                                 class="control"
                                 value= "<%= locals.oldData ? oldData.rol : null %>"
-                            >Cliente
-                            <input 
-                                type="radio" 
-                                id="administrador" 
-                                name="rol" 
-                                class="control"
-                                value= "<%= locals.oldData ? oldData.rol : null %>"
-                            >Administrador
+                            >
                         </label><br>
-                        <% if (locals.errors && errors.rol) {%>
+                        <!-- <% if (locals.errors && errors.rol) {%>
                             <div class="text-danger">
                                 <%= errors.rol.msg %>
                             </div>
-                        <%} %><br><br>
+                        <%} %><br><br> -->
 
                         <label for="password">Contraseña:
                             <input type="password" id="password" name="password" class="control">

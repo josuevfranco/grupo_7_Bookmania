@@ -1,9 +1,8 @@
 const {validationResult} = require('express-validator');
 const fs = require('fs');
 const path = require('path');
-
-
-
+const User  = require('../models/User');
+const bcrypt = require('bcryptjs');
 
 const mainController = {
     index: (req, res) => {
@@ -20,7 +19,29 @@ const mainController = {
                 oldData: req.body,
             });
         }
-        return res.send("Validaciones en registro OK");
+
+        let passEncriptada = bcrypt.hashSync(req.body.password, 10);
+        let imagen = "";
+        if(req.file){
+            imagen = req.file.filename;
+            console.log(imagen);
+        }
+
+
+
+        usuario = {
+            id : User.generateID(),
+            nombre : req.body.nameUser,
+            apellidoPaterno : req.body.lastName,
+            apellidoMaterno : req.body.lastNameM,
+            email : req.body.email,
+            constrasena : passEncriptada,
+            rol : req.body.rol.value,
+            imagen : imagen
+        }
+
+        console.log(usuario);
+        return res.send("Validaciones en registro OK "+usuario);
     },
 
     login: (req, res) => {

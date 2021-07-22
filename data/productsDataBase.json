@@ -1,36 +1,21 @@
 [
   {
-    "id": "3",
-    "titulo": "Cumbres Borrascosas",
-    "autor": "Emily Bronte",
-    "editorial": "Juventud",
-    "rating": "4",
-    "categoria": "Classicos",
-    "precio": "247",
-    "idioma": "Español",
-    "anio": "2004",
-    "paginas": "344",
-    "descuento": 20,
-    "resenia": "Cumbres borrascosas es un clásico de la literatura inglesa escrito por Emily Brontë, una épica historia que constituye una asombrosa visión metafísica del destino, la obsesión, la pasión y la venganza.",
-    "imagenLibro": "cumbres-borrascosas.jpg"
-  },
-  {
-    "id": "4",
+    "id": "2",
     "titulo": "A Million To One",
     "autor": "Faggioli Tony",
     "editorial": "Alianza",
-    "rating": "3",
-    "categoria": "Novela",
+    "rating": "2",
+    "categoria": "Arte",
     "precio": "339",
-    "idioma": "Español",
+    "idioma": "English",
     "anio": "2017",
     "paginas": "215",
-    "descuento": 0,
+    "descuento": "0",
     "resenia": "Algunas victorias tienen un alto precio. Para Kyle Fasano ese precio es una caída en el infierno, un lugar en el que nunca creyó realmente. Ahora un alma viva atrapada en una tierra de muerte y terror, busca desesperadamente escapar, pero está a punto de aprender que el peor lugar de todos puede ser el infierno que vive a nuestro lado.",
-    "imagenLibro": "a-million-to-one.png"
+    "imagenLibro": "9786073803823.jpg"
   },
   {
-    "id": "5",
+    "id": "3",
     "titulo": "Boulevard",
     "autor": "Flor M. Salvador",
     "editorial": "Editorial Naranja",
@@ -45,7 +30,7 @@
     "imagenLibro": "boulevard.jpg"
   },
   {
-    "id": "6",
+    "id": "4",
     "titulo": "El Infinito en un Junco",
     "autor": "Irene Vallejo",
     "editorial": "Siruela",
@@ -60,7 +45,7 @@
     "imagenLibro": "el-infinito-en-un-junco.png"
   },
   {
-    "id": "7",
+    "id": "5",
     "titulo": "El Simbolo Sagrado",
     "autor": "Julien Ries",
     "editorial": "Nirvana Libros",
@@ -75,7 +60,7 @@
     "imagenLibro": "el-simbolo-sagrado.png"
   },
   {
-    "id": "8",
+    "id": "6",
     "titulo": "Estetica del Siglo XIX",
     "autor": "Federico Vercellone",
     "editorial": "Antonio Machado Libros",
@@ -90,7 +75,7 @@
     "imagenLibro": "estetica-del-siglo-XIX.png"
   },
   {
-    "id": "9",
+    "id": "7",
     "titulo": "Guia Completa del Diseño Grafico",
     "autor": "Bryony Gomez-Palacio",
     "editorial": "Paidotribo Mexico S De Rl De Cv",
@@ -105,7 +90,7 @@
     "imagenLibro": "guia-completa-del-diseño-grafico.png"
   },
   {
-    "id": 10,
+    "id": 8,
     "titulo": "La Bailarina de Auschwitz",
     "autor": "Edith Eger",
     "editorial": "Planeta",
@@ -118,5 +103,20 @@
     "descuento": 10,
     "resenia": "Un libro sobrecogedor, potente e inspirador que busca ayudar a todos aquellos cuyos traumas les impiden vivir en plenitud. Como su mentor Viktor Frankl, Edith Eger es una superviviente cuya experiencia vital y trayectoria como psicóloga le han permitido ayudar a miles de personas que viven incapacitadas por sus cicatrices emocionales.",
     "imagenLibro": "la-bailarina-de-auschwitz.jpg"
+  },
+  {
+    "id": "12",
+    "titulo": "PSICOTERAPIA INFANTIL",
+    "autor": "MARIA EUGENIA RD",
+    "editorial": "Trillas",
+    "rating": "3",
+    "categoria": "Arte",
+    "idioma": "Español",
+    "anio": "2009",
+    "paginas": "312",
+    "descuento": "5",
+    "resenia": " Sinopsis no disponible",
+    "imagenLibro": "image_1165_1_256429.jpg",
+    "precio": ""
   }
 ]
