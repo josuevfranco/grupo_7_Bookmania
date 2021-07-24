@@ -7,7 +7,7 @@
 		"email": "pame_a1411@hotmail.com",
 		"constrasena": "abc12345",
 		"rol": "administrador",
-		"imagen": "stephie-pam-avila-campos-jpg"
+		"imagen": "stephie-pam-avila-campos.png"
 	},
 	{
 		"id": 2,
@@ -31,42 +31,12 @@
 	},
 	{
 		"id": 4,
-		"nombre": "José",
-		"apellidoPaterno": "Romo",
-		"apellidoMaterno": "González",
-		"email": "jose@gmail.com",
-		"constrasena": "$2a$10$55maWtEMXCYW3aM.D7KPnOqHqAMcPk/Qz1lTjZVcvBFUjfzLwypiS",
+		"nombre": "prueba",
+		"apellidoPaterno": "prueba",
+		"apellidoMaterno": "prueba",
+		"email": "p@e.com",
+		"constrasena": "$2a$10$vahah1L1lr.yL2skR05eYe37vel6bYs786RGT7Zi4MzWrQjrwVeMm",
 		"rol": "Cliente",
-		"imagen": "profile-1626937672396.jpg"
-	},
-	{
-		"id": 5,
-		"nombre": "José",
-		"apellidoPaterno": "Romo",
-		"apellidoMaterno": "González",
-		"email": "jose@gmail.com",
-		"constrasena": "$2a$10$TzmvSWCBJjHBrZa7fST69ufL.ihqNDUR3ul21F.S5LFle/0kmkFRO",
-		"rol": "Cliente",
-		"imagen": "profile-1626937748624.jpg"
-	},
-	{
-		"id": 6,
-		"nombre": "María",
-		"apellidoPaterno": "Lopez",
-		"apellidoMaterno": "Delgado",
-		"email": "maria@gmail.com",
-		"constrasena": "$2a$10$wT1f4OvjxescmsRdebf9cuaGDNN5Ic1DsyatTyxO82d2.TpL./RA.",
-		"rol": "Cliente",
-		"imagen": "profile-1626937792373.png"
-	},
-	{
-		"id": 7,
-		"nombre": "Juan",
-		"apellidoPaterno": "De la Barrera",
-		"apellidoMaterno": "Gonzalez",
-		"email": "dela@gmail.com",
-		"constrasena": "$2a$10$WLyNlOpt7lww8Ieo//av5eZvqw5m/y8QnSBzQm8DBG7MXevg9jpoe",
-		"rol": "Administrador",
-		"imagen": "profile-1626940378626.jpg"
+		"imagen": "profile-1627086108439.png"
 	}
 ]

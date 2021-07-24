@@ -5,6 +5,9 @@ const bcrypt = require('bcryptjs');
 const fs = require('fs');
 const path = require('path');
 
+const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
+const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+
 const mainController = {
     index: (req, res) => {
         return res.render('index');
@@ -16,51 +19,66 @@ const mainController = {
     //Proceso de Registro de un usuario
     processRegister:(req, res)=>{
         const resValidation = validationResult(req);
+        let passEncriptada = bcrypt.hashSync(req.body.password, 10);
+        let imagen = "";
+
+        //verificamos que no haya campos vacios
         if(resValidation.errors.length > 0){
             return res.render('users/register', {
                 errors: resValidation.mapped(),
-                oldData: req.body,
+                oldData: req.body,   
             });
         }
-
-        let passEncriptada = bcrypt.hashSync(req.body.password, 10);
-        let imagen = "";
-        if(req.file){
-            imagen = req.file.filename;
-            console.log(imagen);
+        else{
+            
+            if(req.file){
+                imagen = req.file.filename;
+                console.log(imagen);
+            }
+            usuario = {
+                id: User.generateID(),
+                nombre: req.body.nameUser,
+                apellidoPaterno: req.body.lastName,
+                apellidoMaterno: req.body.lastNameM,
+                email: req.body.email,
+                constrasena: passEncriptada,
+                rol: req.body.rol,
+                imagen: imagen
+            }
+            //Verificamos que el email no esté ya dado de alta
+            let userInDB = User.findByField('email', usuario.email);
+            if (userInDB) {
+                return res.render('users/register', {
+                    errors: {
+                        email: {
+                            msg:'Este email ya está registrado'
+                        }   
+                    },
+                    oldData: req.body
+                });
+            }
+            User.create(usuario);    
         }
-
-
-
-        usuario = {
-            id : User.generateID(),
-            nombre : req.body.nameUser,
-            apellidoPaterno : req.body.lastName,
-            apellidoMaterno : req.body.lastNameM,
-            email : req.body.email,
-            constrasena : passEncriptada,
-            rol : req.body.rol,
-            imagen : imagen
-        }
-
-        //Verificamos que el email no esté ya dado de alta
-        let userInDB = User.findByField('email', usuario.email);
-
-        if (userInDB) {
-            return res.render('users/register', {
-                errors: {
-                    email: {
-                        msg:'Este email ya está registrado'
-                    }
-                },
-                oldData: req.body
-            });
-        }
-
-        User.create(usuario);
+        res.redirect("usuarios"),
         console.log(usuario);
-        //return res.send("Validaciones y registro en registro OK ");
-        return res.render('users/login');
+    },
+
+    //usuarios totales
+    usuarios: (req,res) => {
+        return res.render('users/usuarios', {'users': users});
+    },
+
+    //elimiinar usuario
+    deleteUser: (req,res)=>{
+        const userIdex = users.findIndex(user =>{
+          return user.id == req.params.id;
+        });
+    
+        users.splice(userIdex, 1);
+        
+        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
+        //res.redirect(req.get('referer'));
+        res.redirect("/usuarios");
     },
 
     login: (req, res) => {

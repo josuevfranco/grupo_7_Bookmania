@@ -1,6 +1,15 @@
 <head>
-    <title>Nuestros Productos</title>
+    <title>Nuestros usuarios</title>
     <style>
+        .my-item-details {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0.8em;
+            background: #f5f5f5;
+            border-radius: 2px;
+            box-shadow: 0px 0px 1px 1px lightgrey;
+        }
+
         .my-cart-list {
             position: relative;
             padding: 0.4em;
@@ -21,115 +30,71 @@
             margin-left: 20px;
             margin-right: 20px;
         }
-
-        .my-cart-body {
-            padding: 0.4em;
-            margin-left: 20px;
-            margin-right: 20px;
-        }
-
-        .my-item-details {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 0.8em;
-            background: #f5f5f5;
-            border-radius: 2px;
-            box-shadow: 0px 0px 1px 1px lightgrey;
-        }
-
-        .my-cart-body .my-item-details:not(:first-child) {
-            margin-top: 0.4em;
-        }
-
-
         .twenty {
             width: 20%;
         }
-
+        .my-item-image {
+            width: 60px;
+            height: 65px;
+        }
         @media screen and (max-width:800px) {
             .twenty {
                 width: auto;
             }
         }
-
         .remove-item-span {
             padding: 5px;
             position: relative;
             left: 1em;
         }
-
         .remove-item-button:hover {
             color: black;
             background: rgb(212, 164, 164);
         }
-
-        .editar-item-button:hover {
-            color: black;
-        }
-
         .remove-item-button {
-            background: red;
+            background: rgb(127, 204, 237);
             border: 0;
             color: white;
             padding: 0.3em;
-            border-radius: 4px
+            border-radius: 4px;
+            font-size: 15px;
         }
 
-        .editar-item-button {
-            background: rgba(65, 80, 151, 0.9);
-            border: 0;
-            color: white;
-            padding: 0.3em;
-            border-radius: 4px
-        }
-
-        .my-item-image {
-            width: 60px;
-            height: 65px;
-        }
     </style>
 </head>
 
 <body>
     <%- include('../partials/header') %>
-    <h3><% products.length %></h3>
+    <h3><% users.length %></h3>
         <main>
             <br>
-            <h3 style="text-align: center;"><%-  products.length %> artículos en existencia </h3><br>
+            <h3 style="text-align: center;"><%-  users.length %> Usuarios</h3><br>
             <div class="my-cart-list">
                 <div class="my-cart-header">
-                    <div class="twenty">Imagen</div>
-                    <div class="twenty">Título</div>
-                    <div class="twenty">Autor</div>
-                    <div class="twenty">Idioma</div>
-                    <div class="twenty">Acciones</div>
+                    <div class="twenty">Usuario</div>
+                    <div class="twenty">Nombre</div>
+                    <div class="twenty">Email</div>
+                    <div class="twenty">Rol</div>
                 </div>
 
-                <% for(let i = 0; i < products.length; i++) { %>
-
+                <% for(let i = 0; i < users.length; i++) { %>
                     <div class="my-cart-body">
                         <div class="my-item-details">
                             <div class="twenty">
-                                <a href="/detail/<%= products[i].id %> "><img src="/images/productos/<%= products[i].imagenLibro %>"
-                                        class="my-item-image"></a>
+                                <img src="/images/usuarios/<%= users[i].imagen %>"
+                                        class="my-item-image">
                             </div>
                             <div class="twenty">
-                                <%= products[i].titulo %>
+                                <%= users[i].nombre%>
                             </div>
                             <div class="twenty">
-                                <%= products[i].autor %>
+                                <%= users[i].email %>
                             </div>
                             <div class="twenty">
-                                <%= products[i].idioma %>
+                                <%= users[i].rol %>
                             </div>
-                        
-                            <form action="/edit/<%= products[i].id %>" method="get">
-                                <span class="remove-item-span">
-                                    <button class="editar-item-button">  Editar</button>
-                                </span>
-                            </form>
                            
-                            <form action="/<%=products[i].id%>?_method=DELETE" method="POST">
+                            <form action="/<%=users[i].id%>?_method=DELETE" method="POST">
                                 <span class="remove-item-span">
                                     <button class="remove-item-button">Eliminar</button>
                                 </span>     

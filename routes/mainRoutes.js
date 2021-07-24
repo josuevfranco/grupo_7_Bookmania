@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-
 const multer = require('multer');
 const path = require('path');
 const {body} = require('express-validator');
+
 
 const mainController = require('../controllers/mainController');
 
@@ -21,8 +21,6 @@ const storage = multer.diskStorage({
 
 const uploadFile = multer({storage});
 
-
-
 //array de validaciones de registro
 const validationsRegister = [
     body('nameUser').notEmpty().withMessage('Tienes que escribir un nombre (s)'),
@@ -34,9 +32,9 @@ const validationsRegister = [
     body('password')
         .notEmpty().withMessage('Debes escribir una contraseña').bail()
         .isLength({min: 6}).withMessage('La contraseña debe ser de mínimo 6 caracteres'),
-    body('rol').notEmpty().withMessage('Debes de escribir un rol correcto'),
+    body('rol').notEmpty().withMessage('Selecciona el rol al que perteneces'),
     
-    body('usuarios').custom((value, {req}) =>{
+    body('avatar').custom((value, {req}) =>{
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.gif'];
         if(!file){
@@ -68,7 +66,13 @@ router.get('/', mainController.index);
 router.get('/register', mainController.register);
 
 //procesamiento de registro
-router.post('/register', uploadFile.single('usuarios'), validationsRegister, mainController.processRegister);
+router.post('/register', uploadFile.single('avatar'), validationsRegister, mainController.processRegister);
+
+//Para ver todos los usuarios
+router.get('/usuarios', mainController.usuarios);
+
+//Eliminar usuario
+router.delete('/:id', mainController.deleteUser); 
 
 //pagina formulario de login
 router.get('/login', mainController.login);

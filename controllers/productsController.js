@@ -4,7 +4,7 @@ const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-let img = "";
+
 
 //storage para guardar imagen de libro
 const multer = require('multer');
@@ -29,6 +29,7 @@ const productsController = {
     cat_arte: (req, res) => {
         return res.render('products/cat_arte');
     },
+    //productos totales
     misproductos: (req,res) => {
         return res.render('products/misproductos', {'products': products});
     },
@@ -42,14 +43,15 @@ const productsController = {
     //almacenar producto
     store: (req, res) => {
         let newId = 1;
+        const resValidation = validationResult(req);
+        let data = req.body;
+        let imagen = "";
 
         let lastProduct  = products.pop();
         if(lastProduct){
             newId = lastProduct.id + 1;
         }
 
-		let data = req.body;
-        let imagen = "";
         if(req.file){
             imagen = req.file.filename;
             console.log(imagen);
@@ -72,7 +74,6 @@ const productsController = {
 		}
         console.log(newProduct);
         
-        const resValidation = validationResult(req);
 
         if(resValidation.errors.length > 0){
             return res.render('products/crearProducto', {
@@ -85,7 +86,7 @@ const productsController = {
             fs.writeFileSync(productsFilePath, JSON.stringify(products, null, '\t'));
             res.redirect("/misproductos");
         }
-      },
+    },
 
     
     detail: (req, res) => {
@@ -139,6 +140,7 @@ const productsController = {
          }
 	
     },
+
     delete: (req, res) => {
         const productIdex = products.findIndex(producto =>{
           return producto.id == req.params.id;
@@ -147,8 +149,8 @@ const productsController = {
         products.splice(productIdex, 1);
         
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-        res.redirect(req.get('referer'));
-      },
+        res.redirect("/misproductos"); 
+    },
 
 }
 module.exports = productsController;

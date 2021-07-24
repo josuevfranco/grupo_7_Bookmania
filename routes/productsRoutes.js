@@ -70,21 +70,19 @@ router.get('/misproductos', productsController.misproductos);
 
 //formulario de creación de productos 
 router.get('/crearProducto', productsController.crearProducto);
+
 //almacenamiento de productos
 router.post('/crearProducto', uploadFile.single('imagenLibro'), validations, productsController.store);
-
 
 //Editar libro
 router.get('/edit/:id/', productsController.edit);
 router.put('/editar/:id', uploadFile.single('imagenLibro'), productsController.update);
 
-
-
 //Mostrar un Libro en Específico
 router.get('/detail/:id', productsController.detail); 
 
 //Eliminar producto
-router.delete('/eliminar/:id', productsController.delete); 
+router.delete('/:id', productsController.delete); 
 
 
 module.exports = router;
