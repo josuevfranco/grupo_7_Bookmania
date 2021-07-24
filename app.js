@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const livereload = require("livereload");
 const path = require('path');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+const session = require("express-session");
 const PORT = process.env.PORT || 3000;
 
 const mainRoutes = require('./routes/mainRoutes');
@@ -23,6 +24,11 @@ liveReloadServer.server.once("connection", () => {
 const connectLivereload = require("connect-livereload");
 app.use(connectLivereload());
 
+app.use(session({
+  secret: "secreto",
+  resave: false,
+  saveUninitialized: false, 
+}));
 // override con POST teniendo ?_method=PUT
 app.use(methodOverride('_method'))
 

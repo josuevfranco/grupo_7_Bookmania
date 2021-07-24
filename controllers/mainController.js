@@ -1,5 +1,5 @@
-const {validationResult} = require('express-validator');
-const User  = require('../models/User');
+const { validationResult } = require('express-validator');
+const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 
 const fs = require('fs');
@@ -17,21 +17,21 @@ const mainController = {
     },
 
     //Proceso de Registro de un usuario
-    processRegister:(req, res)=>{
+    processRegister: (req, res) => {
         const resValidation = validationResult(req);
         let passEncriptada = bcrypt.hashSync(req.body.password, 10);
         let imagen = "";
 
         //verificamos que no haya campos vacios
-        if(resValidation.errors.length > 0){
+        if (resValidation.errors.length > 0) {
             return res.render('users/register', {
                 errors: resValidation.mapped(),
-                oldData: req.body,   
+                oldData: req.body,
             });
         }
-        else{
-            
-            if(req.file){
+        else {
+
+            if (req.file) {
                 imagen = req.file.filename;
                 console.log(imagen);
             }
@@ -51,31 +51,31 @@ const mainController = {
                 return res.render('users/register', {
                     errors: {
                         email: {
-                            msg:'Este email ya está registrado'
-                        }   
+                            msg: 'Este email ya está registrado'
+                        }
                     },
                     oldData: req.body
                 });
             }
-            User.create(usuario);    
+            User.create(usuario);
         }
         res.redirect("usuarios"),
-        console.log(usuario);
+            console.log(usuario);
     },
 
     //usuarios totales
-    usuarios: (req,res) => {
-        return res.render('users/usuarios', {'users': users});
+    usuarios: (req, res) => {
+        return res.render('users/usuarios', { 'users': users });
     },
 
     //elimiinar usuario
-    deleteUser: (req,res)=>{
-        const userIdex = users.findIndex(user =>{
-          return user.id == req.params.id;
+    deleteUser: (req, res) => {
+        const userIdex = users.findIndex(user => {
+            return user.id == req.params.id;
         });
-    
+
         users.splice(userIdex, 1);
-        
+
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
         //res.redirect(req.get('referer'));
         res.redirect("/usuarios");
@@ -86,15 +86,47 @@ const mainController = {
     },
 
     //procesar login
-    processLogin:(req, res)=>{
-        const resValidation = validationResult(req);
-        if(resValidation.errors.length > 0){
+    processLogin: (req, res) => {
+        const validation = validationResult(req);
+        const userToLogin = User.findByField('email', req.body.email);
+
+        if (validation.errors.length > 0) {
             return res.render('users/login', {
-                errors: resValidation.mapped(),
+                errors: validation.mapped(),
                 oldData: req.body,
             });
         }
-        return res.send("Validaciones en LOGIN OK");
+       
+        if (userToLogin) {
+            let passwordOK = bcrypt.compareSync(req.body.password, userToLogin.contrasena);
+            if (passwordOK) {
+                delete userToLogin.contrasena;
+                req.session.userLogged = userToLogin;
+                return res.redirect("users/profile");
+            }
+            return res.render('users/login', {
+                errors: {
+                    email: {
+                        msg: 'El usuario o contraseña son incorrectos'
+                    }
+                },
+                oldData: req.body
+            });
+        }
+        return res.render('users/login', {
+            errors: {
+                email: {
+                    msg: 'Usuario no registrado'
+                }
+            },
+            oldData: req.body
+        });
+        
+    },
+    profile: (req, res) =>{
+        return res.render('profile', {
+            user: req.session.userLogged
+        });
     }
 }
 module.exports = mainController;

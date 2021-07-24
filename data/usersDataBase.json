@@ -32,11 +32,11 @@
 	{
 		"id": 4,
 		"nombre": "prueba",
-		"apellidoPaterno": "prueba",
-		"apellidoMaterno": "prueba",
-		"email": "p@e.com",
-		"constrasena": "$2a$10$vahah1L1lr.yL2skR05eYe37vel6bYs786RGT7Zi4MzWrQjrwVeMm",
-		"rol": "Cliente",
-		"imagen": "profile-1627086108439.png"
+		"apellidoPaterno": "prueba1",
+		"apellidoMaterno": "prueba2",
+		"email": "prueba@email.com",
+		"constrasena": "$2a$10$id7CI7PhitbdrgiPih3EMOCsGtf6tEk2VuRPd7mux4Bl37uPrJeT6",
+		"rol": "Administrador",
+		"imagen": "profile-1627101993118.png"
 	}
 ]

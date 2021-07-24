@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
     <head>
         <Title>Iniciar sesión</Title>
         <link rel="stylesheet" href="/css/login.css">
@@ -21,29 +20,28 @@
                     <label for="email">*Correo electrónico:
                         <input 
                             type="text" 
-                            name="emailUser" 
+                            name="email" 
                             id="email" 
                             class="control"
-                            value= "<%= locals.oldData ? oldData.emailUser : null %>"
+                            value= "<%= locals.oldData ? oldData.email : null %>"
                         >  
                     </label>
-                    <% if (locals.errors && errors.emailUser) {%>
+                    <% if (locals.errors && errors.email) {%>
                         <div class="text-danger">
-                            <%= errors.emailUser.msg %>
+                            <%= errors.email.msg %>
                         </div>
                     <%} %><br><br>
                     <label for="password">*Contraseña:
                         <input 
                             type="password" 
-                            name="passwordUser" 
+                            name="password" 
                             id="password"
                             class="control"
-                            value= "<%= locals.oldData ? oldData.passwordUser : null %>"
                         >
                     </label>
-                    <% if (locals.errors && errors.passwordUser) {%>
+                    <% if (locals.errors && errors.password) {%>
                         <div class="text-danger">
-                            <%= errors.passwordUser.msg %>
+                            <%= errors.password.msg %>
                         </div>
                     <%} %><br><br>
                     <label for="term1">
@@ -67,4 +65,3 @@
     <%- include('../partials/footer') %>
     
 </body>
-</html>

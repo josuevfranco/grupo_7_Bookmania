@@ -51,10 +51,10 @@ const validationsRegister = [
 
 //array de validaciones de login
 const validationsLogin = [
-    body('emailUser')
+    body('email')
         .notEmpty().withMessage('Tienes que escribir tu correo de registro').bail()
         .isEmail().withMessage('Debes escribir un correo válido').bail(),
-    body('passwordUser')
+    body('password')
         .notEmpty().withMessage('Ingresa tu contraseña de usuario').bail()
         .isLength({min: 6}).withMessage('La contraseña debe ser de mínimo 6 caracteres'),
 ]
@@ -79,6 +79,8 @@ router.get('/login', mainController.login);
 
 //procesamiento login
 router.post('/login', validationsLogin, mainController.processLogin);
+
+router.get('/perfil', mainController.profile);
 
 module.exports = router;
 
