@@ -85,6 +85,7 @@ const mainController = {
         return res.render('users/login');
     },
 
+    //procesar login
     processLogin:(req, res)=>{
         const resValidation = validationResult(req);
         if(resValidation.errors.length > 0){
@@ -93,7 +94,6 @@ const mainController = {
                 oldData: req.body,
             });
         }
-
         return res.send("Validaciones en LOGIN OK");
     }
 }

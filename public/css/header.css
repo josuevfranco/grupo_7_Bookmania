@@ -43,23 +43,22 @@
 }
 
 .menu .btn-inicio {
-    background: rgba(179, 170, 211, 0.9);
+    background: #ffa6a1;
 }
-
-.menu .btn-cat {
-    background: rgba(65, 80, 151, 0.9);
-}
-
 .menu .btn-sbn {
-    background: rgba(123, 127, 240, 0.879);
+    background: #ffc485;
 }
-
 .menu .btn-cont {
-    background: rgba(179, 170, 211, 0.9);
+    background: #002581;
 }
-
+.menu .btn-prod{
+    background: #0060b2;
+}
+.menu .btn-cat {
+    background: #00a9e5;
+}
 .menu .btn-cuenta {
-    background: rgba(123, 127, 240, 0.879);
+    background: #ffa6a1;
 }
 
 
@@ -84,6 +83,8 @@
 .show-menu-btn:hover,
 .hide-menu-btn:hover {
     color: #000;
+    background-color: #b8d5ed;
+    
 }
 
 #chk {
@@ -164,7 +165,7 @@
 }
 
 .dropbtn {
-    background-color: #4CAF50;
+    background-color: #73535d;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -198,7 +199,7 @@
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1
+    background-color: #ffffff
 }
 
 
@@ -207,7 +208,7 @@
 }
 
 .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+    background-color: #b8d5ed;
 }
 
 .pleca-colores {

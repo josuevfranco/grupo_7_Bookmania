@@ -3,87 +3,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <style>
-    aside,
-    header,
-    footer,
-    article,
-    span {
-      padding: 10px;
-    }
-
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-    }
-
-    body {
-      font-family: san-serif;
-      font-size: 1.2em;
-    }
-
     .grid-wrapper {
       display: grid;
       grid-template-columns: 0fr 3fr;
       grid-template-rows: min-content auto min-content;
     }
-
-    aside {
-      grid-column: 1/2;
-      grid-row: 2/3;
-      /*background: #5cbdbb;*/
-    }
-
-    header {
-      grid-column: 1/3;
-      grid-row: 1/2;
-      /*background: #b2e0df;*/
-    }
-
-    .flex-wrapper {
-      display: flex;
-    }
-
-    h1,
-    p {
-      padding: 5px;
-    }
-
-    @media only screen and (max-width: 850px) {
-      .grid-wrapper {
-        display: block;
-      }
-
-      .flex-wrapper {
-        flex-direction: column;
-      }
-
-      .image {
-        margin-bottom: 20px;
-      }
-    }
-
-    /*additional styles*/
-
-    body {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1rem;
-    }
-
-
-    a {
-      list-style-type: none;
-      text-decoration: none;
-      color: #000;
+    h1,p {
+      padding: 10px;
     }
 
     aside {
+      padding: 20px;
       grid-column: 1/0;
       grid-row: 1/3;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      z-index: 3;
+      align-items:flex-end;
     }
 
     h1 {
@@ -130,6 +65,18 @@
       background-repeat: no-repeat;
     }
 
+    
+
+    h1 {
+        font-size: 5.5rem;
+        margin-top: 0;
+        padding-top: 10px;
+    }
+
+    h3 {
+        letter-spacing: 0.8rem;
+    }
+
     @media only screen and (max-width: 850px) {
       .grid-wrapper {
         background-size: cover;
@@ -139,20 +86,13 @@
         flex-direction: column;
         color: #ddd;
       }
-
-      h1 {
-        font-size: 5.5rem;
-        margin-top: 0;
-        padding-top: 10px;
-        color: lightseagreen;
-      }
-
-      h3 {
-        letter-spacing: 0.8rem;
-      }
-
-      aside {
-        flex-grow: 1;
+      @media only screen and (max-width: 850px) {
+        .grid-wrapper {
+        display: block;
+        }
+        .image {
+        margin-bottom: 20px;
+        }
       }
     }
   </style>
