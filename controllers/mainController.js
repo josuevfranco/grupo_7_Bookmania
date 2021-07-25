@@ -41,7 +41,7 @@ const mainController = {
                 apellidoPaterno: req.body.lastName,
                 apellidoMaterno: req.body.lastNameM,
                 email: req.body.email,
-                constrasena: passEncriptada,
+                password: passEncriptada,
                 rol: req.body.rol,
                 imagen: imagen
             }
@@ -88,7 +88,7 @@ const mainController = {
     //procesar login
     processLogin: (req, res) => {
         const validation = validationResult(req);
-        const userToLogin = User.findByField('email', req.body.email);
+        let userToLogin = User.findByField('email', req.body.email);
 
         if (validation.errors.length > 0) {
             return res.render('users/login', {
@@ -98,19 +98,23 @@ const mainController = {
         }
        
         if (userToLogin) {
-            let passwordOK = bcrypt.compareSync(req.body.password, userToLogin.contrasena);
+            let passwordOK = bcrypt.compareSync(req.body.password, userToLogin.password);
             if (passwordOK) {
-                delete userToLogin.contrasena;
+                delete userToLogin.password;
                 req.session.userLogged = userToLogin;
-                return res.redirect("users/profile");
+                
+                if(req.body.remember_user) {
+					res.cookie('email', req.body.email, { maxAge: (1000 * 60) * 60 })
+				}
+
+				return res.redirect('/');
             }
             return res.render('users/login', {
                 errors: {
                     email: {
                         msg: 'El usuario o contraseña son incorrectos'
                     }
-                },
-                oldData: req.body
+                }
             });
         }
         return res.render('users/login', {
@@ -118,13 +122,12 @@ const mainController = {
                 email: {
                     msg: 'Usuario no registrado'
                 }
-            },
-            oldData: req.body
+            }
         });
         
     },
     profile: (req, res) =>{
-        return res.render('profile', {
+        return res.render('/', {
             user: req.session.userLogged
         });
     }

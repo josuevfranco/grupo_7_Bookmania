@@ -2,12 +2,15 @@ const express = require('express');
 const app = express();
 const livereload = require("livereload");
 const path = require('path');
-var bodyParser = require('body-parser');
 const session = require("express-session");
+const cookies = require('cookie-parser');
+const connectLivereload = require("connect-livereload");
+
 const PORT = process.env.PORT || 3000;
 
 const mainRoutes = require('./routes/mainRoutes');
 const productsRoutes = require('./routes/productsRoutes');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 var methodOverride = require('method-override')
 
@@ -21,7 +24,6 @@ liveReloadServer.server.once("connection", () => {
   });
 
 //middleware livereloads
-const connectLivereload = require("connect-livereload");
 app.use(connectLivereload());
 
 app.use(session({
@@ -29,6 +31,10 @@ app.use(session({
   resave: false,
   saveUninitialized: false, 
 }));
+
+app.use(cookies());
+app.use(userLoggedMiddleware);
+
 // override con POST teniendo ?_method=PUT
 app.use(methodOverride('_method'))
 

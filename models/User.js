@@ -24,12 +24,13 @@ const User = {
     },
 
     //Buscar por campo (En este caso email)
-    findByField: function(field, texto) {
+    findByField: function(field, text) {
         let allUsers = this.findAll();
-        let userFound = allUsers.find(oneUser => oneUser[field] == texto);
+        let userFound = allUsers.find(oneUser => oneUser[field] == text);
 
         return userFound;
     },  
+    
 
     //Generar último ID
     generateID: function (){
@@ -39,12 +40,11 @@ const User = {
         if(lastUser){
             return lastUser.id + 1;
         }
-
         return 1;
     },
 
     //Crear un usuario
-    create : function (userData) {
+    create: function (userData) {
         
         let allUsers = this.findAll();
         allUsers.push(userData);

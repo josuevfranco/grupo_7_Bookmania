@@ -40,6 +40,17 @@
             </div>
          </div> 
         
+         <% if(locals.isLogged) { %>
+          <div class="dropdown">
+            <a href="#" class="btn-sbn dropbtn">
+              <img src="/images/usuarios/<%= locals.userLogged.imagen %>" width="70" style="border-radius: 30%;">
+						  	Hola <%= locals.userLogged.nombre %> 
+            </a>
+            <div class="dropdown-content">
+              <a href="#"><i class="fas fa-sign-in-alt"></i> Mi perfil</a>
+            </div>
+         </div>
+        <%} else { %>
          <div class="dropdown">
             <a href="#" class="btn-cuenta dropbtn"><i class="fas fa-caret-down"></i> Mi cuenta</a>
             <div class="dropdown-content">
@@ -47,7 +58,7 @@
               <a href="/register"><i class="fas fa-user-plus"></i> Regístrate</a>
             </div>
           </div>
-
+        <% } %>
           <a href="/carrito">
             <img class="imagen" src="/images/car.png" width="50" height="50" alt="Cart">
           </a>
