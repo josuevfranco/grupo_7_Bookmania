@@ -38,6 +38,9 @@ router.get('/', loginAuthMiddleware, mainController.profile);
 // Logout
 router.get('/logout/', mainController.logout);
 
+//Contacto
+router.get('/contact', mainController.contact);
+
 module.exports = router;
 
 

@@ -137,6 +137,10 @@ const mainController = {
 		res.clearCookie('email');
 		req.session.destroy();
 		return res.redirect('/');
-	}
+	},
+
+    contact: (req, res) => {
+        return res.render('archivosEJS/contact');
+    }
 }
 module.exports = mainController;
