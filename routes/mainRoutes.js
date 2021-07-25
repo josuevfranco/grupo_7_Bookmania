@@ -35,6 +35,9 @@ router.post('/login', validationsLogin, mainController.processLogin);
 //perfil de usuario
 router.get('/', loginAuthMiddleware, mainController.profile);
 
+// Logout
+router.get('/logout/', mainController.logout);
+
 module.exports = router;
 
 
