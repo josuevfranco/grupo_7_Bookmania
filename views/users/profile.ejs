@@ -1,0 +1,20 @@
+<head>
+    <Title>Carrito</Title>
+    <link rel="stylesheet" href="/css/carrito.css">
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+    <% if(!locals.isLogged){ %>
+        <script>  document.location.href = '/login' </script>
+        <% } else { %>
+
+        <div class="wrapper_carrito">
+            <h1>Mi Perfil</h1>
+        </div>
+
+        <% } %>
+        <%- include('../partials/footer') %>
+
+</body>

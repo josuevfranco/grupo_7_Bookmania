@@ -59,8 +59,13 @@ const mainController = {
             }
             User.create(usuario);
         }
-        res.redirect("usuarios"),
-            console.log(usuario);
+
+        let userToLogin = User.findByField('email', req.body.email);
+        req.session.userLogged = userToLogin;
+        res.cookie('email', userToLogin.email, { maxAge: (1000 * 60) * 60 })
+
+        return res.redirect('/');
+        
     },
 
     //usuarios totales
@@ -89,6 +94,7 @@ const mainController = {
     processLogin: (req, res) => {
         const validation = validationResult(req);
         let userToLogin = User.findByField('email', req.body.email);
+        
 
         if (validation.errors.length > 0) {
             return res.render('users/login', {
@@ -141,6 +147,16 @@ const mainController = {
 
     contact: (req, res) => {
         return res.render('archivosEJS/contact');
+    },
+    notLogged: (req, res) => {
+		return res.redirect('/login');
+	},
+    userProfile: (req, res) => {
+        return res.render('users/profile');
+    },
+    restrictedArea: (req, res) => {
+        return res.render('users/restrictedPage');
     }
+
 }
 module.exports = mainController;

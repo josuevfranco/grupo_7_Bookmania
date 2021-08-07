@@ -10,15 +10,16 @@ const loginAuthMiddleware = require('../middlewares/loginAuthMiddleware');
 const uploadFile = require('../middlewares/multerMiddleware');
 const validationsRegister = require('../middlewares/validationsRegisterMiddleware');
 const validationsLogin = require('../middlewares/validationsLoginMiddleware');
+const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
 //página de inicio
 router.get('/', mainController.index);
 
 //página formulario de registro
-router.get('/register', mainController.register);
+router.get('/register', userLoggedMiddleware, mainController.register);
 
 //procesamiento de registro
-router.post('/register', uploadFile.single('avatar'), validationsRegister, mainController.processRegister);
+router.post('/register', uploadFile.single('avatar'), validationsRegister, userLoggedMiddleware, mainController.processRegister);
 
 //Para ver todos los usuarios
 router.get('/usuarios', mainController.usuarios);
@@ -37,6 +38,15 @@ router.get('/', loginAuthMiddleware, mainController.profile);
 
 // Logout
 router.get('/logout/', mainController.logout);
+
+// Rutas accesibles solo con login redireccionan al login
+router.get('/notLogged/', mainController.notLogged);
+
+// Rutas accesibles solo sin login redireccionan al perfil
+router.get('/profile/', mainController.userProfile);
+
+// No tienes permiso de Admin
+router.get('/restrictedArea/', mainController.restrictedArea);
 
 //Contacto
 router.get('/contact', mainController.contact);

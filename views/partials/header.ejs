@@ -5,18 +5,24 @@
 
 <body>
     <div class="header">
-        <h2 class="logo">
+        <div class="logo">
           <a href="/"><img class="logoimg" src="/images/image0.png" alt="" /></a>  
-        </h2>
+        </div>
+        
         <input type="checkbox" id="chk">
         <label for="chk" class="show-menu-btn">
           <i class="fas fa-ellipsis-h"></i>
         </label>
-    
+        <div>
         <ul class="menu">
           <a href="/" class="btn-inicio dropbtn">Inicio</a>    
-          <a href="#" class="btn-sbn dropbtn">Sobre Nosotros</a>
-          <a href="/contact" class="btn-cont dropbtn">Contacto</a>
+          <div class="dropdown">
+            <a class="btn-sbn dropbtn"><i class="fas fa-caret-down"></i> Sobre Nosotros</a>
+            <div class="dropdown-content">
+              <a href="/contact"> Contacto</a>
+              <a href=""> Misión y Visión </a>
+            </div>
+          </div>
           
           <div class="dropdown">
             <a class="btn-prod dropbtn"><i class="fas fa-caret-down"></i> Productos</a>
@@ -42,15 +48,14 @@
         
          <% if(locals.isLogged) { %>
           <div class="dropdown">
-            <a href="#" class="btn-sbn dropbtn">
-              <img src="/images/usuarios/<%= locals.userLogged.imagen %>" width="70" style="border-radius: 30%;">
-						  	Hola <%= locals.userLogged.nombre %> 
+            <a href="#" class="btn-cuenta dropbtn">
+              Hola <%= locals.userLogged.nombre %>
             </a>
             <div class="dropdown-content">
-              <a href="/"><i class="fas fa-sign-in-alt"></i> Mi perfil</a>
+              <a href="/profile"><i class="fas fa-sign-in-alt"></i> Mi perfil</a>
               <a href="/logout"><i class="fas fa-sign-in-alt"></i> Logout</a>
-
             </div>
+            <img src="/images/usuarios/<%= locals.userLogged.imagen %>" width="60" style="border-radius: 30%; vertical-align: middle; margin-bottom: 8px;">
          </div>
         <%} else { %>
          <div class="dropdown">
@@ -61,14 +66,25 @@
             </div>
           </div>
         <% } %>
+
           <a href="/carrito">
-            <img class="imagen" src="/images/car.png" width="50" height="50" alt="Cart">
+            <img class="imagen" src="/images/car.png" width="50" height="50" alt="Cart" style="vertical-align: middle;">
           </a>
+        
           <label for="chk" class="hide-menu-btn">
             <i class="fas fa-times"></i>
           </label>
-        </ul>
+        
+      </ul>
       </div>
+        
+
+        
+          
+      </div>
+
+
+
 
       <div class="pleca-colores"></div>
 </body>

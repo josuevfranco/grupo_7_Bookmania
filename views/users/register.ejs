@@ -5,7 +5,11 @@
     </head>
 <body>
     <%- include('../partials/header') %>
-   
+
+    <% if(locals.isLogged){ %>
+        <script>  document.location.href = '/profile' </script>
+        <% } else { %>
+
     <main>
         <div class="columnas_reg">
             <div class="column1_reg">
@@ -151,6 +155,7 @@
             </div>
         </div>
     </main>
+    <% } %>
 
     <%- include('../partials/footer') %>
     
