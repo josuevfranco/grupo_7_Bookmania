@@ -10,7 +10,7 @@
 		"imagen": "stephie-pam-avila-campos.png"
 	},
 	{
-		"id": 4,
+		"id": 2,
 		"nombre": "prueba",
 		"apellidoPaterno": "prueba1",
 		"apellidoMaterno": "prueba2",
@@ -20,7 +20,7 @@
 		"imagen": "profile-1627101993118.png"
 	},
 	{
-		"id": 5,
+		"id": 3,
 		"nombre": "Josué",
 		"apellidoPaterno": "Vázquez",
 		"apellidoMaterno": "Franco",
@@ -30,23 +30,13 @@
 		"imagen": "profile-1627219012080.jpg"
 	},
 	{
-		"id": 6,
-		"nombre": "cliente",
-		"apellidoPaterno": "cliente",
-		"apellidoMaterno": "cliente",
-		"email": "cliente@gmail.com",
-		"password": "$2a$10$gFGk0nctwzOwBFRczcQj2.LwAgzN/BxEl7PufdPZHnPCj2c7BZSDK",
+		"id": 4,
+		"nombre": "Daniela",
+		"apellidoPaterno": "Hernández ",
+		"apellidoMaterno": "Lara",
+		"email": "danielahdzlara@gmail.com",
+		"password": "$2a$10$XSzVhvG0eYvo11eaRsicT.QXOVotm7uA7GVNuZF3pdpC8KkKllJWO",
 		"rol": "Cliente",
-		"imagen": "profile-1628362731437.png"
-	},
-	{
-		"id": 7,
-		"nombre": "cliente",
-		"apellidoPaterno": "cliente",
-		"apellidoMaterno": "cliente",
-		"email": "cliente-@gmail.com",
-		"password": "$2a$10$6Dg1iuvCbB75WR0IbgTxtOoYXpwWO3KQsAW8VlTtTToM/xXi9Rk8C",
-		"rol": "Cliente",
-		"imagen": "profile-1628362797085.png"
+		"imagen": "profile-1628363992475.jpg"
 	}
 ]
