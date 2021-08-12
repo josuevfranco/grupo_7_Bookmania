@@ -1,29 +1,23 @@
 const express = require('express');
 const app = express();
-const livereload = require("livereload");
-const path = require('path');
-var bodyParser = require('body-parser')
-const PORT = process.env.PORT || 3000;
-
 const mainRoutes = require('./routes/mainRoutes');
 const productsRoutes = require('./routes/productsRoutes');
+const session = require("express-session");
+const cookies = require('cookie-parser');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const methodOverride = require('method-override');
 
-var methodOverride = require('method-override')
+const PORT = process.env.PORT || 3000;
 
-//reload CRUD con liverealod
-const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(path.join(__dirname, 'public'));
-liveReloadServer.server.once("connection", () => {
-    setTimeout(() => {
-      liveReloadServer.refresh("/misproductos");
-    }, 100);
-  });
+app.use(session({
+  secret: "secreto",
+  resave: false,
+  saveUninitialized: false, 
+}));
 
-//middleware livereloads
-const connectLivereload = require("connect-livereload");
-app.use(connectLivereload());
+app.use(cookies());
+app.use(userLoggedMiddleware);
 
-// override con POST teniendo ?_method=PUT
 app.use(methodOverride('_method'))
 
 app.use(express.urlencoded({extended: true}));

@@ -1,0 +1,34 @@
+<head>
+    <Title>Mi Perfil</Title>
+    <link rel="stylesheet" href="/css/carrito.css">
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+    <% if(!locals.isLogged){ %>
+        <script>  document.location.href = '/login' </script>
+        <% } else { %>
+
+        <div class="wrapper_carrito">
+            <h1>Mi Perfil</h1>
+
+            <div class="wrapper_carrito">
+                    <div class="perfil-box">
+                      <div class="imagen">
+                        <img class="img-fluid" src="images/usuarios/<%= locals.userLogged.imagen %>">
+                      </div>
+                      <div>
+                        <h3 class="name"><%= locals.userLogged.nombre + " " + locals.userLogged.apellidoPaterno + " " + locals.userLogged.apellidoMaterno %></h3>
+                        <h4 class="title"><%= locals.userLogged.email %></h4>
+                        <h4 class="title"><%= locals.userLogged.rol %></h4>
+                      </div>
+
+                </div>
+              </div>
+
+        <% } %>
+        <%- include('../partials/footer') %>
+
+</body>

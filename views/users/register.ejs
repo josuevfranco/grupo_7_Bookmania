@@ -5,7 +5,11 @@
     </head>
 <body>
     <%- include('../partials/header') %>
-   
+
+    <% if(locals.isLogged){ %>
+        <script>  document.location.href = '/profile' </script>
+        <% } else { %>
+
     <main>
         <div class="columnas_reg">
             <div class="column1_reg">
@@ -81,7 +85,7 @@
                         <%} %><br><br>
 
                         <select style="font-size: 20px;" name="rol" >
-                            <option value="">Elegí un rol</option>
+                            <option class="control">Elige un rol</option>
                             <%  let opciones = ['Administrador', 'Cliente']; %>
                         <% for (const oneOption of opciones) { %>
                             <option 
@@ -105,8 +109,8 @@
                                 <%= errors.password.msg %>
                             </div>
                         <%} %><br><br>
-                        <label for="img">Imagen de usuario:
-                            <input type="file" size="24" name="usuarios">
+                        <label for="avatar">Imagen de usuario:
+                            <input type="file" size="24" name="avatar" class="control">
                         </label>
                         <% if (locals.errors && errors.usuarios) {%>
                             <div class="text-danger">
@@ -151,6 +155,7 @@
             </div>
         </div>
     </main>
+    <% } %>
 
     <%- include('../partials/footer') %>
     

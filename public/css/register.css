@@ -42,6 +42,7 @@ form{
 	background-color: rgb(189, 198, 205);
 	border-radius: 8px;
 	padding: 20px;
+	
 }
 form label{
 	font-size: 20px;
@@ -54,6 +55,7 @@ form form{
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
+	
 }
 
 .control{
@@ -62,6 +64,7 @@ form form{
 	border-radius: 5px;
 	border: none;
 	margin-top: 10px;
+	font-size: 17px;
 }
 
 .boton-capt{
@@ -169,7 +172,7 @@ form form{
         text-align: center;
     }
 	.pie{
-		font-size: 10px;
+		font-size: 15px;
 	}
 	.footer-redes{
         display: flex;

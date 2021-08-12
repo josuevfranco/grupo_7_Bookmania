@@ -1,0 +1,111 @@
+<head>
+    <title>Nuestros usuarios</title>
+    <style>
+        .my-item-details {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0.8em;
+            background: #f5f5f5;
+            border-radius: 2px;
+            box-shadow: 0px 0px 1px 1px lightgrey;
+        }
+
+        .my-cart-list {
+            position: relative;
+            padding: 0.4em;
+            background: white;
+            border: 1px solid lightgray;
+            border-radius: 0.2em;
+            box-shadow: 0px 0px 4px 0px lightgrey;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .my-cart-header {
+            padding: 0.2em;
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 1px solid lightgray;
+            font-weight: 700;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .twenty {
+            width: 20%;
+        }
+        .my-item-image {
+            width: 60px;
+            height: 65px;
+        }
+        @media screen and (max-width:800px) {
+            .twenty {
+                width: auto;
+            }
+        }
+        .remove-item-span {
+            padding: 5px;
+            position: relative;
+            left: 1em;
+        }
+        .remove-item-button:hover {
+            color: black;
+            background: rgb(212, 164, 164);
+        }
+        .remove-item-button {
+            background: rgb(127, 204, 237);
+            border: 0;
+            color: white;
+            padding: 0.3em;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+    <h3><% users.length %></h3>
+        <main>
+            <br>
+            <h3 style="text-align: center;"><%-  users.length %> Usuarios</h3><br>
+            <div class="my-cart-list">
+                <div class="my-cart-header">
+                    <div class="twenty">Usuario</div>
+                    <div class="twenty">Nombre</div>
+                    <div class="twenty">Email</div>
+                    <div class="twenty">Rol</div>
+                </div>
+
+                <% for(let i = 0; i < users.length; i++) { %>
+                    <div class="my-cart-body">
+                        <div class="my-item-details">
+                            <div class="twenty">
+                                <img src="/images/usuarios/<%= users[i].imagen %>"
+                                        class="my-item-image">
+                            </div>
+                            <div class="twenty">
+                                <%= users[i].nombre%>
+                            </div>
+                            <div class="twenty">
+                                <%= users[i].email %>
+                            </div>
+                            <div class="twenty">
+                                <%= users[i].rol %>
+                            </div>
+                           
+                            <form action="/<%=users[i].id%>?_method=DELETE" method="POST">
+                                <span class="remove-item-span">
+                                    <button class="remove-item-button">Eliminar</button>
+                                </span>     
+                            </form>
+                        </div>
+                    </div>
+
+                <% }%>
+
+            </div>
+        </main><br><br>
+
+        <%- include('../partials/footer') %>
+</body>

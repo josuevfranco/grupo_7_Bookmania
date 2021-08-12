@@ -5,6 +5,13 @@
 
 <body>
     <%- include('../partials/header') %>
+
+    <% if(!locals.isLogged){ %>
+        <script>  document.location.href = '/notLogged' </script>
+        <% }  else if (locals.userLogged.rol != 'Administrador') { %>
+            <script>  document.location.href = '/RestrictedArea' </script>
+            <% } else{ %>
+
         <main>
             <h2 class="creacion">Edición de Producto</h2>
             <div class="formulario">
@@ -149,6 +156,7 @@
                 </form>
             </div>
         </main>
+        <% } %>
 
         <%- include('../partials/footer') %>
 
