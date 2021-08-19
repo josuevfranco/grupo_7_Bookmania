@@ -36,7 +36,7 @@
 		"apellidoMaterno": "Lara",
 		"email": "danielahdzlara@gmail.com",
 		"password": "$2a$10$XSzVhvG0eYvo11eaRsicT.QXOVotm7uA7GVNuZF3pdpC8KkKllJWO",
-		"rol": "Cliente",
+		"rol": "Administrador",
 		"imagen": "profile-1628363992475.jpg"
 	}
 ]
