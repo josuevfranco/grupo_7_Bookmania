@@ -1,67 +1,51 @@
-const fs = require('fs');
-const path = require('path');
+module.exports = (sequelize, dataTypes) => {
 
-const fileName = path.join(__dirname, '../data/usersDataBase.json')
-
-const User = {
-
-    //Crear a un usuario 
-    getData: function(){
-        return JSON.parse(fs.readFileSync(fileName, 'utf-8'));
-    },
-
-    //Todos los usuarios
-    findAll: function() {
-        return this.getData();
-    },
-
-    //Find by Primary Key (ID)
-    findByPk: function(id) {
-        let allUsers = this.findAll();
-        let userFound = allUsers.find(oneUser => oneUser.id === id);
-
-        return userFound;
-    },
-
-    //Buscar por campo (En este caso email)
-    findByField: function(field, text) {
-        let allUsers = this.findAll();
-        let userFound = allUsers.find(oneUser => oneUser[field] == text);
-
-        return userFound;
-    },  
-    
-
-    //Generar último ID
-    generateID: function (){
-        let allUsers = this.findAll();
-        let lastUser  = allUsers.pop();
-
-        if(lastUser){
-            return lastUser.id + 1;
+    let alias = "User";
+    let cols = {
+     id: {
+         type: dataTypes.INTEGER,
+         primaryKey: true,
+         autoIncrement: true,
+        },
+        name:{
+            type: dataTypes.STRING,
+        },
+        surnames: {
+            type: dataTypes.STRING,
+        },
+        email: {
+            type: dataTypes.STRING,
+        },
+        password: {
+            type: dataTypes.STRING,
+        },
+        role_id: {
+            type: dataTypes.INTEGER,
+            foreignKey: true,
+        },
+        src_image: {
+            type: dataTypes.STRING,
         }
-        return 1;
-    },
+    };
+    let config = {
+     tableName: "users",
+     timestamps: false
+   };
 
-    //Crear un usuario
-    create: function (userData) {
-        
-        let allUsers = this.findAll();
-        allUsers.push(userData);
-
-        fs.writeFileSync(fileName, JSON.stringify(allUsers, null, '\t'));
-        //return newUser;
-    },
-
-    //Eliminar Usuario
-    delete : function (id) {
-        let allUsers = this.findAll();
-        let finalUsers = allUsers.filter(oneUser => oneUser.id != id);
-
-        fs.writeFileSync(fileName, JSON.stringify(finalUsers, null, '\t'));
-        return true;
-    }
-
-}
-
-module.exports = User;
+   const User = sequelize.define(alias, cols, config);
+   User.associate = function(models) {
+    User.hasMany(models.PurchaseOrder, {
+        as: "compras",
+        foreignKey : "user_id",
+        timestamps: false
+    });
+    User.belongsTo(models.UserRol, {
+        as: "rol",
+        foreignKey: "role_id",
+        timestamps: false
+    })
+} 
+   return User;
+ 
+ }
+ 

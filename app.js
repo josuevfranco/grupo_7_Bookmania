@@ -6,6 +6,7 @@ const session = require("express-session");
 const cookies = require('cookie-parser');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const methodOverride = require('method-override');
+const Sequelize = require('sequelize');
 
 const PORT = process.env.PORT || 3001;
 
