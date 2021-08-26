@@ -9,7 +9,8 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         book_id : {
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER,
+            foreignKey: true
         },
         purchase_order_id :{
             type: dataTypes.INTEGER,
@@ -26,12 +27,10 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     const PurchaseOrderBooks = sequelize.define(alias, cols, config);
-
-    const PurchaseOrderBooks = sequelize.define(alias, cols, config);
     PurchaseOrderBooks.associate = function(models) {
         PurchaseOrderBooks.hasMany(models.Book, {
             as: "libros",
-            foreignKey : "book_id"
+            foreignKey : "id"
         });
         PurchaseOrderBooks.belongsTo(models.PurchaseOrder, {
             as: "ordenes",

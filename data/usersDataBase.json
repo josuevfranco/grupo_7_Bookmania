@@ -1,42 +1,22 @@
 [
-	{
-		"id": 1,
-		"nombre": "Stephanie Pamela",
-		"apellidoMaterno": "Avila",
-		"apellidoPaterno": "Campos",
-		"email": "pame_a1411@hotmail.com",
-		"password": "abc12345",
-		"rol": "administrador",
-		"imagen": "stephie-pam-avila-campos.png"
-	},
-	{
-		"id": 2,
-		"nombre": "prueba",
-		"apellidoPaterno": "prueba1",
-		"apellidoMaterno": "prueba2",
-		"email": "prueba@email.com",
-		"password": "$2a$10$id7CI7PhitbdrgiPih3EMOCsGtf6tEk2VuRPd7mux4Bl37uPrJeT6",
-		"rol": "Administrador",
-		"imagen": "profile-1627101993118.png"
-	},
-	{
-		"id": 3,
-		"nombre": "Josué",
-		"apellidoPaterno": "Vázquez",
-		"apellidoMaterno": "Franco",
-		"email": "josuefffranco@gmail.com",
-		"password": "$2a$10$FsyUUKyRJ7PcdzYDZM552.gBViktBAgfrfiXPCxc1eNvDS0WsTtWS",
-		"rol": "Administrador",
-		"imagen": "profile-1627219012080.jpg"
-	},
-	{
-		"id": 4,
-		"nombre": "Daniela",
-		"apellidoPaterno": "Hernández ",
-		"apellidoMaterno": "Lara",
-		"email": "danielahdzlara@gmail.com",
-		"password": "$2a$10$XSzVhvG0eYvo11eaRsicT.QXOVotm7uA7GVNuZF3pdpC8KkKllJWO",
-		"rol": "Administrador",
-		"imagen": "profile-1628363992475.jpg"
-	}
+  {
+    "id": 2,
+    "nombre": "prueba",
+    "apellidoPaterno": "prueba1",
+    "apellidoMaterno": "prueba2",
+    "email": "prueba@email.com",
+    "password": "$2a$10$id7CI7PhitbdrgiPih3EMOCsGtf6tEk2VuRPd7mux4Bl37uPrJeT6",
+    "rol": "Administrador",
+    "imagen": "profile-1627101993118.png"
+  },
+  {
+    "id": 3,
+    "nombre": "Josué",
+    "apellidoPaterno": "Vázquez",
+    "apellidoMaterno": "Franco",
+    "email": "josuefffranco@gmail.com",
+    "password": "$2a$10$FsyUUKyRJ7PcdzYDZM552.gBViktBAgfrfiXPCxc1eNvDS0WsTtWS",
+    "rol": "Administrador",
+    "imagen": "profile-1627219012080.jpg"
+  }
 ]

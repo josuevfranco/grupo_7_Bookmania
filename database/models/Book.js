@@ -1,6 +1,6 @@
-const { DataTypes } = require("sequelize/types");
+const { DataTypes } = require("sequelize");
 const { sequelize, Sequelize } = require(".");
-const models = require("/models")
+//const models = require("database/models")
 
 module.exports = (sequelize, DataTypes) =>{
     let alias = "Book";
@@ -23,7 +23,8 @@ module.exports = (sequelize, DataTypes) =>{
             type: DataTypes.FLOAT
         },
         category_id:{
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            foreignKey: true
         },
         price: {
             type: DataTypes.FLOAT
@@ -44,6 +45,9 @@ module.exports = (sequelize, DataTypes) =>{
         },
         summary: {
             type: DataTypes.STRING
+        },
+        image: {
+            type: DataTypes.STRING
         }
     };
     let config = {
@@ -53,14 +57,15 @@ module.exports = (sequelize, DataTypes) =>{
 
     const Book = sequelize.define(alias, cols, config);
     Book.associate = function(models) {
-        Book.belongsTo(models.Book, {
-            as: "libros",
+        Book.belongsTo(models.Category, {
+            as: "categoria",
             foreignKey : "category_id",
             timestamps: false
         });
         Book.belongsToMany(models.PurchaseOrderBooks, {
             as: "ordenes",
             foreignKey: "book_id",
+            through: "purchase_order_books",
             timestamps: false
         })
     } 

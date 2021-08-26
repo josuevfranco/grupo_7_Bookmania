@@ -30,7 +30,7 @@ module.exports = (sequelize, dataTypes) => {
             as: "ordenes",
             foreignKey : "purchase_order_id"
         });
-        PurchaseOrder.belongsTo(models.customer_id, {
+        PurchaseOrder.belongsTo(models.User, {
             as: "compra_usuario",
             foreignKey: "user_id",
             timestamps: false

@@ -39,7 +39,7 @@ module.exports = (sequelize, dataTypes) => {
         foreignKey : "user_id",
         timestamps: false
     });
-    User.belongsTo(models.UserRol, {
+    User.belongsTo(models.UserRole, {
         as: "rol",
         foreignKey: "role_id",
         timestamps: false
