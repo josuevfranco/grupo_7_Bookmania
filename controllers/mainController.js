@@ -1,6 +1,7 @@
 const { validationResult } = require('express-validator');
 const User = require('../models/User-old');
 const bcrypt = require('bcryptjs');
+const db = require('../database/models');
 
 const fs = require('fs');
 const path = require('path');
@@ -70,12 +71,16 @@ const mainController = {
 
     //usuarios totales
     usuarios: (req, res) => {
-        return res.render('users/usuarios', { 'users': users });
+        //return res.render('users/usuarios', { 'users': users });
+        db.User.findAll()
+            .then(function(users){
+                return res.render('users/usuarios', {'users': users});   
+            })
     },
 
     //elimiinar usuario
     deleteUser: (req, res) => {
-        const userIdex = users.findIndex(user => {
+        /*const userIdex = users.findIndex(user => {
             return user.id == req.params.id;
         });
 
@@ -83,7 +88,14 @@ const mainController = {
 
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
         //res.redirect(req.get('referer'));
-        res.redirect("/usuarios");
+        res.redirect("/usuarios");*/
+        
+        db.User.destroy({
+            where : {
+                id: req.params.id
+            }
+        })
+        res.redirect("/usuarios"); 
     },
 
     login: (req, res) => {

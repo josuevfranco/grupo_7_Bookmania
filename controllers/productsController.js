@@ -158,9 +158,7 @@ const productsController = {
 		}
     
         products[productIndex]={...products[productIndex], ...productInfo};
-    
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-        
         res.redirect("/misproductos");
     },
  
