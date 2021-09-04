@@ -9,6 +9,7 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 //storage para guardar imagen de libro
 const multer = require('multer');
+const { promiseImpl } = require('ejs');
 const storage = multer.diskStorage({
     destination: (req, file, cb)=> {
         cb(null, './public/images/productos');
@@ -125,64 +126,111 @@ const productsController = {
     },
 
     
-    detail: (req, res) => {
-        let id = parseInt(req.params.id)
-		const product = products.find(product => product.id == id);
-		res.render('products/detail', {product});
+    detail: (req, res) => { 
+        db.Book.findByPk(req.params.id)
+        .then(function(product){
+            res.render('products/detail', {product});
+        })
+        // let id = parseInt(req.params.id)
+		// const product = products.find(product => product.id == id);
 	},
 
     update: (req, res) => {
         let data = req.body;
-        const productIndex = products.findIndex(producto =>{
-          return producto.id == req.params.id;
-        });
-        let imagen = "";
-        if(req.file){
-            imagen = req.file.filename;
-            console.log(imagen);
-        } 
-        let productInfo = {
-			"id": req.params.id,
-			"titulo": data.titulo,
-			"autor": data.autor,
-			"editorial": data.editorial,
-			"rating": data.rating,
-			"categoria": data.categoria,
-			"idioma": data.idioma,
-            "precio": data.precio,
-            "anio": data.anio,
-            "paginas": data.paginas,
-            "descuento": data.descuento,
-            "resenia": data.resenia,
-            "imagenLibro": imagen
-		}
-    
-        products[productIndex]={...products[productIndex], ...productInfo};
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+        let category=[ 'Arte' , 'Ciencia' , 'Deportes'
+        , 'Derecho' , 'Economía' , 'Enseñanza Inglés'
+        , 'Ficción' , 'Ingeniería' , 'Infantil'
+        , 'Informática' , 'Literatura' , 'Medicina'
+        , 'Psicología' , 'Religión', 'Romance' ];
+        
+        let seleccionada = data.categoria;
+        let pos = 0;
+        for(let i=0; i<category.length; i++){
+            if(category[i] == seleccionada){
+                pos = i+1;
+            }
+        }
+
+        db.Book.update({
+            title : data.titulo,
+            author: data.autor,
+            editorial: data.editorial,
+            rating: data.rating,
+            category_id: pos,
+            price: data.precio,
+            language: data.idioma,
+            year: data.anio,
+            pages: data.paginas,
+            discount: data.descuento,
+            summary: data.resenia,
+            image: data.image
+        },{
+            where: {
+                id: req.params.id
+            }
+        }
+        )
+
         res.redirect("/misproductos");
+        
+        // const productIndex = products.findIndex(producto =>{
+        //   return producto.id == req.params.id;
+        // });
+        // let imagen = "";
+        // if(req.file){
+        //     imagen = req.file.filename;
+        //     console.log(imagen);
+        // } 
+        // let productInfo = {
+		// 	"id": req.params.id,
+		// 	"titulo": data.titulo,
+		// 	"autor": data.autor,
+		// 	"editorial": data.editorial,
+		// 	"rating": data.rating,
+		// 	"categoria": data.categoria,
+		// 	"idioma": data.idioma,
+        //     "precio": data.precio,
+        //     "anio": data.anio,
+        //     "paginas": data.paginas,
+        //     "descuento": data.descuento,
+        //     "resenia": data.resenia,
+        //     "imagenLibro": imagen
+		// }
+    
+        // products[productIndex]={...products[productIndex], ...productInfo};
+        // fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+        
     },
  
-    edit: (req, res) => {    
-        const productToEdit = products.find((product) => {
-             return product.id == req.params.id;      
-         });
+    edit: (req, res) => {  
+        let libroEditar = db.Book.findByPk(req.params.id);
+        let categoriaEditar = db.Category.findAll();
+        Promise.all([libroEditar,categoriaEditar])
+        .then(function([productToEdit,categorias]){
+            res.render('products/editarProducto', {productToEdit:productToEdit, categorias:categorias})
+        })
+
+        // const productToEdit = products.find((product) => {
+        //      return product.id == req.params.id;      
+        //  });
     
-         if (productToEdit) {
-             res.render('products/editarProducto', { productToEdit });
-         } else {
-             res.send("Hay un error al Editar");
-         }
+        //  if (productToEdit) {
+        //      res.render('products/editarProducto', { productToEdit });
+        //  } else {
+        //      res.send("Hay un error al Editar");
+        //  }
 	
     },
 
-    delete: (req, res) => {
-        console.log(req.params.id)
-        db.Book.destroy({
-            where : {
-                id: req.params.id
-            }
-        })
-        res.redirect("/misproductos"); 
+    eliminar: (req, res) => {
+        console.log('hola');
+         console.log(req.params.id)
+          db.Book.destroy({
+              where : {
+                  id: req.params.id
+              }
+          })
+         res.redirect("/misproductos"); 
         // const productIdex = products.findIndex(producto =>{
         //   return producto.id == req.params.id;
         // });

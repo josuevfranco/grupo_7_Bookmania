@@ -90,12 +90,12 @@ const mainController = {
         //res.redirect(req.get('referer'));
         res.redirect("/usuarios");*/
         
-        db.User.destroy({
-            where : {
-                id: req.params.id
-            }
-        })
-        res.redirect("/usuarios"); 
+        // db.User.destroy({
+        //     where : {
+        //         id: req.params.id
+        //     }
+        // })
+        // res.redirect("/usuarios"); 
     },
 
     login: (req, res) => {

@@ -1,22 +1,32 @@
 [
-  {
-    "id": 2,
-    "nombre": "prueba",
-    "apellidoPaterno": "prueba1",
-    "apellidoMaterno": "prueba2",
-    "email": "prueba@email.com",
-    "password": "$2a$10$id7CI7PhitbdrgiPih3EMOCsGtf6tEk2VuRPd7mux4Bl37uPrJeT6",
-    "rol": "Administrador",
-    "imagen": "profile-1627101993118.png"
-  },
-  {
-    "id": 3,
-    "nombre": "Josué",
-    "apellidoPaterno": "Vázquez",
-    "apellidoMaterno": "Franco",
-    "email": "josuefffranco@gmail.com",
-    "password": "$2a$10$FsyUUKyRJ7PcdzYDZM552.gBViktBAgfrfiXPCxc1eNvDS0WsTtWS",
-    "rol": "Administrador",
-    "imagen": "profile-1627219012080.jpg"
-  }
+	{
+		"id": 2,
+		"nombre": "prueba",
+		"apellidoPaterno": "prueba1",
+		"apellidoMaterno": "prueba2",
+		"email": "prueba@email.com",
+		"password": "$2a$10$id7CI7PhitbdrgiPih3EMOCsGtf6tEk2VuRPd7mux4Bl37uPrJeT6",
+		"rol": "Administrador",
+		"imagen": "profile-1627101993118.png"
+	},
+	{
+		"id": 3,
+		"nombre": "Josué",
+		"apellidoPaterno": "Vázquez",
+		"apellidoMaterno": "Franco",
+		"email": "josuefffranco@gmail.com",
+		"password": "$2a$10$FsyUUKyRJ7PcdzYDZM552.gBViktBAgfrfiXPCxc1eNvDS0WsTtWS",
+		"rol": "Administrador",
+		"imagen": "profile-1627219012080.jpg"
+	},
+	{
+		"id": 4,
+		"nombre": "daniela",
+		"apellidoPaterno": "hernandez",
+		"apellidoMaterno": "lara",
+		"email": "danielahdzlara@gmail.com",
+		"password": "$2a$10$wQxaTSkrLLh2H6q5qRabt.jmKiF9YdEjblTUqfjTeDtIC1q8zOTeG",
+		"rol": "Administrador",
+		"imagen": "profile-1630717417611.png"
+	}
 ]
