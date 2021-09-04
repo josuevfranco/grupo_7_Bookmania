@@ -223,7 +223,6 @@ const productsController = {
     },
 
     eliminar: (req, res) => {
-        console.log('hola');
          console.log(req.params.id)
           db.Book.destroy({
               where : {

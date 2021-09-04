@@ -13,11 +13,13 @@ const mainController = {
     index: (req, res) => {
         return res.render('index');
     },
+
+    //REGISTRO
     register: (req, res) => {
         return res.render('users/register');
     },
 
-    //Proceso de Registro de un usuario
+    //Proceso de Registro de un usuario CREATE
     processRegister: (req, res) => {
         const resValidation = validationResult(req);
         let passEncriptada = bcrypt.hashSync(req.body.password, 10);
@@ -31,12 +33,12 @@ const mainController = {
             });
         }
         else {
-
             if (req.file) {
                 imagen = req.file.filename;
                 console.log(imagen);
             }
-            usuario = {
+            
+            /*usuario = {
                 id: User.generateID(),
                 nombre: req.body.nameUser,
                 apellidoPaterno: req.body.lastName,
@@ -45,8 +47,11 @@ const mainController = {
                 password: passEncriptada,
                 rol: req.body.rol,
                 imagen: imagen
-            }
+            }*/
             //Verificamos que el email no esté ya dado de alta
+            usuario = {
+                email: req.body.email
+            };
             let userInDB = User.findByField('email', usuario.email);
             if (userInDB) {
                 return res.render('users/register', {
@@ -58,12 +63,21 @@ const mainController = {
                     oldData: req.body
                 });
             }
-            User.create(usuario);
+            db.User.create({
+                nombre: req.body.nameUser,
+                apellidoPaterno: req.body.lastName,
+                apellidoMaterno: req.body.lastNameM,
+                email: req.body.email,
+                password: passEncriptada,
+                rol: req.body.rol,
+                imagen: imagen
+            });
+            //User.create(usuario);
         }
 
         let userToLogin = User.findByField('email', req.body.email);
         req.session.userLogged = userToLogin;
-        res.cookie('email', userToLogin.email, { maxAge: (1000 * 60) * 60 })
+        res.cookie('email', userToLogin.email, { maxAge: (1000 * 60) * 60 });
 
         return res.redirect('/');
         
@@ -78,8 +92,14 @@ const mainController = {
             })
     },
 
-    //elimiinar usuario
+    //eliminar usuario
     deleteUser: (req, res) => {
+        db.User.destroy({
+            where : {
+                id: req.params.id
+            }
+        });
+        res.redirect("/usuarios"); 
         /*const userIdex = users.findIndex(user => {
             return user.id == req.params.id;
         });
@@ -90,14 +110,10 @@ const mainController = {
         //res.redirect(req.get('referer'));
         res.redirect("/usuarios");*/
         
-        // db.User.destroy({
-        //     where : {
-        //         id: req.params.id
-        //     }
-        // })
-        // res.redirect("/usuarios"); 
+        
     },
 
+    //LOGIN
     login: (req, res) => {
         return res.render('users/login');
     },
