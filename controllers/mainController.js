@@ -1,6 +1,8 @@
 const { validationResult } = require('express-validator');
-const User = require('../models/User');
 const bcrypt = require('bcryptjs');
+const db = require('../database/models');
+const User = require('../models/User-old');
+
 
 const fs = require('fs');
 const path = require('path');
@@ -12,11 +14,13 @@ const mainController = {
     index: (req, res) => {
         return res.render('index');
     },
+
+    //REGISTRO
     register: (req, res) => {
         return res.render('users/register');
     },
 
-    //Proceso de Registro de un usuario
+    //Proceso de Registro de un usuario CREATE
     processRegister: (req, res) => {
         const resValidation = validationResult(req);
         let passEncriptada = bcrypt.hashSync(req.body.password, 10);
@@ -30,11 +34,34 @@ const mainController = {
             });
         }
         else {
-
             if (req.file) {
                 imagen = req.file.filename;
                 console.log(imagen);
             }
+
+            //        let rol = ['Administrador', 'Cliente'];
+    
+            //      let seleccionada = req.body.rol;
+            //      let pos = 0;
+    
+            //      for (let i = 0; i < rol.length; i++) {
+            //          if (rol[i] == seleccionada) {
+            //              pos = i + 1;
+            //          }
+            //      }
+
+            // db.User.create({
+            //     nombre: req.body.nameUser,
+            //     apellidoPaterno: req.body.lastName,
+            //     apellidoMaterno: req.body.lastNameM,
+            //     email: req.body.email,
+            //     password: passEncriptada,
+            //     rol: pos,
+            //     imagen: imagen
+            // });
+
+
+            
             usuario = {
                 id: User.generateID(),
                 nombre: req.body.nameUser,
@@ -46,7 +73,10 @@ const mainController = {
                 imagen: imagen
             }
             //Verificamos que el email no esté ya dado de alta
-            let userInDB = User.findByField('email', usuario.email);
+            usuario_email = {
+                email : req.body.email
+            } 
+            let userInDB = User.findByField('email', usuario_email.email);
             if (userInDB) {
                 return res.render('users/register', {
                     errors: {
@@ -58,24 +88,76 @@ const mainController = {
                 });
             }
             User.create(usuario);
+
+
+            // let email_usuario = req.body.email;
+            // let userFound = [];
+            // db.User.findAll()
+            // .then(function(usuarios){
+            //     console.log(usuarios);
+            //     userFound = usuarios.find(oneUser => oneUser[email] == email_usuario); 
+            // })
+            //console.log(userFound);
+            //let user_json = JSON.stringify(userInDB, null, 2); 
+            //let userInDB = db.User.findAll(email_usuario);
+            // if (userFound) {
+            //     console.log('entra')
+    
+            //     let rol = ['Administrador', 'Cliente'];
+    
+            //     let seleccionada = req.body.rol;
+            //     let pos = 0;
+    
+            //     for (let i = 0; i < rol.length; i++) {
+            //         if (rol[i] == seleccionada) {
+            //             pos = i + 1;
+            //         }
+            //     }
+
+
+
+                
+            // } else {
+            //     return res.render('users/register', {
+            //         errors: {
+            //             email: {
+            //                 msg: 'Este email ya está registrado'
+            //             }
+            //         },
+            //         oldData: req.body
+            //     });
+            // }
+
+            //User.create(usuario);
         }
 
-        let userToLogin = User.findByField('email', req.body.email);
-        req.session.userLogged = userToLogin;
-        res.cookie('email', userToLogin.email, { maxAge: (1000 * 60) * 60 })
+         let userToLogin = User.findByField('email', req.body.email);
+         req.session.userLogged = userToLogin;
+         res.cookie('email', userToLogin.email, { maxAge: (1000 * 60) * 60 });
 
         return res.redirect('/');
         
+
     },
 
     //usuarios totales
     usuarios: (req, res) => {
-        return res.render('users/usuarios', { 'users': users });
+        //return res.render('users/usuarios', { 'users': users });
+        db.User.findAll()
+            .then(function (users) {
+                return res.render('users/usuarios', { 'users': users });
+            })
     },
 
-    //elimiinar usuario
+    //eliminar usuario
     deleteUser: (req, res) => {
-        const userIdex = users.findIndex(user => {
+        db.User.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.redirect("/usuarios");
+        /*const userIdex = users.findIndex(user => {
             return user.id == req.params.id;
         });
 
@@ -83,9 +165,12 @@ const mainController = {
 
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
         //res.redirect(req.get('referer'));
-        res.redirect("/usuarios");
+        res.redirect("/usuarios");*/
+
+
     },
 
+    //LOGIN
     login: (req, res) => {
         return res.render('users/login');
     },
@@ -94,7 +179,7 @@ const mainController = {
     processLogin: (req, res) => {
         const validation = validationResult(req);
         let userToLogin = User.findByField('email', req.body.email);
-        
+
 
         if (validation.errors.length > 0) {
             return res.render('users/login', {
@@ -102,18 +187,18 @@ const mainController = {
                 oldData: req.body,
             });
         }
-       
+
         if (userToLogin) {
             let passwordOK = bcrypt.compareSync(req.body.password, userToLogin.password);
             if (passwordOK) {
                 delete userToLogin.password;
                 req.session.userLogged = userToLogin;
-                
-                if(req.body.remember_user) {
-					res.cookie('email', req.body.email, { maxAge: (1000 * 60) * 60 })
-				}
 
-				return res.redirect('/');
+                if (req.body.remember_user) {
+                    res.cookie('email', req.body.email, { maxAge: (1000 * 60) * 60 })
+                }
+
+                return res.redirect('/');
             }
             return res.render('users/login', {
                 errors: {
@@ -130,27 +215,27 @@ const mainController = {
                 }
             }
         });
-        
+
     },
-    
-    profile: (req, res) =>{
+
+    profile: (req, res) => {
         return res.render('/', {
             user: req.session.userLogged
         });
     },
 
     logout: (req, res) => {
-		res.clearCookie('email');
-		req.session.destroy();
-		return res.redirect('/');
-	},
+        res.clearCookie('email');
+        req.session.destroy();
+        return res.redirect('/');
+    },
 
     contact: (req, res) => {
         return res.render('archivosEJS/contact');
     },
     notLogged: (req, res) => {
-		return res.redirect('/login');
-	},
+        return res.redirect('/login');
+    },
     userProfile: (req, res) => {
         return res.render('users/profile');
     },

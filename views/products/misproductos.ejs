@@ -117,17 +117,17 @@
                     <div class="my-cart-body">
                         <div class="my-item-details">
                             <div class="twenty">
-                                <a href="/detail/<%= products[i].id %> "><img src="/images/productos/<%= products[i].imagenLibro %>"
+                                <a href="/detail/<%= products[i].id %> "><img src="/images/productos/<%= products[i].image %>"
                                         class="my-item-image"></a>
                             </div>
                             <div class="twenty">
-                                <%= products[i].titulo %>
+                                <%= products[i].title %>
                             </div>
                             <div class="twenty">
-                                <%= products[i].autor %>
+                                <%= products[i].author %>
                             </div>
                             <div class="twenty">
-                                <%= products[i].idioma %>
+                                <%= products[i].language %>
                             </div>
                         
                             <form action="/edit/<%= products[i].id %>" method="get">
@@ -136,7 +136,7 @@
                                 </span>
                             </form>
                            
-                            <form action="/<%=products[i].id%>?_method=DELETE" method="POST">
+                            <form action="/eliminar/<%=products[i].id%>?_method=DELETE" method="POST">
                                 <span class="remove-item-span">
                                     <button class="remove-item-button">Eliminar</button>
                                 </span>     
