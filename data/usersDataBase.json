@@ -28,5 +28,21 @@
 		"password": "$2a$10$wQxaTSkrLLh2H6q5qRabt.jmKiF9YdEjblTUqfjTeDtIC1q8zOTeG",
 		"rol": "Administrador",
 		"imagen": "profile-1630717417611.png"
+	},
+	{
+		"email": "cliente_@gmail.com"
+	},
+	{
+		"email": "nuevo@correo.com"
+	},
+	{
+		"id": null,
+		"nombre": "Daniela",
+		"apellidoPaterno": "cliente",
+		"apellidoMaterno": "nuevo",
+		"email": "nuevooo@correo.com",
+		"password": "$2a$10$b.papgFM4BFSNd1K9LuBNu6sv0Wy4eHasbCpdF.Imff70X0j1VLwO",
+		"rol": "Administrador",
+		"imagen": "profile-1630893223758.jpg"
 	}
 ]
