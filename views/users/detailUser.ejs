@@ -1,0 +1,35 @@
+<head></head>
+    <Title>Detalle del Usuario</Title>
+</head>
+
+<body>
+
+    <%- include('../partials/header') %>
+        <main>
+            <div class="wrapper">
+                <div>
+                    <div id="libro">
+                        <img src="/images/usuarios/<%= users.src_image %>" width="260" height="380" alt="Libro">
+                    </div>
+                    <div id="descripcion">
+                        <h1>
+                            <%= users.name% %>
+                        </h1>
+                        <h3>
+                            <%= users.email %>
+                        </h3><br>
+                    </div>
+
+                    <div id="resena">
+                        <span class="titulo">Rol del Usuario</span><br>
+                        <p><i>
+                                <%= users.role_id %>
+                        </p><br><br>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
+
+</body>

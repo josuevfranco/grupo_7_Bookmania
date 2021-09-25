@@ -134,6 +134,7 @@ const productsController = {
         // let id = parseInt(req.params.id)
 		// const product = products.find(product => product.id == id);
 	},
+    
 
     update: (req, res) => {
         let data = req.body;
@@ -238,7 +239,7 @@ const productsController = {
         
         // fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
         // res.redirect("/misproductos"); 
-    },
+    }
 
 }
 module.exports = productsController;

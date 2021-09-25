@@ -24,8 +24,8 @@ router.post('/register', uploadFile.single('avatar'), validationsRegister, userL
 //Para ver todos los usuarios
 router.get('/usuarios', mainController.usuarios);
 
-//Eliminar usuario
-router.delete('/:id', mainController.deleteUser); 
+//Eliminar usuario <----------
+router.delete('/eliminar/:id', mainController.deleteUser); 
 
 //pagina formulario de login
 router.get('/login', loginMiddleware, mainController.login);
@@ -50,6 +50,9 @@ router.get('/restrictedArea/', mainController.restrictedArea);
 
 //Contacto
 router.get('/contact', mainController.contact);
+
+//Detalle del Usuario
+router.get('/detail/:id', mainController.detailUser); 
 
 module.exports = router;
 

@@ -2,10 +2,10 @@ module.exports = (sequelize, dataTypes) => {
 
     let alias = "User";
     let cols = {
-     id: {
-         type: dataTypes.INTEGER,
-         primaryKey: true,
-         autoIncrement: true,
+        id: {
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
         },
         name:{
             type: dataTypes.STRING,
@@ -16,12 +16,12 @@ module.exports = (sequelize, dataTypes) => {
         email: {
             type: dataTypes.STRING,
         },
-        password: {
-            type: dataTypes.STRING,
-        },
         role_id: {
             type: dataTypes.INTEGER,
             foreignKey: true,
+        },
+        password: {
+            type: dataTypes.STRING,
         },
         src_image: {
             type: dataTypes.STRING,

@@ -81,20 +81,26 @@
                     <div class="my-cart-body">
                         <div class="my-item-details">
                             <div class="twenty">
-                                <img src="/images/usuarios/<%= users[i].imagen %>"
-                                        class="my-item-image">
+                                <a href="/detail/<%= users[i].id %> "><img src="/images/usuarios/<%= users[i].image %>"
+                                    class="my-item-image"></a>
                             </div>
                             <div class="twenty">
-                                <%= users[i].nombre%>
+                                <%= users[i].name%>
                             </div>
                             <div class="twenty">
                                 <%= users[i].email %>
                             </div>
                             <div class="twenty">
-                                <%= users[i].rol %>
+                                <%= users[i].role_id %>
                             </div>
                            
-                            <form action="/<%=users[i].id%>?_method=DELETE" method="POST">
+                            <form action="/edit/<%= users[i].id %>" method="get">
+                                <span class="remove-item-span">
+                                    <button class="editar-item-button">  Editar</button>
+                                </span>
+                            </form>
+                           
+                            <form action="/eliminar/<%=users[i].id%>?_method=DELETE" method="POST">
                                 <span class="remove-item-span">
                                     <button class="remove-item-button">Eliminar</button>
                                 </span>     

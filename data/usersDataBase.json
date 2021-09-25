@@ -44,5 +44,25 @@
 		"password": "$2a$10$b.papgFM4BFSNd1K9LuBNu6sv0Wy4eHasbCpdF.Imff70X0j1VLwO",
 		"rol": "Administrador",
 		"imagen": "profile-1630893223758.jpg"
+	},
+	{
+		"id": 1,
+		"nombre": "Josue",
+		"apellidoPaterno": "Vazquez",
+		"apellidoMaterno": "Franco",
+		"email": "josuevfranco@gmail.com",
+		"password": "$2a$10$xwml3EaEdDhzHcJyy5wdDOMTM.rHTEqau3x9WwGaVQHktKZrettbi",
+		"rol": "Administrador",
+		"imagen": "profile-1632429685680.png"
+	},
+	{
+		"id": 2,
+		"nombre": "pame",
+		"apellidoPaterno": "pame",
+		"apellidoMaterno": "pame",
+		"email": "pame@correo.com",
+		"password": "$2a$10$hS5XeV/9MYzhkteiCmm0A.slfXft1dP12.7wMhsjoSuIvnWgpOw2G",
+		"rol": "Administrador",
+		"imagen": "profile-1632588889897.jpg"
 	}
 ]

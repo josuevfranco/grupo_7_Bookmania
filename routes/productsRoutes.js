@@ -35,6 +35,7 @@ router.get('/detail/:id', productsController.detail);
 router.delete('/eliminar/:id', productsController.eliminar); 
 
 
+
 module.exports = router;
 
 

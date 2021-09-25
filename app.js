@@ -28,5 +28,5 @@ app.use('/', mainRoutes);
 app.use('/', productsRoutes);
 
 app.listen(PORT, () => {
-    console.log('Servidor Corriendo en http://localhost:3000');
+    console.log('Servidor Corriendo en http://localhost:3001');
 })

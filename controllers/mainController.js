@@ -38,106 +38,39 @@ const mainController = {
                 imagen = req.file.filename;
                 console.log(imagen);
             }
-
-            //        let rol = ['Administrador', 'Cliente'];
+        
+                let rol = ['Administrador', 'Cliente'];
     
-            //      let seleccionada = req.body.rol;
-            //      let pos = 0;
+                 let seleccionada = req.body.rol;
+                 let pos = 0;
     
-            //      for (let i = 0; i < rol.length; i++) {
-            //          if (rol[i] == seleccionada) {
-            //              pos = i + 1;
-            //          }
-            //      }
+                 for (let i = 0; i < rol.length; i++) {
+                     if (rol[i] == seleccionada) {
+                         pos = i + 1;
+                     }
+                 }
 
-            // db.User.create({
-            //     nombre: req.body.nameUser,
-            //     apellidoPaterno: req.body.lastName,
-            //     apellidoMaterno: req.body.lastNameM,
-            //     email: req.body.email,
-            //     password: passEncriptada,
-            //     rol: pos,
-            //     imagen: imagen
-            // });
-
-
+            let surnames = req.body.lastName + req.body.lastNameM;
             
-            usuario = {
-                id: User.generateID(),
-                nombre: req.body.nameUser,
-                apellidoPaterno: req.body.lastName,
-                apellidoMaterno: req.body.lastNameM,
+            console.log(imagen);
+            console.log(req.body.nameUser);
+
+            db.User.create({
+                name: req.body.nameUser,
+                surnames: surnames,
                 email: req.body.email,
+                role_id: pos,
                 password: passEncriptada,
-                rol: req.body.rol,
-                imagen: imagen
-            }
-            //Verificamos que el email no esté ya dado de alta
-            usuario_email = {
-                email : req.body.email
-            } 
-            let userInDB = User.findByField('email', usuario_email.email);
-            if (userInDB) {
-                return res.render('users/register', {
-                    errors: {
-                        email: {
-                            msg: 'Este email ya está registrado'
-                        }
-                    },
-                    oldData: req.body
-                });
-            }
-            User.create(usuario);
-
-
-            // let email_usuario = req.body.email;
-            // let userFound = [];
-            // db.User.findAll()
-            // .then(function(usuarios){
-            //     console.log(usuarios);
-            //     userFound = usuarios.find(oneUser => oneUser[email] == email_usuario); 
-            // })
-            //console.log(userFound);
-            //let user_json = JSON.stringify(userInDB, null, 2); 
-            //let userInDB = db.User.findAll(email_usuario);
-            // if (userFound) {
-            //     console.log('entra')
-    
-            //     let rol = ['Administrador', 'Cliente'];
-    
-            //     let seleccionada = req.body.rol;
-            //     let pos = 0;
-    
-            //     for (let i = 0; i < rol.length; i++) {
-            //         if (rol[i] == seleccionada) {
-            //             pos = i + 1;
-            //         }
-            //     }
-
-
-
+                src_image: req.file.filename
+            });
                 
-            // } else {
-            //     return res.render('users/register', {
-            //         errors: {
-            //             email: {
-            //                 msg: 'Este email ya está registrado'
-            //             }
-            //         },
-            //         oldData: req.body
-            //     });
-            // }
-
-            //User.create(usuario);
+            // let userToLogin = User.findByField('email', req.body.email);
+            // req.session.userLogged = userToLogin;
+            // res.cookie('email', userToLogin.email, { maxAge: (1000 * 60) * 60 });
         }
 
-         let userToLogin = User.findByField('email', req.body.email);
-         req.session.userLogged = userToLogin;
-         res.cookie('email', userToLogin.email, { maxAge: (1000 * 60) * 60 });
 
         return res.redirect('/');
-        
-
     },
 
     //usuarios totales
@@ -241,7 +174,13 @@ const mainController = {
     },
     restrictedArea: (req, res) => {
         return res.render('users/restrictedPage');
-    }
+    },
+    detailUser: (req, res) => { 
+        db.User.findByPk(req.params.id)
+        .then(function(users){
+            res.render('/detail', {users});
+        })
+	}
 
 }
 module.exports = mainController;
