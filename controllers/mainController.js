@@ -178,9 +178,8 @@ const mainController = {
     detailUser: (req, res) => { 
         db.User.findByPk(req.params.id)
         .then(function(users){
-            res.render('/detail', {users});
+            res.render('users/detailUser', {users});
         })
 	}
-
 }
 module.exports = mainController;

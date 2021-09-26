@@ -52,7 +52,7 @@ router.get('/restrictedArea/', mainController.restrictedArea);
 router.get('/contact', mainController.contact);
 
 //Detalle del Usuario
-router.get('/detail/:id', mainController.detailUser); 
+router.get('/detailUser/:id', mainController.detailUser); 
 
 module.exports = router;
 
