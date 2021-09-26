@@ -11,6 +11,8 @@
                     <div id="libro">
                         <img src="/images/usuarios/<%= users.src_image %>" width="260" height="380" alt="Libro">
                     </div>
+
+                    <br><br><br><br>
                     <div id="descripcion">
                         <h1>
                             <%= users.name %>
@@ -22,9 +24,11 @@
 
                     <div id="resena">
                         <span class="titulo">Rol del Usuario</span><br>
-                        <p><i>
-                                <%= users.role_id %>
-                        </p><br><br>
+                        <% if(users.role_id == 1){ %>
+                            <h4 class="title">Administrador</h4>
+                          <% } else { %>
+                            <h4 class="title">Cliente</h4>
+                          <% } %> 
                     </div>
 
                 </div>
