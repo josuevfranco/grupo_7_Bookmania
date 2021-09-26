@@ -1,12 +1,31 @@
--- Script BD
--- Base de datos: bookmania
--- Equipo 7
-
+-- phpMyAdmin SQL Dump
+-- version 5.1.0
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 26-09-2021 a las 03:00:19
+-- Versión del servidor: 10.4.18-MariaDB
+-- Versión de PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
+SET time_zone = "+00:00";
 
--- Tabla books
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `bookmania`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `books`
+--
 
 CREATE TABLE `books` (
   `id` int(11) NOT NULL,
@@ -24,15 +43,20 @@ CREATE TABLE `books` (
   `image` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Tabla categories
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categories`
+--
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
--- Datos de la tabla categories
+--
+-- Volcado de datos para la tabla `categories`
+--
 
 INSERT INTO `categories` (`id`, `name`) VALUES
 (1, 'Arte'),
@@ -51,8 +75,11 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 (14, 'Religión'),
 (15, 'Romance');
 
+-- --------------------------------------------------------
 
--- Tabla purchase_orders
+--
+-- Estructura de tabla para la tabla `purchase_orders`
+--
 
 CREATE TABLE `purchase_orders` (
   `id` int(11) NOT NULL,
@@ -61,8 +88,11 @@ CREATE TABLE `purchase_orders` (
   `customer_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
 
--- Tabla purchase_order_books
+--
+-- Estructura de tabla para la tabla `purchase_order_books`
+--
 
 CREATE TABLE `purchase_order_books` (
   `id` int(11) NOT NULL,
@@ -71,8 +101,11 @@ CREATE TABLE `purchase_order_books` (
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
 
--- Tabla users
+--
+-- Estructura de tabla para la tabla `users`
+--
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
@@ -84,91 +117,148 @@ CREATE TABLE `users` (
   `src_image` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `users`
+--
 
--- Tabla user_roles
+INSERT INTO `users` (`id`, `role_id`, `name`, `surnames`, `email`, `password`, `src_image`) VALUES
+(15, 2, 'animal', 'animalanimal', 'animal@gmail.com', '$2a$10$ZMwLWscQwk3LKr9spbyjSeRMOh1iVUksa.pS8VCIuqkYw2lD6/VKG', 'profile-1632592830450.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user_roles`
+--
 
 CREATE TABLE `user_roles` (
   `id` int(11) NOT NULL,
   `description` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Datos de la tabla user_roles
+--
+-- Volcado de datos para la tabla `user_roles`
+--
 
 INSERT INTO `user_roles` (`id`, `description`) VALUES
-(1, 'Administrador');
+(1, 'Administrador'),
+(2, 'Cliente');
 
+--
+-- Índices para tablas volcadas
+--
 
-
-
--- Primary keys
-
+--
+-- Indices de la tabla `books`
+--
 ALTER TABLE `books`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_id` (`category_id`);
 
-
+--
+-- Indices de la tabla `categories`
+--
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
-
+--
+-- Indices de la tabla `purchase_orders`
+--
 ALTER TABLE `purchase_orders`
   ADD PRIMARY KEY (`id`),
   ADD KEY `customer_id` (`customer_id`);
 
-
+--
+-- Indices de la tabla `purchase_order_books`
+--
 ALTER TABLE `purchase_order_books`
   ADD PRIMARY KEY (`id`),
   ADD KEY `purchase_order_id` (`purchase_order_id`),
   ADD KEY `book_id` (`book_id`);
 
-
+--
+-- Indices de la tabla `users`
+--
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `role_id` (`role_id`);
+  ADD KEY `role_id` (`role_id`),
+  ADD KEY `role_id_2` (`role_id`);
 
-
+--
+-- Indices de la tabla `user_roles`
+--
 ALTER TABLE `user_roles`
   ADD PRIMARY KEY (`id`);
 
--- AUTO_INCREMENT de las tablas
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
 
+--
+-- AUTO_INCREMENT de la tabla `books`
+--
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
-
+--
+-- AUTO_INCREMENT de la tabla `categories`
+--
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
-
+--
+-- AUTO_INCREMENT de la tabla `purchase_orders`
+--
 ALTER TABLE `purchase_orders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
-
+--
+-- AUTO_INCREMENT de la tabla `purchase_order_books`
+--
 ALTER TABLE `purchase_order_books`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
-
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
-
+--
+-- AUTO_INCREMENT de la tabla `user_roles`
+--
 ALTER TABLE `user_roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
--- Foreign keys
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `books`
+--
 ALTER TABLE `books`
   ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
 
-
+--
+-- Filtros para la tabla `purchase_orders`
+--
 ALTER TABLE `purchase_orders`
   ADD CONSTRAINT `purchase_orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `users` (`id`);
 
-
+--
+-- Filtros para la tabla `purchase_order_books`
+--
 ALTER TABLE `purchase_order_books`
   ADD CONSTRAINT `purchase_order_books_ibfk_1` FOREIGN KEY (`purchase_order_id`) REFERENCES `purchase_orders` (`id`),
   ADD CONSTRAINT `purchase_order_books_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`);
 
-
+--
+-- Filtros para la tabla `users`
+--
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `user_roles` (`id`);
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
