@@ -2,7 +2,8 @@ const path = require('path');
 const { body } = require('express-validator');
 
 module.exports = [
-      body('titulo').notEmpty().withMessage('Tienes que escribir el nombre del libro'),
+      body('titulo').notEmpty().withMessage('Tienes que escribir el nombre del libro').bail()
+            .isLength({min: 5}).withMessage('El nombre del libro debe tener al menos 5 caracteres'),    
       body('autor').notEmpty().withMessage('Tienes que escrbir el autor del libro'),
       body('anio').notEmpty().withMessage('Tienes que escribir el año de publicación'),
       body('editorial').notEmpty().withMessage('Tienes que escribir la editorial del libro'),
@@ -22,13 +23,14 @@ module.exports = [
           .notEmpty().withMessage('Escribe el raiting del libro').bail()
           .isNumeric().withMessage('Escribe el raiting en formato de número'),
 
-      body("resenia").notEmpty().withMessage('Escribe la reseña del libro'),
+      body("resenia").notEmpty().withMessage('Escribe la reseña del libro').bail()
+            .isLength({min: 20}).withMessage('Debes escribir una reseña de al menos 20 caracteres'),
 
       body('imagenLibro').custom((value, {req}) =>{
           let file = req.file;
           console.log(JSON.stringify(req.file));
           console.log('here');
-          let acceptedExtensions = ['.jpg', '.png', '.gif'];
+          let acceptedExtensions = ['.jpg', '.png', '.gif', 'jpeg'];
           if(!file){
               throw new Error('Tienes que subir una imagen');
           } else{

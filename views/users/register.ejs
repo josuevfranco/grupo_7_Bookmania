@@ -31,7 +31,7 @@
                                 name="nameUser" 
                                 class="control"
                                 value= "<%= locals.oldData ? oldData.nameUser : null %>"
-                            >
+                            required >
                         </label>
                         <% if (locals.errors && errors.nameUser) {%>
                             <div class="text-danger">
@@ -47,7 +47,7 @@
                                 name="lastName" 
                                 class="control"
                                 value= "<%= locals.oldData ? oldData.lastName : null %>"
-                            >
+                            required >
                         </label>
                         <% if (locals.errors && errors.lastName) {%>
                             <div class="text-danger">
@@ -62,7 +62,7 @@
                                 name="lastNameM" 
                                 class="control"
                                 value= "<%= locals.oldData ? oldData.lastNameM : null %>"
-                            >
+                            required>
                         </label>
                         <% if (locals.errors && errors.lastNameM) {%>
                             <div class="text-danger">

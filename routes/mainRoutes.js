@@ -56,7 +56,7 @@ router.get('/detailUser/:id', mainController.detailUser);
 
 //Editar un Usuario 
 router.get('/editUser/:id/', mainController.editUser);
-router.put('/editUser/:id', uploadFile.single('avatar'), mainController.updateUser);
+router.put('/editUser/:id', uploadFile.single('avatar'),  validationsRegister, mainController.updateUser);
 
 
 module.exports = router;

@@ -6,5 +6,5 @@ module.exports = [
         .isEmail().withMessage('Debes escribir un correo válido').bail(),
     body('password')
         .notEmpty().withMessage('Ingresa tu contraseña de usuario').bail()
-        .isLength({min: 6}).withMessage('La contraseña debe ser de mínimo 6 caracteres'),
+        .isLength({min: 8}).withMessage('La contraseña debe ser de mínimo 8 caracteres'),
 ]

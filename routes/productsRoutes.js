@@ -5,7 +5,7 @@ const router = express.Router();
 const productsController = require('../controllers/productsController');
 
 //Middlewares
-const validations = require('../middlewares/validationsLibroMiddleware');
+const validationsProduct = require('../middlewares/validationsLibroMiddleware');
 const uploadFile = require('../middlewares/multerLibroMiddleware');
 
 //Carrito
@@ -22,11 +22,11 @@ router.get('/misproductos', productsController.misproductos);
 router.get('/crearProducto', productsController.crearProducto);
 
 //almacenamiento de productos
-router.post('/crearProducto', uploadFile.single('imagenLibro'), validations, productsController.store);
+router.post('/crearProducto', uploadFile.single('imagenLibro'), validationsProduct, productsController.store);
 
 //Editar libro
 router.get('/edit/:id/', productsController.edit);
-router.put('/editar/:id', uploadFile.single('imagenLibro'), productsController.update);
+router.put('/editar/:id', uploadFile.single('imagenLibro'), validationsProduct, productsController.update);
 
 //Detalle de libro
 router.get('/detail/:id', productsController.detail); 

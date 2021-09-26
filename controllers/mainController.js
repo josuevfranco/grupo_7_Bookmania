@@ -40,7 +40,6 @@ const mainController = {
             }
 
             let rol = ['Administrador', 'Cliente'];
-
             let seleccionada = req.body.rol;
             let pos = 0;
 
@@ -51,9 +50,6 @@ const mainController = {
             }
 
             let surnames = req.body.lastName + " " + req.body.lastNameM;
-
-            console.log(imagen);
-            console.log(req.body.nameUser);
 
             db.User.create({
                 name: req.body.nameUser,
@@ -75,7 +71,6 @@ const mainController = {
 
     //usuarios totales
     usuarios: (req, res) => {
-        //return res.render('users/usuarios', { 'users': users });
         db.User.findAll()
             .then(function (users) {
                 return res.render('users/usuarios', { 'users': users });
@@ -90,17 +85,6 @@ const mainController = {
             }
         });
         res.redirect("/usuarios");
-        /*const userIdex = users.findIndex(user => {
-            return user.id == req.params.id;
-        });
-
-        users.splice(userIdex, 1);
-
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-        //res.redirect(req.get('referer'));
-        res.redirect("/usuarios");*/
-
-
     },
 
     //LOGIN
@@ -119,7 +103,6 @@ const mainController = {
             console.log('Not found!');
         } else {
             console.log(userToLogin);
-            console.log('Found It, Bitch :P'); // 'My Title'
         }
         
         if (validation.errors.length > 0) {
@@ -138,7 +121,6 @@ const mainController = {
                 if (req.body.remember_user) {
                     res.cookie('email', req.body.email, { maxAge: (1000 * 60) * 60 })
                 }
-
                 return res.redirect('/');
             }
             return res.render('users/login', {
@@ -156,9 +138,9 @@ const mainController = {
                 }
             }
         });
-
     },
 
+    //perfil de usuario
     profile: (req, res) => {
         return res.render('/', {
             user: req.session.userLogged
@@ -183,12 +165,16 @@ const mainController = {
     restrictedArea: (req, res) => {
         return res.render('users/restrictedPage');
     },
+
+    //detalle de usuario 
     detailUser: (req, res) => {
         db.User.findByPk(req.params.id)
             .then(function (users) {
                 res.render('users/detailUser', { users });
             })
     },
+
+    //editar usuario
     editUser: (req, res) => {
         let userEditar = db.User.findByPk(req.params.id);
         let roleEditar = db.UserRole.findAll();
@@ -197,6 +183,8 @@ const mainController = {
                 res.render('users/editUser', { UserToEdit: UserToEdit, role: role })
             })
     },
+
+    //actualizar usuario
     updateUser: (req, res) => {
         let data = req.body;
         let rol = ['Administrador', 'Cliente'];
@@ -213,19 +201,18 @@ const mainController = {
         //Concatenar para apellidos
 
         db.User.update({
-            name: data.nameUser,
-            surnames: surnames,
-            email: data.email,
-            role_id: pos,
-            src_image: req.file.filename
-        }, {
-            where: {
-                id: req.params.id
+                name: data.nameUser,
+                surnames: surnames,
+                email: data.email,
+                role_id: pos,
+                src_image: req.file.filename
+            }, {
+                where: {
+                    id: req.params.id
+                }
             }
-        }
         )
-
-        res.redirect("/misproductos");
+        res.redirect("/usuarios");
     }
 }
 module.exports = mainController;
