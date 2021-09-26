@@ -1,0 +1,86 @@
+<head>
+    <Title>Editar Usuario</Title>
+    <link rel="stylesheet" href="/css/crearProducto.css">
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+    <% if(!locals.isLogged){ %>
+        <script>  document.location.href = '/notLogged' </script>
+        <% }  else if (locals.userLogged.rol != 'Administrador') { %>
+            <script>  document.location.href = '/RestrictedArea' </script>
+            <% } else{ %>
+
+        <main>
+            <h2 class="creacion">Edición de Usuario</h2>
+            <div class="formulario">
+                <form action="/editar/<%=UserToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <div class="titulo">
+                        <label for="titulo">Nombre de Usuario:
+                            <input type="text" name="name" id="titulo" class="control"
+                                value="<%= UserToEdit.name %>">
+                        </label>
+                        <% if (locals.errors && errors.name) {%>
+                            <div class="text-danger">
+                                <%= errors.name.msg %>
+                            </div>
+                            <%} %><br><br>
+
+                                        <label for="editorial">Apellidos:
+                                            <input type="text" name="surnames" class="control"
+                                                value="<%= UserToEdit.surnames %>">
+                                        </label>
+                                        <% if (locals.errors && errors.surnames) {%>
+                                            <div class="text-danger">
+                                                <%= errors.surnames.msg %>
+                                            </div>
+                                            <%} %><br><br>
+
+                                                <label for="rating">Email:
+                                                    <input type="email" name="email" id="rating" class="control"
+                                                        min="0" max="5" value="<%= UserToEdit.email %>">
+                                                </label>
+                                                <% if (locals.errors && errors.email) {%>
+                                                    <div class="text-danger">
+                                                        <%= errors.email.msg %>
+                                                    </div>
+                                                    <%} %><br><br>
+
+                                                        <label for="categoria">Role:
+                                                            <select name="categoria" id="categoria" class="control">
+                                                                <% let category=[ 'Administrador' , 'Cliente']; %>
+                                                                    <% for(const cat of category) { %>
+                                                                        <option
+                                                                            value="<%=cat %>" "<%= UserToEdit.user_role %>">
+                                                                            <%=cat%>
+                                                                        </option>
+                                                                        <% } %>
+                                                            </select>
+                                                        </label><br><br>
+                    </div><br>
+
+
+                    <div class="titulo">
+                        <label for="avatar">Imagen:
+                            <input type="file" size="24" name="avatar" class="control"
+                                value="<%= UserToEdit.src_image %>">
+                            <% if (locals.errors && errors.avatar) {%>
+                                <div class="text-danger">
+                                    <%= errors.avatar.msg %>
+                                </div>
+                                <%} %>
+                        </label>
+                    </div>
+
+                    <div class="agregar">
+                        <button type="submit" class="boton-form">Actualizar</button><br>
+                    </div><br>
+                </form>
+            </div>
+        </main>
+        <% } %>
+
+        <%- include('../partials/footer') %>
+
+</body>

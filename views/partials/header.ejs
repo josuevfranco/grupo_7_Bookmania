@@ -50,13 +50,13 @@
          <% if(locals.isLogged) { %>
           <div class="dropdown">
             <a href="#" class="btn-cuenta dropbtn">
-              Hola <%= locals.userLogged.nombre %>
+              Hola <%= locals.userLogged.name %>
             </a>
             <div class="dropdown-content">
               <a href="/profile"><i class="fas fa-sign-in-alt"></i> Mi perfil</a>
               <a href="/logout"><i class="fas fa-sign-in-alt"></i> Logout</a>
             </div>
-            <img src="/images/usuarios/<%= locals.userLogged.imagen %>" width="60" style="border-radius: 30%; vertical-align: middle; margin-bottom: 8px;">
+            <img src="/images/usuarios/<%= locals.userLogged.src_image %>" width="60" style="border-radius: 30%; vertical-align: middle; margin-bottom: 8px;">
          </div>
         <%} else { %>
          <div class="dropdown">

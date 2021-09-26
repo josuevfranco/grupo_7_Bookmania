@@ -54,6 +54,11 @@ router.get('/contact', mainController.contact);
 //Detalle del Usuario
 router.get('/detailUser/:id', mainController.detailUser); 
 
+//Editar un Usuario 
+router.get('/editUser/:id/', mainController.editUser);
+router.put('/editUser/:id', uploadFile.single('avatar'), mainController.updateUser);
+
+
 module.exports = router;
 
 

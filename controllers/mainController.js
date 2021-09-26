@@ -38,20 +38,20 @@ const mainController = {
                 imagen = req.file.filename;
                 console.log(imagen);
             }
-        
-                let rol = ['Administrador', 'Cliente'];
-    
-                 let seleccionada = req.body.rol;
-                 let pos = 0;
-    
-                 for (let i = 0; i < rol.length; i++) {
-                     if (rol[i] == seleccionada) {
-                         pos = i + 1;
-                     }
-                 }
 
-            let surnames = req.body.lastName + req.body.lastNameM;
-            
+            let rol = ['Administrador', 'Cliente'];
+
+            let seleccionada = req.body.rol;
+            let pos = 0;
+
+            for (let i = 0; i < rol.length; i++) {
+                if (rol[i] == seleccionada) {
+                    pos = i + 1;
+                }
+            }
+
+            let surnames = req.body.lastName + " " + req.body.lastNameM;
+
             console.log(imagen);
             console.log(req.body.nameUser);
 
@@ -63,7 +63,7 @@ const mainController = {
                 password: passEncriptada,
                 src_image: req.file.filename
             });
-                
+
             // let userToLogin = User.findByField('email', req.body.email);
             // req.session.userLogged = userToLogin;
             // res.cookie('email', userToLogin.email, { maxAge: (1000 * 60) * 60 });
@@ -109,11 +109,19 @@ const mainController = {
     },
 
     //procesar login
-    processLogin: (req, res) => {
+    processLogin: async (req, res) => {
         const validation = validationResult(req);
-        let userToLogin = User.findByField('email', req.body.email);
+        //let userToLogin = User.findByField('email', req.body.email);
 
+        const userToLogin = await db.User.findOne({ where: { email: req.body.email } });
 
+        if (userToLogin === null) {
+            console.log('Not found!');
+        } else {
+            console.log(userToLogin);
+            console.log('Found It, Bitch :P'); // 'My Title'
+        }
+        
         if (validation.errors.length > 0) {
             return res.render('users/login', {
                 errors: validation.mapped(),
@@ -126,7 +134,7 @@ const mainController = {
             if (passwordOK) {
                 delete userToLogin.password;
                 req.session.userLogged = userToLogin;
-
+        
                 if (req.body.remember_user) {
                     res.cookie('email', req.body.email, { maxAge: (1000 * 60) * 60 })
                 }
@@ -175,11 +183,49 @@ const mainController = {
     restrictedArea: (req, res) => {
         return res.render('users/restrictedPage');
     },
-    detailUser: (req, res) => { 
+    detailUser: (req, res) => {
         db.User.findByPk(req.params.id)
-        .then(function(users){
-            res.render('users/detailUser', {users});
-        })
-	}
+            .then(function (users) {
+                res.render('users/detailUser', { users });
+            })
+    },
+    editUser: (req, res) => {
+        let userEditar = db.User.findByPk(req.params.id);
+        let roleEditar = db.UserRole.findAll();
+        Promise.all([userEditar, roleEditar])
+            .then(function ([UserToEdit, role]) {
+                res.render('users/editUser', { UserToEdit: UserToEdit, role: role })
+            })
+    },
+    updateUser: (req, res) => {
+        let data = req.body;
+        let rol = ['Administrador', 'Cliente'];
+
+        let seleccionada = req.body.rol;
+        let pos = 0;
+
+        for (let i = 0; i < rol.length; i++) {
+            if (rol[i] == seleccionada) {
+                pos = i + 1;
+            }
+        }
+
+        //Concatenar para apellidos
+
+        db.User.update({
+            name: data.nameUser,
+            surnames: surnames,
+            email: data.email,
+            role_id: pos,
+            src_image: req.file.filename
+        }, {
+            where: {
+                id: req.params.id
+            }
+        }
+        )
+
+        res.redirect("/misproductos");
+    }
 }
 module.exports = mainController;
