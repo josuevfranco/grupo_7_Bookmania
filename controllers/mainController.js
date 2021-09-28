@@ -1,14 +1,12 @@
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
-const User = require('../models/User-old');
 
 
 const fs = require('fs');
 const path = require('path');
 
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const mainController = {
     index: (req, res) => {
@@ -21,7 +19,7 @@ const mainController = {
     },
 
     //Proceso de Registro de un usuario CREATE
-    processRegister: (req, res) => {
+    processRegister: async (req, res) => {
         const resValidation = validationResult(req);
         let passEncriptada = bcrypt.hashSync(req.body.password, 10);
         let imagen = "";
@@ -61,8 +59,9 @@ const mainController = {
             });
 
             // let userToLogin = User.findByField('email', req.body.email);
-            // req.session.userLogged = userToLogin;
-            // res.cookie('email', userToLogin.email, { maxAge: (1000 * 60) * 60 });
+            const userToLogin = await db.User.findOne({ where: { email: req.body.email } });
+            req.session.userLogged = userToLogin;
+            res.cookie('email', userToLogin.email, { maxAge: (1000 * 60) * 60 });
         }
 
 
@@ -117,6 +116,7 @@ const mainController = {
             if (passwordOK) {
                 delete userToLogin.password;
                 req.session.userLogged = userToLogin;
+                console.log(req.session.userLogged);
         
                 if (req.body.remember_user) {
                     res.cookie('email', req.body.email, { maxAge: (1000 * 60) * 60 })

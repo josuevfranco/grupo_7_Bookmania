@@ -20,12 +20,16 @@
     flex-direction: column;
 	align-items: center;
     justify-content: flex-end;
-    padding: 20px; 
-	margin: 10px 8px 0px 8px;
+	margin-bottom: 100px;
 }
-.register, .footer-titulo{
-    color: rgb(86, 145, 233);
+
+.register2{
+		color: rgb(86, 145, 233);
+		font-weight: normal; line-height: 48px; 
+		text-align: center; text-shadow: 1px 1px 2px #082b34; 
+		font-size: 30px;
 }
+
 .register{
 	display: flex;
 	align-items: center;

@@ -18,6 +18,7 @@
             </div>
 
             <div class="column2_reg">
+                <br>
                 <div class="register"><h1>Regístrate</h1> </div>
                 <h3 class="texto1">Al crear una cuenta en Bookmania, podrás agilizar el proceso de compra,
                     guardar múltiples direcciones de envío, rastrear pedidos y más.</h3>
@@ -110,7 +111,7 @@
                             </div>
                         <%} %><br><br>
                         <label for="avatar">Imagen de usuario:
-                            <input type="file" size="24" name="avatar" class="control">
+                            <input type="file" size="24" name="avatar" class="control2">
                         </label>
                         <% if (locals.errors && errors.usuarios) {%>
                             <div class="text-danger">
@@ -118,39 +119,11 @@
                             </div>
                         <%} %>
                     </div>
-                    <div class="boton-capt">
-                        <div class="captcha">
-                            <div class="spinner">
-                                <label>
-                                    <input type="checkbox" onclick="$(this).attr('disabled','disabled');" required>
-                                    <span class="checkmark"><span>&nbsp;</span></span>
-                                </label>
-                            </div>
-                            <div class="text-capt">
-                                No soy un robot
-                            </div>
-                            <div class="logo-capt">
-                                <img src="https://forum.nox.tv/core/index.php?media/9-recaptcha-png/" class="img-cap"/>
-                                <p>reCAPTCHA</p>
-                                <small>Privacy - Terms</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="terminos-check">
-                        <label for="term1" class="term">
-                            <input type="checkbox" name="term1">
-                            Sí, quiero recibir por correo electrónico, promociones exclusivas de Librerías Bookmanía.
-                        </label>
-                        <label for="term2" class="term">
-                            <input type="checkbox" name="term2" required>
-                            He leído y acepto los Términos y Condiciones y Aviso de Privacidad.
-                        </label>
-                    </div>
 
                     <div class="enviar">
                         <button type="submit">Enviar</button>
                     </div>
+
                 </form>
             </div>
         </div>

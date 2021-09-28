@@ -12,17 +12,23 @@
 .column1_reg img{
 	width: 2000px;
 	height: 400px;
+	padding: 40px;
 }
 .column2_reg{
 	display: flex;
 	flex-direction: column ;
 	flex: 60%;
 	float: right;
+	padding-left: 60px;
+	padding-bottom: 30px;
 }
 
-.register, .footer-titulo{
+.register{
     color: rgb(86, 145, 233);
-	
+	font-size: 30px;
+	font-family: 'Rouge Script', cursive; 
+	font-weight: normal; line-height: 48px; 
+	text-align: center; text-shadow: 1px 1px 2px #082b34; 
 }
 .register{
 	display: flex;
@@ -39,11 +45,12 @@ form{
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	background-color: rgb(189, 198, 205);
+	background-color: rgba(200, 217, 252, 0.5);
 	border-radius: 8px;
 	padding: 20px;
 	
 }
+
 form label{
 	font-size: 20px;
 }
@@ -62,7 +69,15 @@ form form{
 	width: 100%;
 	padding: 10px 20px;
 	border-radius: 5px;
-	border: none;
+	margin-top: 10px;
+	font-size: 17px;
+	border: black 1px solid;
+}
+
+.control2{
+	width: 100%;
+	padding: 10px 20px;
+	border-radius: 5px;
 	margin-top: 10px;
 	font-size: 17px;
 }
@@ -136,12 +151,20 @@ form form{
 }
 
 .enviar button{
-	width: auto;
-	padding: 8px;
-	font-size: 22px;
-	border-radius: 3px;
-	font-family: 'Times New Roman';
-	color: rgb(51, 90, 148);
+		width: 120px;
+		height: 50px;
+		color: white;
+		font-family: 'Rubik One', sans-serif;
+		text-decoration: none;
+		font-size: 22px;
+		border-radius: 3px;
+		background-color: #3498db;
+   
+	
+}
+
+.enviar button:hover{
+	background-color: #94bfdb;
 }
 
 .terminos-check{
