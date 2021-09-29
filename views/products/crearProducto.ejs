@@ -6,10 +6,10 @@
 <body>
     <%- include('../partials/header') %>
         <main>
-            <% if(!locals.isLogged){ %>
-                <script>  document.location.href = '/notLogged' </script>
-                <% }  else if (locals.userLogged.rol != 'Administrador') { %>
-                    <script>  document.location.href = '/RestrictedArea' </script>
+            <% if(locals.userLogged.role_id != 1){ %>
+                <script>  document.location.href = '/RestrictedArea' </script>
+                <% }  else if (locals.userLogged.role_id != 1) { %>
+                    <script>  document.location.href = '/RestrictedArea'</script>
                     <% } else{ %>
 
             <h2 class="creacion">Creación de Productos</h2>

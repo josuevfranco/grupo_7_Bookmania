@@ -93,9 +93,9 @@
 <body>
     <%- include('../partials/header') %>
     
-    <% if(!locals.isLogged){ %>
-        <script>  document.location.href = '/notLogged' </script>
-        <% }  else if (locals.userLogged.rol != 'Administrador') { %>
+    <% if(locals.userLogged.role_id != 1){ %>
+        <script>  document.location.href = '/RestrictedArea' </script>
+        <% }  else if (locals.userLogged.role_id != 1) { %>
             <script>  document.location.href = '/RestrictedArea' </script>
             <% } else{ %>
 
