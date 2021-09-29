@@ -32,9 +32,11 @@ const mainController = {
             });
         }
         else {
+            let imagenAlternativa = "";
             if (req.file) {
-                imagen = req.file.filename;
-                console.log(imagen);
+                imagenAlternativa = req.file.filename;
+            }else{
+                imagenAlternativa = "user.png"
             }
 
             let rol = ['Administrador', 'Cliente'];
@@ -55,13 +57,13 @@ const mainController = {
                 email: req.body.email,
                 role_id: pos,
                 password: passEncriptada,
-                src_image: req.file.filename
+                src_image: imagenAlternativa
             });
 
             // let userToLogin = User.findByField('email', req.body.email);
-            const userToLogin = await db.User.findOne({ where: { email: req.body.email } });
-            req.session.userLogged = userToLogin;
-            res.cookie('email', userToLogin.email, { maxAge: (1000 * 60) * 60 });
+            //const userToLogin = await db.User.findOne({ where: { email: req.body.email } });
+            //req.session.userLogged = userToLogin;
+            //res.cookie('email', userToLogin.email, { maxAge: (1000 * 60) * 60 });
         }
 
 
