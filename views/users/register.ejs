@@ -47,7 +47,7 @@
                                 type="text" 
                                 id="fname" 
                                 name="lastName" 
-                                class="control"
+                                class="controlLN1"
                                 value= "<%= locals.oldData ? oldData.lastName : null %>"
                             required >
                         </label>
@@ -62,7 +62,7 @@
                                 type="text" 
                                 id="fMname" 
                                 name="lastNameM" 
-                                class="control"
+                                class="controlLN2"
                                 value= "<%= locals.oldData ? oldData.lastNameM : null %>"
                             required>
                         </label>
@@ -77,7 +77,7 @@
                                 type="text" 
                                 id="email" 
                                 name="email" 
-                                class="control "
+                                class="controlEmail"
                                 value= "<%= locals.oldData ? oldData.email : null %>"
                             >
                         </label><% if (locals.errors && errors.email) {%>
@@ -104,7 +104,7 @@
                         <%} %><br><br>
 
                         <label for="password">Contraseña:
-                            <input type="password" id="password" name="password" class="control">
+                            <input type="password" id="password" name="password" class="controlPass">
                         </label>
                         <% if (locals.errors && errors.password) {%>
                             <div class="text-danger">

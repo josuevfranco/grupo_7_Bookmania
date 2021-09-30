@@ -83,6 +83,42 @@ form form{
 	border: black 1px solid;	
 }
 
+.controlLN1{
+	width: 100%;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 17px;
+	border: black 1px solid;	
+}
+
+.controlEmail{
+	width: 100%;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 17px;
+	border: black 1px solid;	
+}
+
+.controlPass{
+	width: 100%;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 17px;
+	border: black 1px solid;	
+}
+
+.controlLN2{
+	width: 100%;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 17px;
+	border: black 1px solid;	
+}
+
 .control2{
 	width: 100%;
 	padding: 10px 20px;
