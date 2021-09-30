@@ -19,7 +19,7 @@
                     <div class="titulo">
                         <label for="titulo">Título:
                             <input type="text" name="titulo" id="titulo" class="control"
-                                value="<%= productToEdit.titulo %>">
+                                value="<%= productToEdit.title %>">
                         </label>
                         <% if (locals.errors && errors.titulo) {%>
                             <div class="text-danger">
@@ -28,7 +28,7 @@
                         <%} %><br><br>
 
                         <label for="autor">Autor:
-                            <input type="text" name="autor" id="autor" class="control" value="<%= productToEdit.autor %>">
+                            <input type="text" name="autor" id="autor" class="control" value="<%= productToEdit.author %>">
                         </label>
                         <% if (locals.errors && errors.autor) {%>
                             <div class="text-danger">
@@ -71,7 +71,7 @@
                         <br><br>
 
                         <label for="precio">Precio:
-                            <input type="number" name="precio" class="control" min="0" value="<%= productToEdit.precio %>">
+                            <input type="number" name="precio" class="control" min="0" value="<%= productToEdit.price %>">
                         </label>
                         <% if (locals.errors && errors.precio) {%>
                             <div class="text-danger">
@@ -80,7 +80,7 @@
                         <%} %><br><br>
 
                         <label for="idioma">Idioma:
-                             <input type="text" name="idioma" id="idioma" class="control" value="<%= productToEdit.idioma %>">
+                             <input type="text" name="idioma" id="idioma" class="control" value="<%= productToEdit.language %>">
                         </label>
                         <% if (locals.errors && errors.idioma) {%>
                             <div class="text-danger">
@@ -89,7 +89,7 @@
                         <%} %><br><br>
 
                         <label for="anio">Año:
-                            <input type="number" name="anio" id="anio" class="control" min="100" value="<%= productToEdit.anio %>">
+                            <input type="number" name="anio" id="anio" class="control" min="100" value="<%= productToEdit.year %>">
                         </label>
                         <% if (locals.errors && errors.year) {%>
                             <div class="text-danger">
@@ -98,7 +98,7 @@
                         <%} %><br><br>
 
                         <label for="paginas">Páginas:
-                            <input type="text" name="paginas" id="paginas" class="control" value="<%= productToEdit.paginas %>">
+                            <input type="text" name="paginas" id="paginas" class="control" value="<%= productToEdit.pages %>">
                         </label>
                         <% if (locals.errors && errors.paginas){%>
                             <div class="text-danger">
@@ -108,15 +108,15 @@
                     </div><br>
 
                     <label for="descuento"> Descuento:<br>
-                        <input type="radio" name="descuento" id="descuento0" value="0" <%=productToEdit.descuento==0 ? "checked" :"" %>> 0% </input>&emsp;
-                        <input type="radio" name="descuento" id="descuento5" value="5" <%=productToEdit.descuento==5 ? "checked" :"" %>> 5% </input>&emsp;
-                        <input type="radio" name="descuento" id="descuento10" value="10" <%=productToEdit.descuento==10 ? "checked" :"" %>> 10% </input>&emsp;
-                        <input type="radio" name="descuento" id="descuento20" value="20" <%=productToEdit.descuento==20 ? "checked" :"" %>> 20% </input>&emsp;
-                        <input type="radio" name="descuento" id="descuento50" value="50" <%=productToEdit.descuento==50 ? "checked" :"" %>> 50% </input>
+                        <input type="radio" name="descuento" id="descuento0" value="0" <%=productToEdit.discount==0 ? "checked" :"" %>> 0% </input>&emsp;
+                        <input type="radio" name="descuento" id="descuento5" value="5" <%=productToEdit.discount==5 ? "checked" :"" %>> 5% </input>&emsp;
+                        <input type="radio" name="descuento" id="descuento10" value="10" <%=productToEdit.discount==10 ? "checked" :"" %>> 10% </input>&emsp;
+                        <input type="radio" name="descuento" id="descuento20" value="20" <%=productToEdit.discount==20 ? "checked" :"" %>> 20% </input>&emsp;
+                        <input type="radio" name="descuento" id="descuento50" value="50" <%=productToEdit.discount==50 ? "checked" :"" %>> 50% </input>
                     </label><br>
 
                     <label for="resenia"><br> Reseña: <br>
-                        <textarea name="resenia" class="control" value="<%= productToEdit.resenia %>"><%= productToEdit.resenia %></textarea>
+                        <textarea name="resenia" class="control" value="<%= productToEdit.resenia %>"><%= productToEdit.summary %></textarea>
                     </label><br>
 
 

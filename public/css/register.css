@@ -74,6 +74,15 @@ form form{
 	border: black 1px solid;
 }
 
+.controlName{
+	width: 100%;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 17px;
+	border: black 1px solid;	
+}
+
 .control2{
 	width: 100%;
 	padding: 10px 20px;

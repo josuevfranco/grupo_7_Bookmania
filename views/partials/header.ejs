@@ -24,6 +24,7 @@
             </div>
           </div>
           
+          <% if(locals.isLogged) { %>
           <div class="dropdown">
             <a class="btn-prod dropbtn"><i class="fas fa-caret-down"></i> Productos</a>
             <div class="dropdown-content">
@@ -32,6 +33,9 @@
               <a href="/usuarios"> Usuarios </a>
             </div>
           </div>
+          <%} else { %>
+
+          <% } %>
          
           <div class="dropdown">
             <a href="#" class="btn-cat dropbtn"><i class="fas fa-caret-down"></i> Categoría</a>

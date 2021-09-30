@@ -2,6 +2,7 @@
 <html lang="en">
     <head><Title>Registro</Title>
         <link rel="stylesheet" href="/css/register.css">
+        <script src="/js/registerValidation.js"></script>
     </head>
 <body>
     <%- include('../partials/header') %>
@@ -23,14 +24,14 @@
                 <h3 class="texto1">Al crear una cuenta en Bookmania, podrás agilizar el proceso de compra,
                     guardar múltiples direcciones de envío, rastrear pedidos y más.</h3>
 
-                <form action="/register" method="POST" enctype="multipart/form-data">
+                <form action="/register" class="formulario" method="POST" enctype="multipart/form-data">
                     <div class="form">
-                        <label for="name">Nombre (s):
+                        <label for="name" class="erName">Nombre (s):
                             <input 
                                 type="text" 
                                 id="name" 
                                 name="nameUser" 
-                                class="control"
+                                class="controlName"
                                 value= "<%= locals.oldData ? oldData.nameUser : null %>"
                             required >
                         </label>
@@ -121,7 +122,7 @@
                     </div>
 
                     <div class="enviar">
-                        <button type="submit">Enviar</button>
+                        <button id="btnSubmit" type="submit">Enviar</button>
                     </div>
 
                 </form>
@@ -131,6 +132,6 @@
     <% } %>
 
     <%- include('../partials/footer') %>
-    
+    <script src="./js/registerValidation.js"></script>
 </body>
 </html>

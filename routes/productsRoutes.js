@@ -32,7 +32,7 @@ router.put('/editar/:id', uploadFile.single('imagenLibro'), validationsProduct, 
 router.get('/detail/:id', productsController.detail); 
 
 //Eliminar libro
-router.delete('/eliminar/:id', productsController.eliminar); 
+router.delete('/eliminarLibro/:id', productsController.eliminarLibro); 
 
 
 
