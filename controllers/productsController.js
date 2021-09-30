@@ -164,7 +164,7 @@ const productsController = {
             pages: data.paginas,
             discount: data.descuento,
             summary: data.resenia,
-            image: data.image
+            image: req.file.filename
         },{
             where: {
                 id: req.params.id
