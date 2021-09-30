@@ -204,10 +204,9 @@ const mainController = {
 
         db.User.update({
                 name: data.nameUser,
-                surnames: surnames,
+                surnames: data.surnames,
                 email: data.email,
-                role_id: pos,
-                src_image: req.file.filename
+                role_id: pos
             }, {
                 where: {
                     id: req.params.id
