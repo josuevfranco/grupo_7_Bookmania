@@ -58,6 +58,12 @@ form label{
 .text-danger{
 	color: rgb(186, 41, 41);
 }
+
+.textErrorName, .textErrorApe1, .textErrorApe2, .textErrorMail, .textErrorOp, .textErrorPass, .textErrorImg{
+	color: rgb(186, 41, 41);
+}
+
+
 form form{
 	display: flex;
 	flex-wrap: wrap;

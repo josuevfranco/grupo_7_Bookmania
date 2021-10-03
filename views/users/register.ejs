@@ -35,6 +35,8 @@
                                 value= "<%= locals.oldData ? oldData.nameUser : null %>"
                             required >
                         </label>
+                        <div class="textErrorName">
+                        </div>
                         <% if (locals.errors && errors.nameUser) {%>
                             <div class="text-danger">
                                 <%= errors.nameUser.msg %>
@@ -51,6 +53,8 @@
                                 value= "<%= locals.oldData ? oldData.lastName : null %>"
                             required >
                         </label>
+                        <div class="textErrorApe1">
+                        </div>
                         <% if (locals.errors && errors.lastName) {%>
                             <div class="text-danger">
                                 <%= errors.lastName.msg %>
@@ -66,6 +70,8 @@
                                 value= "<%= locals.oldData ? oldData.lastNameM : null %>"
                             required>
                         </label>
+                        <div class="textErrorApe2">
+                        </div>
                         <% if (locals.errors && errors.lastNameM) {%>
                             <div class="text-danger">
                                 <%= errors.lastNameM.msg %>
@@ -80,14 +86,17 @@
                                 class="controlEmail"
                                 value= "<%= locals.oldData ? oldData.email : null %>"
                             >
-                        </label><% if (locals.errors && errors.email) {%>
+                        </label>
+                        <div class="textErrorMail">
+                        </div>
+                        <% if (locals.errors && errors.email) {%>
                             <div class="text-danger">
                                 <%= errors.email.msg %>
                             </div>
                         <%} %><br><br>
 
                         <select style="font-size: 20px;" name="rol" >
-                            <option class="control">Elige un rol</option>
+                            <option id="opciones" class="control">Elige un rol</option>
                             <%  let opciones = ['Administrador', 'Cliente']; %>
                         <% for (const oneOption of opciones) { %>
                             <option 
@@ -96,6 +105,9 @@
                             > <%= oneOption %> </option>
                         <% } %>
                         </select>
+
+                        <div class="textErrorOp">
+                        </div>
 
                         <% if (locals.errors && errors.rol) {%>
                             <div class="text-danger">
@@ -106,14 +118,18 @@
                         <label for="password">Contraseña:
                             <input type="password" id="password" name="password" class="controlPass">
                         </label>
+                        <div class="textErrorPass">
+                        </div>
                         <% if (locals.errors && errors.password) {%>
                             <div class="text-danger">
                                 <%= errors.password.msg %>
                             </div>
                         <%} %><br><br>
                         <label for="avatar">Imagen de usuario:
-                            <input type="file" size="24" name="avatar" class="control2">
+                            <input id="file" type="file" size="24" name="avatar" class="control2">
                         </label>
+                        <div class="textErrorImg">
+                        </div>
                         <% if (locals.errors && errors.usuarios) {%>
                             <div class="text-danger">
                                 <%= errors.usuarios.msg %>

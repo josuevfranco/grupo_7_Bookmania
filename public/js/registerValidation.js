@@ -1,5 +1,17 @@
 window.addEventListener('load', function () {
-    console.log("sadggdafkjghalf h aksdjfh dhsdlfkjkdhalkje1");
+
+
+    //Buscamos los campos a los cuales les vamos a aplicar el texto del error
+    let errorName  = document.querySelector('.textErrorName');
+    let errorApe1  = document.querySelector('.textErrorApe1');
+    let errorApe2  = document.querySelector('.textErrorApe2');
+    let errorMail  = document.querySelector('.textErrorMail');
+    let errorPass  = document.querySelector('.textErrorPass');
+    let errorImg   = document.querySelector('.textErrorImg');
+
+
+    let e = document.getElementById("opciones");
+
 
     //Buscamos los elementos a los que vamos a darle funcionaliad 
     //let btnSubmit = document.getElementById('btnSubmit');
@@ -15,10 +27,27 @@ window.addEventListener('load', function () {
 
     registerForm.addEventListener('submit', function (e) {
         e.preventDefault();
+
         let errores = {}
 
-        let band1, band2, band3, band4, band5
-        band1, band2, band3, band4, band5 = false;
+        //Volvemos a dejar textos en blanco
+        errorPass.innerText = ""
+        errorMail.innerText = ""
+        errorApe2.innerText = ""
+        errorApe1.innerText = ""
+        errorName.innerText = ""
+        errorImg.innerText  = ""
+
+        //Regresamos valores por defecto
+        inputName.style.borderColor = "black";
+        inputLN1.style.borderColor = "black";
+        inputLN2.style.borderColor = "black";
+        inputEmail.style.borderColor = "black";
+        inputPass.style.borderColor = "black";
+
+
+        let band1, band2, band3, band4, band5, band6, band7
+        band1, band2, band3, band4, band5, band6, band7 = false;
 
         if (inputName.value.length < 2) {
             errores.name = 'Debe tener al menos dos caracteres'
@@ -41,11 +70,29 @@ window.addEventListener('load', function () {
             band5 = true;
         }
 
+        /*
+        var strOp = document.getElementById("opciones").value;
+        console.log(strOp)
+        if(strOp != "Administrador" || strOp != "Cliente"){
+            errores.opcion = "Debes de elegir un rol para el usuario";
+            band6 = true;
+        }*/
+
+        //Validar que suba un formato de imagen correcto
+        let verifica = false
+        verifica = fileValidation()
+        if(verifica){
+            errores.file = "Sube un archivo con las siguientes extensiones: .jpeg/.jpg/.png/.gif "
+            band7 = true;
+        }
+
         if (Object.keys(errores).length >= 1) {
 
             if (band1) {
                 inputName.style.borderColor = "red";
                 inputName.style.backgroundColor = "rgba(220,0,26,0.1";
+                errorName.innerText = errores.name;
+
             } else {
                 inputName.style.backgroundColor = "rgba(30,215,96,0.1";
             }
@@ -53,6 +100,7 @@ window.addEventListener('load', function () {
             if (band2) {
                 inputLN1.style.borderColor = "red";
                 inputLN1.style.backgroundColor = "rgba(220,0,26,0.1";
+                errorApe1.innerText = errores.lastName1;
             } else {
                 inputLN1.style.backgroundColor = "rgba(30,215,96,0.1";
             }
@@ -60,6 +108,7 @@ window.addEventListener('load', function () {
             if (band3) {
                 inputLN2.style.borderColor = "red";
                 inputLN2.style.backgroundColor = "rgba(220,0,26,0.1";
+                errorApe2.innerText = errores.lastName2;
             } else {
                 inputLN2.style.backgroundColor = "rgba(30,215,96,0.1";
             }
@@ -67,6 +116,7 @@ window.addEventListener('load', function () {
             if (band4) {
                 inputEmail.style.borderColor = "red";
                 inputEmail.style.backgroundColor = "rgba(220,0,26,0.1";
+                errorMail.innerText = errores.email;
             } else {
                 inputEmail.style.backgroundColor = "rgba(30,215,96,0.1";
             }
@@ -74,6 +124,7 @@ window.addEventListener('load', function () {
             if (band5) {
                 inputPass.style.borderColor = "red";
                 inputPass.style.backgroundColor = "rgba(220,0,26,0.1";
+                errorPass.innerText = errores.pasword;
             } else {
                 inputPass.style.backgroundColor = "rgba(30,215,96,0.1";
             }
@@ -96,14 +147,23 @@ window.addEventListener('load', function () {
 
     }
 
-    var res_field = document.myform.elements["filefield"].value;
-    var extension = res_field.substr(res_field.lastIndexOf('.') + 1).toLowerCase();
-    var allowedExtensions = ['doc', 'docx', 'txt', 'pdf', 'rtf'];
-    if (res_field.length > 0) {
-        if (allowedExtensions.indexOf(extension) === -1) {
-            alert('Invalid file Format. Only ' + allowedExtensions.join(', ') + ' are allowed.');
-            return false;
+    function fileValidation() {
+        var fileInput = document.getElementById('file');
+        var filePath = fileInput.value;
+        var allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+
+        if(fileInput.files.length == 0 ){
+            return false
+        }else{
+            if (!allowedExtensions.exec(filePath)) {
+                fileInput.value = '';
+                return true;
+            } else {
+                return false;
+            }
         }
     }
+      
+
 
 })
