@@ -14,7 +14,7 @@
 
             <h2 class="creacion">Creación de Productos</h2>
             <div class="formProducto">
-                <form action="/crearProducto" method="POST" enctype="multipart/form-data" class="formProducto">
+                <form action="/crearProducto" method="POST" enctype="multipart/form-data" class="productForm">
                     <div class="titulo">
                         <label for="titulo">Título:<br>
                             <input type="text" name="titulo" id="titulo" class="title" value="<%= locals.oldData ? oldData.titulo : null %>" required>
@@ -24,7 +24,7 @@
                                 <%= errors.titulo.msg %>
                             </div>
                         <%} %><br>
-                        <div class="errorT"> <ul></ul></div>
+                        <div class="errorT"> <p></p></div>
                         <br>
 
                         <label for="autor">Autor: <br>
@@ -75,8 +75,7 @@
                                 <%= errors.categoria.msg %>
                             </div>
                         <%} %><br>
-                        <div class="errorC"> <p></p></div>
-                        <br>
+                        
 
                         <label for="precioLib">Precio:<br>
                             <input type="number" name="precio" id="precioLib" class="priceLib" min="0" value="<%= locals.oldData ? oldData.precioLib : null %>">
@@ -137,8 +136,7 @@
                             <%= errors.resenia.msg %>
                         </div>
                     <%} %><br>
-                    <div class="errorS"> <p></p></div>
-                    <br>
+    
 
                     <div class="titulo">
                         <label for="imagenLibro">Imagen:
