@@ -13,7 +13,7 @@ window.addEventListener('load', function () {
         e.preventDefault();
         let errores = {}
 
-        let titulo, autor, editorial, paginas, precio, idioma = false;
+        let titulo, autor, editorial, paginas, precio, idioma, imagen = false;
 
         if (inputTitle.value.length < 2) {
             errores.name = 'El titulo del libro debe tener al menos dos caracteres';
@@ -38,6 +38,13 @@ window.addEventListener('load', function () {
         if (inputPages.value < 20) {
             errores.pages = 'Ingresa la cantidad de páginas correcta';
             paginas = true;
+        }
+
+        let imagenLib = false
+        imagenLib = fileValidation()
+        if(imagenLib){
+            errores.file = "Sube un archivo con las siguientes extensiones: .jpeg/.jpg/.png/.gif "
+            imagen = true;
         }
         
         if (Object.keys(errores).length >= 1) {
@@ -75,11 +82,30 @@ window.addEventListener('load', function () {
                 inputEditorial.style.borderColor = "red";
                 inputEditorial.style.backgroundColor = "rgba(220,0,26,0.1)";
             } 
+            if(imagen){
+                let error = document.querySelector('div.errorImage p');
+                error.innerHTML += "<p>" + errores.file + "</p>";    
+            }
         } else {
-            console.log("HARÁ SUBMIT")
             productForm.submit();
         }
     })
+    function fileValidation() {
+        const fileInput = document.getElementById('imagenLibro');
+        const filePath = fileInput.value;
+        const allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+
+        if(fileInput.files.length == 0 ){
+            return false;
+        }else{
+            if (!allowedExtensions.exec(filePath)) {
+                fileInput.value = '';
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 })
 
 /*window.addEventListener('load', function () {
