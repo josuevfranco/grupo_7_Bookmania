@@ -45,7 +45,7 @@ form{
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	background-color: rgb(189, 198, 205);
+	background-color: rgba(200, 217, 252, 0.5);
 	border-radius: 8px;
 	padding: 20px;
 }
@@ -62,10 +62,10 @@ form form{
 .control{
 	width: 100%;
 	padding: 10px 20px;
-	border-radius: 3px;
-	border: none;
+	border-radius: 5px;
 	margin-top: 10px;
 	font-size: 17px;
+	border: black 1px solid;	
 }
 
 .column2 img{
@@ -82,14 +82,43 @@ form form{
 	align-items: center;
 }
 
+.textErrorPass, .textErrorMail{
+	color: rgb(186, 41, 41);
+}
+
+.controlEmail{
+	width: 100%;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 17px;
+	border: black 1px solid;	
+}
+
+.controlPass{
+	width: 100%;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 17px;
+	border: black 1px solid;	
+}
+
+
 
 .enviar button{
-	width: auto;
-	padding: 8px;
+	width: 130px;
+	height: 60px;
+	color: white;
+	font-family: 'Rubik One', sans-serif;
+	text-decoration: none;
 	font-size: 22px;
 	border-radius: 3px;
-	font-family: 'Times New Roman';
-	color: rgb(14, 108, 165);
+	background-color: #3498db;
+}
+
+.enviar button:hover{
+	background-color: #94bfdb;
 }
 
 #ligaContraseña{
