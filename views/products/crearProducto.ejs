@@ -80,6 +80,7 @@
                                 <% } %>
                             </select>
                         </label><br>
+<<<<<<< HEAD
                                                                     <% if (locals.errors && errors.categoria) {%>
                                                                         <div class="text-danger">
                                                                             <%= errors.categoria.msg %>
@@ -89,6 +90,17 @@
 
                                                                             <label for="precioLib">Precio:<br>
                             <input type="number" name="precio" id="precioLib" class="priceLib" min="0" value="<%= locals.oldData ? oldData.precioLib : null %>">
+=======
+                        <% if (locals.errors && errors.categoria) {%>
+                           <div class="text-danger">
+                                <%= errors.categoria.msg %>
+                            </div>
+                        <%} %><br>
+                        
+
+                        <label for="precioLib">Precio:<br>
+                            <input type="number" name="precioLib" id="precioLib" class="priceLib" min="0" value="<%= locals.oldData ? oldData.precioLib : null %>">
+>>>>>>> 80628afa3908e8fcdb6a1ba66c74795b54bd7248
                         </label>
                                                                             <% if (locals.errors && errors.precio) {%>
                                                                                 <div class="text-danger">
