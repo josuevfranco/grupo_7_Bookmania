@@ -1,15 +1,15 @@
-window.addEventListener('load', function () {
+window.addEventListener('load', function() {
 
     console.log("ENTRO A ADDEVENTLISTENER");
-        let inputTitle = document.querySelector('input.title');
-        let inputAuthor = document.querySelector('input.author');
-        let inputEditorial = document.querySelector('input.editorial');
-        let inputPrice = document.querySelector('input.priceLib');
-        let inputPages = document.querySelector('input.pages');
-        let inputIdioma = document.querySelector('input.idioma');
-        
+    let inputTitle = document.querySelector('input.title');
+    let inputAuthor = document.querySelector('input.author');
+    let inputEditorial = document.querySelector('input.editorial');
+    let inputPrice = document.querySelector('input.priceLib');
+    let inputPages = document.querySelector('input.pages');
+    let inputIdioma = document.querySelector('input.idioma');
+
     let productForm = document.querySelector('form.productForm');
-    productForm.addEventListener('submit', function (e) {
+    productForm.addEventListener('submit', function(e) {
         e.preventDefault();
         let errores = {}
 
@@ -23,13 +23,13 @@ window.addEventListener('load', function () {
             errores.author = 'El autor debe tener al menos dos caracteres';
             autor = true;
         }
-        if(inputEditorial.value == ""){
+        if (inputEditorial.value == "") {
             errores.editorial = 'El libro debe pertenecer a una editorial';
-            editorial=true;
+            editorial = true;
         }
-        if(inputIdioma.value == "") {
+        if (inputIdioma.value == "") {
             errores.idioma = "Ingresa el idioma correcto al que pertenece el libro";
-            idioma=true;
+            idioma = true;
         }
         if (inputPrice.value < 2) {
             errores.priceLib = 'Debe de ser un precio valido';
@@ -42,11 +42,11 @@ window.addEventListener('load', function () {
 
         let imagenLib = false
         imagenLib = fileValidation()
-        if(imagenLib){
+        if (imagenLib) {
             errores.file = "Sube un archivo con las siguientes extensiones: .jpeg/.jpg/.png/.gif "
             imagen = true;
         }
-        
+
         if (Object.keys(errores).length >= 1) {
 
             if (titulo) {
@@ -54,8 +54,8 @@ window.addEventListener('load', function () {
                 inputTitle.style.backgroundColor = "rgba(220,0,26,0.1";
                 let error = document.querySelector('div.errorT p');
                 error.innerHTML += "<p>" + errores.name + "</p>";
-            
-            } 
+
+            }
 
             if (autor) {
                 inputAuthor.style.borderColor = "red";
@@ -69,35 +69,36 @@ window.addEventListener('load', function () {
                 error.innerHTML += "<p>" + errores.priceLib + "</p>";
                 inputPrice.style.borderColor = "red";
                 inputPrice.style.backgroundColor = "rgba(220,0,26,0.1)";
-            } 
+            }
             if (editorial) {
                 let error = document.querySelector('div.errorE p');
                 error.innerHTML += "<p>" + errores.editorial + "</p>";
                 inputEditorial.style.borderColor = "red";
                 inputEditorial.style.backgroundColor = "rgba(220,0,26,0.1)";
-            } 
+            }
             if (paginas) {
                 let error = document.querySelector('div.errorPages p');
                 error.innerHTML += "<p>" + errores.pages + "</p>";
                 inputEditorial.style.borderColor = "red";
                 inputEditorial.style.backgroundColor = "rgba(220,0,26,0.1)";
-            } 
-            if(imagen){
+            }
+            if (imagen) {
                 let error = document.querySelector('div.errorImage p');
-                error.innerHTML += "<p>" + errores.file + "</p>";    
+                error.innerHTML += "<p>" + errores.file + "</p>";
             }
         } else {
             productForm.submit();
         }
     })
+
     function fileValidation() {
         const fileInput = document.getElementById('imagenLibro');
         const filePath = fileInput.value;
         const allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
 
-        if(fileInput.files.length == 0 ){
+        if (fileInput.files.length == 0) {
             return false;
-        }else{
+        } else {
             if (!allowedExtensions.exec(filePath)) {
                 fileInput.value = '';
                 return true;
@@ -161,4 +162,3 @@ window.addEventListener('load', function () {
     })
 
 })*/
-
