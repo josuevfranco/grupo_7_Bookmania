@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "bookmania_db",
+    "password": "Bookmania2021.",
+    "database": "bookmania_eq7",
+    "host": "mysql-bookmania.alwaysdata.net",
     "dialect": "mysql"
   }
 }
