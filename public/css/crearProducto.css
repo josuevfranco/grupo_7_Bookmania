@@ -8,7 +8,7 @@
     color: rgb(86, 145, 233);
 }
 
-
+.editForm,
 .formProducto{
     display: flex;
     justify-content: center;

@@ -31,11 +31,11 @@ window.addEventListener('load', function() {
             errores.idioma = "Ingresa el idioma correcto al que pertenece el libro";
             idioma = true;
         }
-        if (inputPrice.value < 2) {
+        if (inputPrice.value < parseInt(2)) {
             errores.priceLib = 'Debe de ser un precio valido';
             price = true;
         }
-        if (inputPages.value < 20) {
+        if (inputPages.value < parseInt(20)) {
             errores.pages = 'Ingresa la cantidad de páginas correcta';
             paginas = true;
         }
