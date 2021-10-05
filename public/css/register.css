@@ -58,6 +58,12 @@ form label{
 .text-danger{
 	color: rgb(186, 41, 41);
 }
+
+.textErrorName, .textErrorApe1, .textErrorApe2, .textErrorMail, .textErrorOp, .textErrorPass, .textErrorImg{
+	color: rgb(186, 41, 41);
+}
+
+
 form form{
 	display: flex;
 	flex-wrap: wrap;
@@ -75,6 +81,42 @@ form form{
 }
 
 .controlName{
+	width: 100%;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 17px;
+	border: black 1px solid;	
+}
+
+.controlLN1{
+	width: 100%;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 17px;
+	border: black 1px solid;	
+}
+
+.controlEmail{
+	width: 100%;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 17px;
+	border: black 1px solid;	
+}
+
+.controlPass{
+	width: 100%;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 17px;
+	border: black 1px solid;	
+}
+
+.controlLN2{
 	width: 100%;
 	padding: 10px 20px;
 	border-radius: 5px;

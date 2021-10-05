@@ -2,6 +2,7 @@
     <head>
         <Title>Iniciar sesión</Title>
         <link rel="stylesheet" href="/css/login.css">
+        <script src="./js/loginValidation.js"></script>
     </head>
     <%- include('../partials/head') %>
     
@@ -25,10 +26,12 @@
                             type="text" 
                             name="email" 
                             id="email" 
-                            class="control"
+                            class="controlEmail"
                             value= "<%= locals.oldData ? oldData.email : null %>"
                         >  
                     </label>
+                    <div class="textErrorMail">
+                    </div>
                     <% if (locals.errors && errors.email) {%>
                         <div class="text-danger">
                             <%= errors.email.msg %>
@@ -39,9 +42,11 @@
                             type="password" 
                             name="password" 
                             id="password"
-                            class="control"
+                            class="controlPass"
                         >
                     </label>
+                    <div class="textErrorPass">
+                    </div>
                     <% if (locals.errors && errors.password) {%>
                         <div class="text-danger">
                             <%= errors.password.msg %>
@@ -68,5 +73,5 @@
     <% } %>
 
     <%- include('../partials/footer') %>
-    
+    <script src="./js/loginValidation.js"></script>
 </body>

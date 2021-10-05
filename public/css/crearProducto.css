@@ -9,26 +9,16 @@
 }
 
 
-.control{
-	width: 100%;
-	padding: 10px 20px;
-	border-radius: 3px;
-	border: none;
-	margin-top: 10px;
-}
-
-.formulario{
+.formProducto{
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 40px;
 }
 
 form{
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
-	background-color: rgb(189, 198, 205);
+	justify-content: center;
+	background-color: rgb(179, 204, 223);
 	padding: 20px;
 	border-radius: 8px;
 }
@@ -39,19 +29,44 @@ form{
 
 form label{
 	font-size: 20px;
+	
 }
 
-input, select, textarea{
+input{
     border-radius: 5px;
     border: none;
     font-size: 17px;
     color:darkblue;
-    width: auto;
+    width: 80%;
+	margin: 10px;
+	height: 30px;
+}
+
+textarea{
+    border-radius: 5px;
+    border: none;
+    font-size: 17px;
+    color:darkblue;
+    width: 80%;
+	margin: 10px;
+	height: 70px;	
+}
+
+select{
+    border-radius: 5px;
+    border: none;
+    font-size: 17px;
+    color:darkblue;
+    width: 80%;
+	margin: 10px;	
 }
 
 form form{
 	display: flex;
-	flex-wrap:wrap;
+}
+
+.errorT, .errorA, .errorPages, .errorC, .errorS, .errorP, .errorI, .errorE{
+	color: darkred;
 }
 
 .agregar{
@@ -66,7 +81,13 @@ form form{
 	font-size: 22px;
 	border-radius: 3px;
 	font-family: 'Times New Roman';
-	color: rgb(37, 91, 230);
+	background-color: darkgreen;
+	color:white;
+	border:none;
+}
+.agregar button:hover{
+	background-color: white;
+	color:darkgreen;
 }
 button{
 	width: 80px;
