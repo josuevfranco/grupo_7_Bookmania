@@ -1,6 +1,7 @@
 .creacion{
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	margin-top: 20px;
 	margin-right:300px ;
 }
@@ -8,58 +9,63 @@
     color: rgb(86, 145, 233);
 }
 
-.editForm,
+.formulario,
 .formProducto{
     display: flex;
     justify-content: center;
+	padding-top: 20px;
 }
 
-form{
+.formulario form,
+.formProducto form{
 	display: flex;
+	background-color: rgb(200, 200, 253);
 	flex-direction: column;
-	justify-content: center;
-	background-color: rgb(179, 204, 223);
-	padding: 20px;
-	border-radius: 8px;
+	border-radius: 10px;
+	width: 30%;
+	padding-top: 20px;
 }
 
-form label{
-	font-size: 20px;
+.formulario form input,
+.formulario form select,
+.formProducto form select,
+.formProducto form input{
+	margin-left: 5px;
+	border-radius: 5px;
+	border:none;
+	width: 20rem;
+	height: 2rem;
+	font-size: 15px;
+	background-color: white;
+}
+
+.formProducto form input[type="number"]{
+	width: 5rem;
+}
+.formulario form label,
+.formProducto form label{
+	font-size: 18px;
+	margin-left: 30px;
 	
 }
 
-input{
-    border-radius: 5px;
-    border: none;
-    font-size: 17px;
-    color:darkblue;
-    width: 80%;
-	margin: 10px;
-	height: 30px;
+.formProducto form textarea{
+	border-radius: 5px;
+	border:none;
+	width: 20rem;
+	height: 5rem;
+	font-size: 15px;
 }
 
-textarea{
-    border-radius: 5px;
-    border: none;
-    font-size: 17px;
-    color:darkblue;
-    width: 80%;
-	margin: 10px;
-	height: 70px;	
-}
-
-select{
-    border-radius: 5px;
-    border: none;
-    font-size: 17px;
-    color:darkblue;
-    width: 80%;
-	margin: 10px;	
-}
-
-form form{
+.descuento{
 	display: flex;
+	flex-direction: row;
+} 
+.formProducto form input[type="file"]{
+	height: 30px;
+	padding: 5px;
 }
+
 
 .errorT, .errorA, .errorPages, .errorC, .errorS, .errorP, .errorI, .errorE{
 	color: darkred;
@@ -75,20 +81,17 @@ form form{
     width: auto;
 	padding: 8px;
 	font-size: 22px;
-	border-radius: 3px;
-	font-family: 'Times New Roman';
-	background-color: darkgreen;
+	border-radius: 10px;
+	background-color: rgb(1, 185, 1);
 	color:white;
 	border:none;
 }
 .agregar button:hover{
 	background-color: white;
 	color:darkgreen;
+	transition: all 350ms;
 }
-button{
-	width: 80px;
-	font-size: 18px;
-}
+
 .text-danger{
 	color: rgb(186, 41, 41);
 }

@@ -16,7 +16,6 @@
             <h2 class="creacion">Edición de Usuario</h2>
             <div class="formulario">
                 <form action="/editarUser/<%=UserToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                    <div class="titulo">
                         <label for="nameUser">Nombre de Usuario:
                             <input type="text" name="nameUser" id="name" class="control" value="<%= UserToEdit.name %>">
                         </label>
@@ -27,7 +26,7 @@
                         <%} %>
                         <br><br>
 
-                        <label for="surnames">Apellidos:
+                        <label for="surnames">Apellidos:<br>
                             <input type="text" name="surnames" class="control" value="<%= UserToEdit.surnames %>">
                         </label>
                         <% if (locals.errors && errors.surnames) {%>
@@ -37,16 +36,17 @@
                         <%} %>
                         <br><br>
 
-                        <label for="rating">Email:
+                        <label for="rating">Email:<br>
                             <input type="email" name="email" id="rating" class="control" min="0" max="5" value="<%= UserToEdit.email %>">
                         </label>
                         <% if (locals.errors && errors.email) {%>
                             <div class="text-danger">
                                 <%= errors.email.msg %>
                             </div>
-                        <%} %><br><br>
+                        <%} %>
+                        <br><br>
 
-                        <label for="rol">Role:
+                        <label for="rol">Role: <br>
                             <select name="rol" id="rol" class="control">
                                 <% let roles=[ 'Administrador' , 'Cliente']; %>
                                 <% for(const rol of roles) { %>
@@ -55,7 +55,6 @@
                             </select>
                         </label>
                         <br><br>
-                    </div><br>
                     <div class="agregar">
                         <button type="submit" class="boton-form">Actualizar</button><br>
                     </div><br>
