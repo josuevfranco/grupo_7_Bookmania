@@ -14,67 +14,69 @@
                     <script>
                         document.location.href = '/RestrictedArea'
                     </script>
-                    <%}else{%>
+                <%}else{%>
 
-                        <h2 class="creacion">Creación de Productos</h2>
-                        <div class="formProducto">
-                            <form action="/crearProducto" method="POST" enctype="multipart/form-data" class="productForm">
-                                <div class="titulo">
-                                    <label for="titulo">Título:<br>
-                            <input type="text" name="titulo" id="titulo" class="title" value="<%= locals.oldData ? oldData.titulo : null %>" required>
-                        </label>
-                                    <% if (locals.errors && errors.titulo) {%>
-                                        <div class="text-danger">
-                                            <%= errors.titulo.msg %>
-                                        </div>
-                                        <%} %><br>
-                                            <div class="errorT">
-                                                <p></p>
-                                            </div>
-                                            <br>
+                    <h2 class="creacion">Creación de Productos</h2>
+                    <div class="formProducto">
+                        <form action="/crearProducto" method="POST" enctype="multipart/form-data" class="productForm">
+                                <label for="titulo">Título:<br>
+                                    <input type="text" name="titulo" id="titulo" class="title" value="<%= locals.oldData ? oldData.titulo : null %>" required>
+                                </label>
+                                <% if (locals.errors && errors.titulo) {%>
+                                    <div class="text-danger">
+                                        <%= errors.titulo.msg %>
+                                    </div>
+                                <%} %><br>
+                                <div class="errorT"><p></p></div><br>
 
-                                            <label for="autor">Autor: <br>
-                            <input type="text" name="autor" id="autor" class="author" value="<%= locals.oldData ? oldData.autor : null %>" required>
-                         </label>
-                                            <% if (locals.errors && errors.autor) {%>
-                                                <div class="text-danger">
-                                                    <%= errors.autor.msg %>
-                                                </div>
-                                                <%} %><br>
-                                                    <div class="errorA">
-                                                        <p></p>
-                                                    </div>
-                                                    <br>
+                                <label for="autor">Autor: <br>
+                                    <input type="text" name="autor" id="autor" class="author" value="<%= locals.oldData ? oldData.autor : null %>" required>
+                                </label>
+                                <% if (locals.errors && errors.autor) {%>
+                                    <div class="text-danger">
+                                        <%= errors.autor.msg %>
+                                    </div>
+                                <%} %><br>
+                                <div class="errorA"><p></p></div><br>
 
-                                                    <label for="editorial">Editorial:<br>
-                            <input type="text" name="editorial" id="editorial" class="editorial" value="<%= locals.oldData ? oldData.editorial : null %>">
-                        </label>
-                                                    <% if (locals.errors && errors.editorial) {%>
-                                                        <div class="text-danger">
-                                                            <%= errors.editorial.msg %>
-                                                        </div>
-                                                        <%} %><br>
-                                                            <div class="errorE">
-                                                                <p></p>
-                                                            </div>
-                                                            <br>
+                                <label for="editorial">Editorial:<br>
+                                    <input type="text" name="editorial" id="editorial" class="editorial" value="<%= locals.oldData ? oldData.editorial : null %>">
+                                </label>
+                                <% if (locals.errors && errors.editorial) {%>
+                                    <div class="text-danger">
+                                        <%= errors.editorial.msg %>
+                                    </div>
+                                <%} %><br>
+                                <div class="errorE"><p></p></div><br>
 
-                                                            <label for="rating">Rating:<br>
-                            <input type="number" name="rating" id="rating" min="0" max="5">
-                        </label>
-                                                            <% if (locals.errors && errors.rating) {%>
-                                                                <div class="text-danger">
-                                                                    <%= errors.rating.msg %>
-                                                                </div>
-                                                                <%} %><br>
+                                <label for="rating">Rating:<br>
+                                    <input type="number" name="rating" id="rating" min="0" max="5">
+                                </label>
+                                <% if (locals.errors && errors.rating) {%>
+                                    <div class="text-danger">
+                                        <%= errors.rating.msg %>
+                                    </div>
+                                <%} %><br>
 
-                                                                    <label for="categoria">Categoría:<br>
-                            <select name="categoria" id="categoria" class="category">
-                             <% let category=[ 'Arte' , 'Ciencia' , 'Deportes'
+                                <label for="categoria">Categoría:<br>
+                                    <select name="categoria" id="categoria" class="category">
+                                        <% let category=[ 'Arte' , 'Ciencia' , 'Deportes'
                                             , 'Derecho' , 'Economía' , 'Enseñanza Inglés'
                                             , 'Ficción' , 'Ingeniería' , 'Infantil'
                                             , 'Informática' , 'Literatura' , 'Medicina'
                                             , 'Psicología' , 'Religión', 'Romance' ]; %>
+
+                                    <% for(const cat of category) { %>
+                                        <option value="<%=cat %>" <%=locals.oldData && (cat===oldData.Categoria) ? 'selected' : null %>><%=cat%></option>
+                                    <% } %>
+                                    </select>
+                                </label><br>
+                                <% if (locals.errors && errors.categoria) {%>
+                                    <div class="text-danger">
+                                        <%= errors.categoria.msg %>
+                                    </div>
+                                <%} %><br>
+
                                  <% for(const cat of category) { %>
                                     <option value="<%=cat %>" <%=locals.oldData && (cat===oldData.Categoria) ? 'selected' : null %>><%=cat%></option>
                                 <% } %>
@@ -136,45 +138,86 @@
                                                                                                             <br>
                                 </div><br>
 
-                                <label for="descuento"> Descuento:<br>
-                        <input type="radio" name="descuento" id="descuento0" value="0" checked> 0% </input>&emsp;
-                        <input type="radio" name="descuento" id="descuento5" value="5"> 5% </input>&emsp;
-                        <input type="radio" name="descuento" id="descuento10" value="10"> 10% </input>&emsp;
-                        <input type="radio" name="descuento" id="descuento20" value="20"> 20% </input>&emsp;
-                        <input type="radio" name="descuento" id="descuento50" value="50"> 50% </input><br>
-                    </label><br>
+
+
+                                <label for="precioLib">Precio:<br>
+                                    <input type="number" name="precioLib" id="precioLib" class="priceLib" min="0" value="<%= locals.oldData ? oldData.precioLib : null %>">
+                                </label>
+                                <% if (locals.errors && errors.precio) {%>
+                                    <div class="text-danger">
+                                        <%= errors.precio.msg %>
+                                    </div>
+                                <%} %><br>
+                                <div class="errorP"><p></p></div><br>
+
+                                <label for="idioma">Idioma:<br>
+                                    <input type="text" name="idioma" id="idioma" class="idioma">
+                                </label>
+                                <% if (locals.errors && errors.idioma) {%>
+                                    <div class="text-danger">
+                                        <%= errors.idioma.msg %>
+                                    </div>
+                                <%} %><br>
+                                <div class="errorI"><p></p></div><br>
+
+                                <label for="anio">Año:<br>
+                                    <input type="number" name="anio" id="anio" class="control" min="100">
+                                </label>
+                                <% if (locals.errors && errors.anio) {%>
+                                    <div class="text-danger">
+                                        <%= errors.anio.msg %>
+                                    </div>
+                                <%} %><br>
+
+                                <label for="paginas">Páginas:<br>
+                                    <input type="text" name="paginas" id="paginas" class="pages">
+                                </label>
+                                <% if (locals.errors && errors.paginas) {%>
+                                    <div class="text-danger">
+                                        <%= errors.paginas.msg%>
+                                    </div>
+                                <%} %><br>
+                                <div class="errorPages"><p></p></div><br>
+                                
+
+                                <label for="descuento" class="descuento"> Descuento:<br>
+                                    <input type="radio" name="descuento" id="descuento0" value="0" checked> 0% </input>&emsp;
+                                    <input type="radio" name="descuento" id="descuento5" value="5"> 5% </input>&emsp;
+                                    <input type="radio" name="descuento" id="descuento10" value="10"> 10% </input>&emsp;
+                                    <input type="radio" name="descuento" id="descuento20" value="20"> 20% </input>&emsp;
+                                    <input type="radio" name="descuento" id="descuento50" value="50"> 50% </input><br>
+                                </label><br>
 
                                 <label for="resenia"><br> Reseña: <br>
-                        <textarea name="resenia" id="resenia" class="summary" value="<%= locals.oldData ? oldData.resenia : null %>"> </textarea>
-                    </label><br>
+                                    <textarea name="resenia" id="resenia" class="summary" value="<%= locals.oldData ? oldData.resenia : null %>"> </textarea>
+                                </label><br>
                                 <% if (locals.errors && errors.resenia) {%>
                                     <div class="text-danger">
                                         <%= errors.resenia.msg %>
                                     </div>
-                                    <%} %><br>
+                                <%} %><br>
 
 
-                                        <div class="titulo">
-                                            <label for="imagenLibro">Imagen:
-                            <input type="file" size="24" name="imagenLibro" id="imagenLibro" class="image">
-                        </label>
-                                            <% if (locals.errors && errors.imagenLibro) {%>
-                                                <div class="text-danger">
-                                                    <%= errors.imagenLibro.msg %>
-                                                </div>
-                                                <%} %>
+                                <div class="titulo">
+                                    <label for="imagenLibro">Imagen:
+                                        <input type="file" size="24" name="imagenLibro" id="imagenLibro" class="image">
+                                    </label>
+                                    <% if (locals.errors && errors.imagenLibro) {%>
+                                        <div class="text-danger">
+                                            <%= errors.imagenLibro.msg %>
                                         </div>
-                                        <div class="errorImage">
-                                            <p></p>
-                                        </div>
+                                    <%} %>
+                                </div>
+                                <div class="errorImage"><p></p></div>
 
-                                        <div class="agregar">
-                                            <button type="submit" class="boton-form">Agregar</button><br>
-                                        </div><br>
-                            </form>
-                        </div>
+                                <div class="agregar">
+                                    <button type="submit" class="boton-form">Agregar</button><br>
+                                </div><br>
+                        </form>
+                    </div>
+            <% } %>
         </main>
-        <% } %>
-            <%- include('../partials/footer') %>
-                <script src="./js/productValidation.js"></script>
+        
+    <%- include('../partials/footer') %>
+    <script src="./js/productValidation.js"></script>
 </body>

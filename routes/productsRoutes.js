@@ -12,8 +12,10 @@ const uploadFile = require('../middlewares/multerLibroMiddleware');
 router.get('/carrito', productsController.carrito);
 router.get('/producto', productsController.producto);
 
-//Categoría 1
-router.get('/cat_arte', productsController.cat_arte);
+//Categorías
+router.get('/arte', productsController.cat_arte);
+router.get('/ingenieria-informatica', productsController.cat_ingenieria);
+router.get('/ciencia', productsController.cat_ciencia);
 
 //Todos los productos
 router.get('/misproductos', productsController.misproductos);

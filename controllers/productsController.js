@@ -31,6 +31,12 @@ const productsController = {
     cat_arte: (req, res) => {
         return res.render('products/cat_arte');
     },
+    cat_ingenieria: (req, res) => {
+        return res.render('products/cat_ingenieria');
+    },
+    cat_ciencia: (req, res) =>{
+        return res.render('products/cat_ciencia');
+    },
     //productos totales
     misproductos: (req,res) => {
         //return res.render('products/misproductos', {'products': products});

@@ -1,126 +1,10 @@
-*{
-	margin: 0px;
-    box-sizing: border-box;
-}
-
-header{
-	height: 100px;
-	background: #fff;
-	padding: 0 20px;
-	color: #fff;
-}
-
-.pleca-colores {
-	height: 15px;
-	background-image: '/images/color.png';
-	background-repeat: repeat;
-	background-size: contain;
-	background-position: left center;
-  }
-
-.logo{
-	line-height: 50px;
-	float: center;
-	text-transform: uppercase;
-}
-
-.logo-bookmania { 
-    width: 300px;
-	height: 80px; 
-	line-height: 100px;
-   float: left;
-   text-transform: uppercase  
-}
 
 
-.menu{
-	line-height: 100px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-} 
-
-.menu a{
-	text-transform: uppercase;
-	text-decoration: none;
-	transition: 0.4s;
-	line-height: 35px;
-	padding: 11px 18px;
-	position: relative;
-	opacity: .999;
-	font-family: inherit;
-	border-radius: 5px;
-	margin: 5px;
-	color: #fff;
-}
   
-.menu .btn-inicio{
-	background: rgba(93,22,235,0.7);
-}
-  
-.menu .btn-cat{
-	background: rgba(195,150,97,0.7);
-}
-  
-.menu .btn-sbn{
-	background: rgba(204,104,232,0.7);
-}
-.menu .btn-cont{
-	background: rgba(93,22,235,0.7);
-}
-  
-.menu .btn-cuenta{
-	background: rgba(1,153,161,0.7);
-}
-
-.show-menu-btn,.hide-menu-btn{
-	transition: 0.4s;
-	font-size: 20px;
-	cursor: pointer;
-	display: none;
-}
-.show-menu-btn{
-	float: right;
-}
-.show-menu-btn i{
-	line-height: 100px;
-	color: black;
-}
-.menu a:hover, .show-menu-btn:hover, .hide-menu-btn:hover{
-	color: #000;
-}
-#chk{
-	position: absolute;
-	visibility: hidden;
-	z-index: -1111;
-}
-
-.content{
-	padding: 0 20px;
-}
-.content img{
-	width: 100%;
-	max-width: 700px;
-	margin: 20px 0;
-}
-.content p{
-	text-align: justify;
-}
 
 
-.titulo{
-    margin-top:20px;
-    display: flex;
-    justify-content: center;
-}
 
-.control{
-	width: 100%;
-	padding: 10px 20px;
-	border-radius: 3px;
-	border: none;
-	margin-top: 10px;
-}
+
 
 .productos{
     display: flex;
@@ -146,7 +30,7 @@ header{
 }
 
 .product img{
-    width: 300px;
+    width: 12rem;
     border-radius: 5px;   
 }
 
@@ -171,14 +55,18 @@ header{
     transition: all 450ms;
     
 }
-
-button{
-    width: 90px;
-	font-size: 18px;
-	border-radius: 5px;
-	font-family: 'Times New Roman';
-    background-color: rgb(214, 214, 247);
-    color: black;
+.product button{
+	background-color: #64b43f;
+	border-radius: 10px;
+	color: white;
+	border:none;
+	padding: 10px;
+	font-size: 15px;
+}
+.product button:hover{
+	transition: all 350ms;
+	background-color: white;
+	color: teal;
 }
 
 footer{
@@ -195,38 +83,7 @@ footer{
 	list-style: none;
 }
 
-.footer-contacto a{
-	text-decoration: none;
-	color: #222222;
-    display: inline-block;
-    padding: 5px 0;
-    font-size: 17px;
-}
 
-a:hover, .footer-legales a:hover{
-	color: teal;
-}
-
-.footer-legales a{
-	text-decoration: none;
-	color: #222222;
-    display: inline-block;
-    font-size: 15px;
-}
-
-.footer-redes{
-    display: flex;
-    align-items: flex-end;
-}
-
-.footer-redes img{
-	width: 30px;
-	height: 30px;
-}
-
-.footer-titulo{
-	text-decoration: solid;
-}
 
 @media screen and (max-width:800px) {
 	.show-menu-btn,.hide-menu-btn{
