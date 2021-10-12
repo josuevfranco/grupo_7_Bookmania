@@ -66,9 +66,9 @@
                                             , 'Informática' , 'Literatura' , 'Medicina'
                                             , 'Psicología' , 'Religión', 'Romance' ]; %>
 
-                                    <% for(const cat of category) { %>
-                                        <option value="<%=cat %>" <%=locals.oldData && (cat===oldData.Categoria) ? 'selected' : null %>><%=cat%></option>
-                                    <% } %>
+                                        <% for(const cat of category) { %>
+                                             <option value="<%=cat %>" <%=locals.oldData && (cat===oldData.Categoria) ? 'selected' : null %>><%=cat%></option>
+                                            <% } %>
                                     </select>
                                 </label><br>
                                 <% if (locals.errors && errors.categoria) {%>
@@ -76,69 +76,6 @@
                                         <%= errors.categoria.msg %>
                                     </div>
                                 <%} %><br>
-
-                                 <% for(const cat of category) { %>
-                                    <option value="<%=cat %>" <%=locals.oldData && (cat===oldData.Categoria) ? 'selected' : null %>><%=cat%></option>
-                                <% } %>
-                            </select>
-                        </label><br>
-                                                                    <% if (locals.errors && errors.categoria) {%>
-                                                                        <div class="text-danger">
-                                                                            <%= errors.categoria.msg %>
-                                                                        </div>
-                                                                        <%} %><br>
-
-
-                                                                            <label for="precioLib">Precio:<br>
-                            <input type="number" name="precio" id="precioLib" class="priceLib" min="0" value="<%= locals.oldData ? oldData.precioLib : null %>">
-                        </label>
-                                                                            <% if (locals.errors && errors.precio) {%>
-                                                                                <div class="text-danger">
-                                                                                    <%= errors.precio.msg %>
-                                                                                </div>
-                                                                                <%} %><br>
-                                                                                    <div class="errorP">
-                                                                                        <p></p>
-                                                                                    </div>
-                                                                                    <br>
-
-                                                                                    <label for="idioma">Idioma:<br>
-                            <input type="text" name="idioma" id="idioma" class="idioma">
-                        </label>
-                                                                                    <% if (locals.errors && errors.idioma) {%>
-                                                                                        <div class="text-danger">
-                                                                                            <%= errors.idioma.msg %>
-                                                                                        </div>
-                                                                                        <%} %><br>
-                                                                                            <div class="errorI">
-                                                                                                <p></p>
-                                                                                            </div>
-                                                                                            <br>
-
-                                                                                            <label for="anio">Año:<br>
-                            <input type="number" name="anio" id="anio" class="control" min="100">
-                        </label>
-                                                                                            <% if (locals.errors && errors.anio) {%>
-                                                                                                <div class="text-danger">
-                                                                                                    <%= errors.anio.msg %>
-                                                                                                </div>
-                                                                                                <%} %><br>
-
-                                                                                                    <label for="paginas">Páginas:<br>
-                            <input type="text" name="paginas" id="paginas" class="pages">
-                        </label>
-                                                                                                    <% if (locals.errors && errors.paginas) {%>
-                                                                                                        <div class="text-danger">
-                                                                                                            <%= errors.paginas.msg%>
-                                                                                                        </div>
-                                                                                                        <%} %><br>
-                                                                                                            <div class="errorPages">
-                                                                                                                <p></p>
-                                                                                                            </div>
-                                                                                                            <br>
-                                </div><br>
-
-
 
                                 <label for="precioLib">Precio:<br>
                                     <input type="number" name="precioLib" id="precioLib" class="priceLib" min="0" value="<%= locals.oldData ? oldData.precioLib : null %>">
