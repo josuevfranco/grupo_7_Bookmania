@@ -121,19 +121,6 @@
 	color: teal;
 }
 
-footer{
-	background-color: rgba(210, 205, 205,0.8);
-	display: flex;
-	justify-content: space-between;
-	padding: 10px;
-}
-.footer-titulo{
-    color: rgb(86, 145, 233);
-}
-
-.footer-contacto, .footer-legales, ul{
-	list-style: none;
-}
 
 
 
@@ -183,18 +170,7 @@ footer{
 	.column2{
 		display: none;
 	}
-	.pie, .footer-titulo, .footer-legales a{
-		font-size: 10px;
-	}
-    .footer-redes{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-    }
-    .footer-redes img{
-        width: 15px;
-        height: 15px;
-    }
+	
     
 }
 

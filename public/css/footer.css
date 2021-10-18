@@ -1,25 +1,31 @@
 footer{
-	background-color: rgba(210, 205, 205,0.8);
+	background-color: rgba(188, 208, 240, 0.8);
+	width: 100% !important;
+
+}
+.pie{
 	display: flex;
-	justify-content: space-between;
+	align-items: center;
 	padding: 10px;
-    width: 100%;
 }
 
 .footer-contacto, .footer-legales, ul{
 	list-style: none;
 }
 
+.footer-contacto{
+	margin-left: 2rem;
+}
 .footer-contacto a{
 	text-decoration: none;
-	color: #222222;
+	color: #000000;
     display: inline-block;
     padding: 5px 0;
     font-size: 17px;
 }
 
 a:hover, .footer-legales a:hover{
-	color: teal;
+	color: rgb(10, 180, 180);
 }
 
 .footer-legales a{
@@ -29,16 +35,7 @@ a:hover, .footer-legales a:hover{
     font-size: 15px;
 }
 
-.footer-redes{
-    display: flex;
-    align-items: flex-end;
-}
-
 .footer-redes img{
 	width: 30px;
 	height: 30px;
-}
-
-.footer-titulo{
-	text-decoration: solid;
 }
