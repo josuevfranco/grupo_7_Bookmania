@@ -1,10 +1,61 @@
+.arte, 
+.tecno,
+.ciencia {
+    position: relative;
+    
+}
 
+.arte::before {    
+      content: "";
+      background-image: url("/images/productos/pexels-photo-4203095.jpeg");
+      background-size:auto;
+	  background-position: bottom;
+      position: absolute;
+      top: 0rem;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.4;
+}
 
-  
+.ciencia::before {    
+      content: "";
+      background-image: url("/images/productos/ciencia.jpeg");
+      background-size:cover;
+	  background-position: center;
+      position: absolute;
+      top: 0rem;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.4;
+}
 
+.tecno::before {    
+      content: "";
+      background-image: url("/images/productos/tecnologia.jpeg");
+      background-size:cover;
+	  background-position: bottom;
+      position: absolute;
+      top: 0rem;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.8;
+}
+.ciencia h2{
+	text-align: center;
+	padding-top: 2rem;
+	font-size: 30px;
+}
 
-
-
+.arte h2{
+	text-align: center;
+	padding-top: 2rem;
+	color: rgb(121, 80, 4);
+	padding-top:2rem;
+	font-size: 30px;
+}
 
 .productos{
     display: flex;
@@ -12,6 +63,7 @@
     align-items: center;
     justify-content: center;
     height: 70%;
+	margin-top: 2rem;
 }
 
 .product{
@@ -30,12 +82,12 @@
 }
 
 .product img{
-    width: 12rem;
+    width: 13.5rem;
     border-radius: 5px;   
 }
 
 .envio-gratis{
-    color: rgb(45, 162, 45);
+    color: rgb(40, 145, 40);
 }
 
 .product h2{
@@ -56,7 +108,7 @@
     
 }
 .product button{
-	background-color: #64b43f;
+	background-color: #bbb932;
 	border-radius: 10px;
 	color: white;
 	border:none;
@@ -64,7 +116,7 @@
 	font-size: 15px;
 }
 .product button:hover{
-	transition: all 350ms;
+	transition: all 550ms;
 	background-color: white;
 	color: teal;
 }
@@ -147,15 +199,7 @@ footer{
 }
 
 /* Style The Dropdown Button */
-.dropbtn {
-	background-color: #4CAF50;
-	color: white;
-	padding: 16px;
-	font-size: 16px;
-	border: none;
-	cursor: pointer;
-}
-  
+
   /* The container <div> - needed to position the dropdown content */
 .dropdown {
 	position: relative;

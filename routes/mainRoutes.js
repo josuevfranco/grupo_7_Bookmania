@@ -50,6 +50,8 @@ router.get('/restrictedArea/', mainController.restrictedArea);
 
 //Contacto
 router.get('/contact', mainController.contact);
+//nosotros
+router.get('/nosotros', mainController.nosotros);
 
 //Detalle del Usuario
 router.get('/detailUser/:id', mainController.detailUser); 

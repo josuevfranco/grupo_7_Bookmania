@@ -29,36 +29,34 @@
 }
 
 .menu a {
-    text-transform: uppercase;
+    font-size: 20px;
     text-decoration: none;
     transition: 0.4s;
     line-height: 35px;
     padding: 11px 18px;
     position: relative;
-    opacity: .999;
-    font-family: inherit;
     border-radius: 5px;
     margin: 5px;
-    color: #fff;
+    color: black
 }
 
 .menu .btn-inicio {
-    background: #ffa6a1;
+    border-bottom: 3px solid #1d70a8 ;
 }
 .menu .btn-sbn {
-    background: #ffc485;
+    border-bottom: 3px solid #1993e4;
 }
 .menu .btn-cont {
-    background: #002581;
+    border-bottom: 3px solid #78c4f7;
 }
 .menu .btn-prod{
-    background: #0060b2;
+    border-bottom: 3px solid #b3e1ff;
 }
 .menu .btn-cat {
-    background: #00a9e5;
+    border-bottom: 3px solid #2ab3e6;
 }
 .menu .btn-cuenta {
-    background: #ffa6a1;
+    border-bottom: 3px solid #c2e5fd;
 }
 
 
@@ -81,10 +79,10 @@
 
 .menu a:hover,
 .show-menu-btn:hover,
-.hide-menu-btn:hover {
-    color: #000;
-    background-color: #b8d5ed;
-    
+.hide-menu-btn:hover,
+.dropdown:hover .dropbtn {
+    background-color: #75b9f1;
+    color:white
 }
 
 #chk {
@@ -165,8 +163,6 @@
 }
 
 .dropbtn {
-    background-color: #73535d;
-    color: white;
     padding: 16px;
     font-size: 16px;
     border: none;
@@ -207,13 +203,11 @@
     display: block;
 }
 
-.dropdown:hover .dropbtn {
-    background-color: #b8d5ed;
-}
+
 
 .pleca-colores {
-    height: 15px;
-    background-image: url('/images/color.png');
+    height: 10px;
+    
     background-repeat: repeat;
     background-size: contain;
     background-position: left center;

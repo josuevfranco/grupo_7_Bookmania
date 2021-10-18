@@ -1,0 +1,99 @@
+<head>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Sniglet|Raleway:900);
+
+    </style>
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+
+    <header>
+        <style>
+            .nosotros,
+            .mision-vision{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
+            .mision{
+                margin:6rem;
+                text-align: center;
+                background-color: rgb(247, 247, 247);
+                border-radius: 100px;
+                padding: 3rem;
+            }
+            .mision h2, .mision p{
+                padding-bottom: 1rem;
+            }
+            .nosotros img,
+            .mision img{
+                border-radius: 100%;
+            }
+            .nosotros,
+            .nosotros-info h2{
+                text-align: center;
+                padding-bottom: 2rem;
+            }
+            
+            .nosotros div{
+                width: 90%;
+                background-color: rgba(182, 192, 201, 0.747);
+                padding: 4rem;
+                border-radius: 10%;
+            }
+        </style> 
+    </header>
+    <main>
+        <div class="mision-vision">
+            <div class="mision">
+                <h2>Nuesta Misión</h2>
+                <p>La imaginación a menudo nos llevará a mundos que nunca existieron. Pero sin eso no vamos a ninguna parte.
+                Es por ello que en Bookmania nos preocupamos por ti, para que nunca dejes de imaginar, descubre nuestro
+                catálogo completo de libros que tenemos para ti
+                </p>
+                <img src="/images/libro-perro.jpeg" width="30%">
+            </div>
+            <div class="mision">
+                <h2>Nuestra Visión</h2>
+                <p>Ser referente en la creación, difusión y distribución de conocimiento e ideas en todas sus formas, 
+                    siendo proactivos ante las necesidades cambiantes de nuestros clientes y las demandas del mercado, 
+                    con un enfoque socialmente responsable de calidad y excelencia.
+                </p>
+                
+                <img src="/images/pexels-photo-904616.jpeg" width="50%">
+            </div>
+        </div>
+
+        <div class="nosotros-info">
+            <h2>Acerca de Nosotros</h2>
+            <div class="nosotros">
+                <div>
+                    
+                    <p>Daniela Hernández, soy estudiante de informática. He trabajado con PHP, HTML, 
+                        CSS y Javascript para crear páginas sencillas, me gusta encontrar la lógica detrás del UI entonces me interesa mucho el Back-End de los sitios Web.</p>
+                </div>
+                <div>
+                    <img src="/images/usuarios/profile-1626937278705.jpg" width="30%">
+                    <p>Josué Vázquez, estudio Ingeniería en Sistemas Computacionales, 
+                        tengo experiencia en desarrollo web especialmente en HTML, CSS, PHP y JavaScript también tengo conocimiento en Angular y un poco en NodeJS, 
+                        también he trabajado con APIs, Bootstrap y Express. Me encanta desarrollar y hacerlo bien.</p>
+                </div>
+                <div>
+                    <img src="/images/usuarios/IMG_20210130_180849_1.jpeg" width="20%">
+                    <p>Stephanie Avila, estudiante de maestría en optimización. 
+                        He trabajado con PHP, Python pero más con lenguaje C, mi interés es ampliar el conocimiento en el desarrollo de páginas web profesional y academicamente.</p>
+
+                </div>
+            </div>
+
+        </div>
+        
+    </main>
+        
+   
+
+    <%- include('../partials/footer') %>
+</body>

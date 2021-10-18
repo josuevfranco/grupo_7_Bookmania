@@ -158,6 +158,9 @@ const mainController = {
     contact: (req, res) => {
         return res.render('archivosEJS/contact');
     },
+    nosotros: (req, res) => {
+        return res.render('archivosEJS/nosotros');
+    },
     notLogged: (req, res) => {
         return res.redirect('/login');
     },
